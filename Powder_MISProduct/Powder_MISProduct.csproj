@@ -45,13 +45,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp">
-      <HintPath>..\..\..\Dairy_MIS_Product\Dairy_MIS\bin\itextsharp.dll</HintPath>
+      <HintPath>..\..\..\..\LnTSAW_Publish\LnTSAW_Publish\bin\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.xmlworker">
-      <HintPath>..\..\..\Dairy_MIS_Product\Dairy_MIS\bin\itextsharp.xmlworker.dll</HintPath>
+      <HintPath>..\..\..\..\LnTSAW_Publish\LnTSAW_Publish\bin\itextsharp.xmlworker.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\..\..\Amul\GEA_AmulFed_Powder-master\GEA_AMULFED\bin\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -328,6 +328,9 @@
     <Content Include="ReportUI\InventoryReport.aspx" />
     <Content Include="ReportUI\LabReport.aspx" />
     <Content Include="ReportUI\MaintenanceReport.aspx" />
+    <Content Include="ReportUI\MassBalanceForSMP.aspx" />
+    <Content Include="ReportUI\MassBalanceWhey.aspx" />
+    <Content Include="ReportUI\NFandRO_ProdLog_Report.aspx" />
     <Content Include="ReportUI\NFWheyStorage.aspx" />
     <Content Include="ReportUI\PastwheyStorage.aspx" />
     <Content Include="ReportUI\ROPermeateStatus.aspx" />
@@ -513,6 +516,27 @@
     </Compile>
     <Compile Include="ReportUI\MaintenanceReport.aspx.designer.cs">
       <DependentUpon>MaintenanceReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUI\MassBalanceForSMP.aspx.cs">
+      <DependentUpon>MassBalanceForSMP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportUI\MassBalanceForSMP.aspx.designer.cs">
+      <DependentUpon>MassBalanceForSMP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUI\MassBalanceWhey.aspx.cs">
+      <DependentUpon>MassBalanceWhey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportUI\MassBalanceWhey.aspx.designer.cs">
+      <DependentUpon>MassBalanceWhey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUI\NFandRO_ProdLog_Report.aspx.cs">
+      <DependentUpon>NFandRO_ProdLog_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportUI\NFandRO_ProdLog_Report.aspx.designer.cs">
+      <DependentUpon>NFandRO_ProdLog_Report.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReportUI\NFWheyStorage.aspx.cs">
       <DependentUpon>NFWheyStorage.aspx</DependentUpon>
