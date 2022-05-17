@@ -17,12 +17,12 @@ using Font = iTextSharp.text.Font;
 using iTextSharp.text.html.simpleparser;
 using System.Globalization;
 
+
 namespace Powder_MISProduct.ReportUI
 {
-    public partial class NFandRO_ProdLog_Report : System.Web.UI.Page
+    public partial class NFandRO_CIPLog_Report : System.Web.UI.Page
     {
-        private static ILog log = LogManager.GetLogger(typeof(NFandRO_ProdLog_Report));
-
+        private static ILog log = LogManager.GetLogger(typeof(NFandRO_CIPLog_Report));
         protected void Page_Load(object sender, EventArgs e)
         {
             divExport.Visible = false;  //Set exporting buttons visibility.
@@ -44,7 +44,7 @@ namespace Powder_MISProduct.ReportUI
                 {
                     string text = Session[ApplicationSession.OrganisationName].ToString();
                     string text1 = Session[ApplicationSession.OrganisationAddress].ToString();
-                    string text2 = "NF and ROP Report";
+                    string text2 = "NF and ROP CIP Report";
                     using (StringWriter sw = new StringWriter())
                     {
                         using (HtmlTextWriter hw = new HtmlTextWriter(sw))
@@ -78,19 +78,18 @@ namespace Powder_MISProduct.ReportUI
                             sb.Append("<br/>");
 
                             PdfPTable pdfPTable = new PdfPTable(gvMassBalanceReport.HeaderRow.Cells.Count);
-                            PdfPTable pdfPTable1 = new PdfPTable(gvTotal.HeaderRow.Cells.Count);
                             iTextSharp.text.Font fontHeader = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD);
-                            //TableCell headerCell = new TableCell();
+                            
                             Font header = new Font(Font.FontFamily.TIMES_ROMAN, 15f, Font.BOLD, BaseColor.BLACK);
 
-                           /* PdfPCell headerCell = new PdfPCell(new Phrase("Sr No.", header));
-                            headerCell.Rowspan = 3;
-                            headerCell.Colspan = 1;
-                            headerCell.Padding = 5;
-                            headerCell.BorderWidth = 1.5f;
-                            headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell);*/
+                            /* PdfPCell headerCell = new PdfPCell(new Phrase("Sr No.", header));
+                             headerCell.Rowspan = 3;
+                             headerCell.Colspan = 1;
+                             headerCell.Padding = 5;
+                             headerCell.BorderWidth = 1.5f;
+                             headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                             headerCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                             pdfPTable.AddCell(headerCell);*/
 
 
                             PdfPCell headerCell1 = new PdfPCell(new Phrase("Date-Time", header));
@@ -103,7 +102,7 @@ namespace Powder_MISProduct.ReportUI
                             headerCell1.MinimumHeight = 50f;
                             pdfPTable.AddCell(headerCell1);
 
-                            PdfPCell headerCell2 = new PdfPCell(new Phrase("OPER. NAME", header));
+                            PdfPCell headerCell2 = new PdfPCell(new Phrase("CIP Recipie", header));
                             headerCell2.Rowspan = 3;
                             headerCell2.Colspan = 1;
                             headerCell2.Padding = 5;
@@ -113,45 +112,36 @@ namespace Powder_MISProduct.ReportUI
                             headerCell2.MinimumHeight = 50f;
                             pdfPTable.AddCell(headerCell2);
 
-                            PdfPCell headerCell3 = new PdfPCell(new Phrase("NANO FILTRATION", header));
-                            headerCell3.Rowspan = 1;
-                            headerCell3.Colspan = 17;
+                            PdfPCell headerCell3 = new PdfPCell(new Phrase("CIP Chemical", header));
+                            headerCell3.Rowspan = 3;
+                            headerCell3.Colspan = 1;
                             headerCell3.Padding = 5;
                             headerCell3.BorderWidth = 1.5f;
                             headerCell3.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell3.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            headerCell2.MinimumHeight = 50f;
                             pdfPTable.AddCell(headerCell3);
 
-                            PdfPCell headerCell4 = new PdfPCell(new Phrase("REVERSE OSMOSIS POLISHER", header));
-                            headerCell4.Rowspan = 1;
-                            headerCell4.Colspan = 11;
+                            PdfPCell headerCell4 = new PdfPCell(new Phrase("Chemical Usage (Liters)", header));
+                            headerCell4.Rowspan = 3;
+                            headerCell4.Colspan = 1;
                             headerCell4.Padding = 5;
                             headerCell4.BorderWidth = 1.5f;
                             headerCell4.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell4.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            headerCell2.MinimumHeight = 50f;
                             pdfPTable.AddCell(headerCell4);
-
-                            //Sub-headers of Nano filtration
-                            PdfPCell headerCell35 = new PdfPCell(new Phrase("FILTER BANK", header));
-                            headerCell35.Rowspan = 1;
-                            headerCell35.Colspan = 2;
-                            headerCell35.Padding = 5;
-                            headerCell35.BorderWidth = 1.5f;
-                            headerCell35.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell35.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell35);
-
-
-                            PdfPCell headerCell5 = new PdfPCell(new Phrase("FEED BALANCE TANK -NF", header));
+                            
+                            PdfPCell headerCell5 = new PdfPCell(new Phrase("Feed", header));
                             headerCell5.Rowspan = 1;
-                            headerCell5.Colspan = 5;
+                            headerCell5.Colspan = 3;
                             headerCell5.Padding = 5;
                             headerCell5.BorderWidth = 1.5f;
                             headerCell5.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell5.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell5);
-
-                            PdfPCell headerCell6 = new PdfPCell(new Phrase("LOOP 1", header));
+                            
+                            PdfPCell headerCell6 = new PdfPCell(new Phrase("Retenate", header));
                             headerCell6.Rowspan = 1;
                             headerCell6.Colspan = 3;
                             headerCell6.Padding = 5;
@@ -159,17 +149,17 @@ namespace Powder_MISProduct.ReportUI
                             headerCell6.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell6.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell6);
-
-                            PdfPCell headerCell7 = new PdfPCell(new Phrase("LOOP 2", header));
+                            
+                            PdfPCell headerCell7 = new PdfPCell(new Phrase("NF Loop 1", header));
                             headerCell7.Rowspan = 1;
-                            headerCell7.Colspan = 3;
+                            headerCell7.Colspan = 4;
                             headerCell7.Padding = 5;
                             headerCell7.BorderWidth = 1.5f;
                             headerCell7.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell7.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell7);
 
-                            PdfPCell headerCell8 = new PdfPCell(new Phrase("CONCENTRATE", header));
+                            PdfPCell headerCell8 = new PdfPCell(new Phrase("NF Loop 2", header));
                             headerCell8.Rowspan = 1;
                             headerCell8.Colspan = 4;
                             headerCell8.Padding = 5;
@@ -178,8 +168,7 @@ namespace Powder_MISProduct.ReportUI
                             headerCell8.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell8);
 
-                            //Sub-headers of Reverse osmosis polisher
-                            PdfPCell headerCell9 = new PdfPCell(new Phrase("FEED", header));
+                            PdfPCell headerCell9 = new PdfPCell(new Phrase("ROP Feed", header));
                             headerCell9.Rowspan = 1;
                             headerCell9.Colspan = 3;
                             headerCell9.Padding = 5;
@@ -188,25 +177,25 @@ namespace Powder_MISProduct.ReportUI
                             headerCell9.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell9);
 
-                            PdfPCell headerCell10 = new PdfPCell(new Phrase("LOOP 1", header));
+                            PdfPCell headerCell10 = new PdfPCell(new Phrase("ROP Loop 11", header));
                             headerCell10.Rowspan = 1;
-                            headerCell10.Colspan = 3;
+                            headerCell10.Colspan = 2;
                             headerCell10.Padding = 5;
                             headerCell10.BorderWidth = 1.5f;
                             headerCell10.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell10.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell10);
-
-                            PdfPCell headerCell11 = new PdfPCell(new Phrase("LOOP 2", header));
+                            
+                            PdfPCell headerCell11 = new PdfPCell(new Phrase("ROP Loop 12", header));
                             headerCell11.Rowspan = 1;
-                            headerCell11.Colspan = 3;
+                            headerCell11.Colspan = 2;
                             headerCell11.Padding = 5;
                             headerCell11.BorderWidth = 1.5f;
                             headerCell11.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell11.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell11);
 
-                            PdfPCell headerCell12 = new PdfPCell(new Phrase("CONCENTRATE", header));
+                            PdfPCell headerCell12 = new PdfPCell(new Phrase("ROP Retentate", header));
                             headerCell12.Rowspan = 1;
                             headerCell12.Colspan = 2;
                             headerCell12.Padding = 5;
@@ -215,9 +204,9 @@ namespace Powder_MISProduct.ReportUI
                             headerCell12.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell12);
 
-                            //Sub-headers of NF Filter Bank.
-                            PdfPCell headerCell13 = new PdfPCell(new Phrase("PRESS. IN (BAR)", header));
-                            headerCell13.Rowspan = 1;
+                            //Sub-headers of Feed
+                            PdfPCell headerCell13 = new PdfPCell(new Phrase("Flow (l/h)", header));
+                            headerCell13.Rowspan = 2;
                             headerCell13.Colspan = 1;
                             headerCell13.Padding = 5;
                             headerCell13.BorderWidth = 1.5f;
@@ -225,8 +214,9 @@ namespace Powder_MISProduct.ReportUI
                             headerCell13.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell13);
 
-                            PdfPCell headerCell14 = new PdfPCell(new Phrase("PRESS. OUT (BAR)", header));
-                            headerCell14.Rowspan = 1;
+
+                            PdfPCell headerCell14 = new PdfPCell(new Phrase("Baseline Pressure (Bar)", header));
+                            headerCell14.Rowspan = 2;
                             headerCell14.Colspan = 1;
                             headerCell14.Padding = 5;
                             headerCell14.BorderWidth = 1.5f;
@@ -234,9 +224,8 @@ namespace Powder_MISProduct.ReportUI
                             headerCell14.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell14);
 
-                            //Sub-headers of NF Feed balance tank -NF.
-                            PdfPCell headerCell15 = new PdfPCell(new Phrase("Level (%)", header));
-                            headerCell15.Rowspan = 1;
+                            PdfPCell headerCell15 = new PdfPCell(new Phrase("Condu. (ms)", header));
+                            headerCell15.Rowspan = 2;
                             headerCell15.Colspan = 1;
                             headerCell15.Padding = 5;
                             headerCell15.BorderWidth = 1.5f;
@@ -244,8 +233,9 @@ namespace Powder_MISProduct.ReportUI
                             headerCell15.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell15);
 
-                            PdfPCell headerCell16 = new PdfPCell(new Phrase("FLOW (M³/HR)", header));
-                            headerCell16.Rowspan = 1;
+                            //Sub-headers of Retentate
+                            PdfPCell headerCell16 = new PdfPCell(new Phrase("Flow (l/h)", header));
+                            headerCell16.Rowspan = 2;
                             headerCell16.Colspan = 1;
                             headerCell16.Padding = 5;
                             headerCell16.BorderWidth = 1.5f;
@@ -253,8 +243,8 @@ namespace Powder_MISProduct.ReportUI
                             headerCell16.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell16);
 
-                            PdfPCell headerCell17 = new PdfPCell(new Phrase("PRESS. (BAR)", header));
-                            headerCell17.Rowspan = 1;
+                            PdfPCell headerCell17 = new PdfPCell(new Phrase("pH", header));
+                            headerCell17.Rowspan = 2;
                             headerCell17.Colspan = 1;
                             headerCell17.Padding = 5;
                             headerCell17.BorderWidth = 1.5f;
@@ -262,8 +252,8 @@ namespace Powder_MISProduct.ReportUI
                             headerCell17.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell17);
 
-                            PdfPCell headerCell18 = new PdfPCell(new Phrase("BRIX (%)", header));
-                            headerCell18.Rowspan = 1;
+                            PdfPCell headerCell18 = new PdfPCell(new Phrase("Condu. (ms)", header));
+                            headerCell18.Rowspan = 2;
                             headerCell18.Colspan = 1;
                             headerCell18.Padding = 5;
                             headerCell18.BorderWidth = 1.5f;
@@ -271,8 +261,10 @@ namespace Powder_MISProduct.ReportUI
                             headerCell18.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell18);
 
-                            PdfPCell headerCell19 = new PdfPCell(new Phrase("pH", header));
-                            headerCell19.Rowspan = 1;
+
+                            //Sub-headers of NF Loop 1
+                            PdfPCell headerCell19 = new PdfPCell(new Phrase("Temp. (°C)", header));
+                            headerCell19.Rowspan = 2;
                             headerCell19.Colspan = 1;
                             headerCell19.Padding = 5;
                             headerCell19.BorderWidth = 1.5f;
@@ -280,17 +272,121 @@ namespace Powder_MISProduct.ReportUI
                             headerCell19.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell19);
 
-                            //Sub-headers of NF Loop 1.
-                            PdfPCell headerCell20 = new PdfPCell(new Phrase("PRESS. (BAR)", header));
+                            PdfPCell headerCell20 = new PdfPCell(new Phrase("Permeate", header));
                             headerCell20.Rowspan = 1;
-                            headerCell20.Colspan = 1;
+                            headerCell20.Colspan = 3;
                             headerCell20.Padding = 5;
                             headerCell20.BorderWidth = 1.5f;
                             headerCell20.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell20.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell20);
 
-                            PdfPCell headerCell21 = new PdfPCell(new Phrase("TEMP. (°C)", header));
+                            //Sub-headers of NF Loop 2.
+                            PdfPCell headerCell24 = new PdfPCell(new Phrase("Temp. (°C)", header));
+                            headerCell24.Rowspan = 2;
+                            headerCell24.Colspan = 1;
+                            headerCell24.Padding = 5;
+                            headerCell24.BorderWidth = 1.5f;
+                            headerCell24.HorizontalAlignment = Element.ALIGN_CENTER;
+                            headerCell24.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            pdfPTable.AddCell(headerCell24);
+
+                            PdfPCell headerCell25 = new PdfPCell(new Phrase("Permeate", header));
+                            headerCell25.Rowspan = 1;
+                            headerCell25.Colspan = 3;
+                            headerCell25.Padding = 5;
+                            headerCell25.BorderWidth = 1.5f;
+                            headerCell25.HorizontalAlignment = Element.ALIGN_CENTER;
+                            headerCell25.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            pdfPTable.AddCell(headerCell25);
+
+                            //Sub-headers of ROP Feed.
+                            PdfPCell headerCell29 = new PdfPCell(new Phrase("Flow (l/h)", header));
+                            headerCell29.Rowspan = 2;
+                            headerCell29.Colspan = 1;
+                            headerCell29.Padding = 5;
+                            headerCell29.BorderWidth = 1.5f;
+                            headerCell29.HorizontalAlignment = Element.ALIGN_CENTER;
+                            headerCell29.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            pdfPTable.AddCell(headerCell29);
+
+                            PdfPCell headerCell30 = new PdfPCell(new Phrase("Condu. (ms)", header));
+                            headerCell30.Rowspan = 2;
+                            headerCell30.Colspan = 1;
+                            headerCell30.Padding = 5;
+                            headerCell30.BorderWidth = 1.5f;
+                            headerCell30.HorizontalAlignment = Element.ALIGN_CENTER;
+                            headerCell30.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            pdfPTable.AddCell(headerCell30);
+
+                            PdfPCell headerCell31 = new PdfPCell(new Phrase("Pressure (Bar)", header));
+                            headerCell31.Rowspan = 2;
+                            headerCell31.Colspan = 1;
+                            headerCell31.Padding = 5;
+                            headerCell31.BorderWidth = 1.5f;
+                            headerCell31.HorizontalAlignment = Element.ALIGN_CENTER;
+                            headerCell31.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            pdfPTable.AddCell(headerCell31);
+
+                            //Sub-headers of ROP Loop 11.
+                            PdfPCell headerCell32 = new PdfPCell(new Phrase("Temp. (°C)", header));
+                            headerCell32.Rowspan = 2;
+                            headerCell32.Colspan = 1;
+                            headerCell32.Padding = 5;
+                            headerCell32.BorderWidth = 1.5f;
+                            headerCell32.HorizontalAlignment = Element.ALIGN_CENTER;
+                            headerCell32.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            pdfPTable.AddCell(headerCell32);
+
+                            PdfPCell headerCell33 = new PdfPCell(new Phrase("Pressure (Bar)", header));
+                            headerCell33.Rowspan = 2;
+                            headerCell33.Colspan = 1;
+                            headerCell33.Padding = 5;
+                            headerCell33.BorderWidth = 1.5f;
+                            headerCell33.HorizontalAlignment = Element.ALIGN_CENTER;
+                            headerCell33.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            pdfPTable.AddCell(headerCell33);
+
+                            //Sub-headers of ROP Loop 12.
+                            PdfPCell headerCell34 = new PdfPCell(new Phrase("Temp. (°C)", header));
+                            headerCell34.Rowspan = 2;
+                            headerCell34.Colspan = 1;
+                            headerCell34.Padding = 5;
+                            headerCell34.BorderWidth = 1.5f;
+                            headerCell34.HorizontalAlignment = Element.ALIGN_CENTER;
+                            headerCell34.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            pdfPTable.AddCell(headerCell34);
+
+                            PdfPCell headerCell35 = new PdfPCell(new Phrase("Pressure (Bar)", header));
+                            headerCell35.Rowspan = 2;
+                            headerCell35.Colspan = 1;
+                            headerCell35.Padding = 5;
+                            headerCell35.BorderWidth = 1.5f;
+                            headerCell35.HorizontalAlignment = Element.ALIGN_CENTER;
+                            headerCell35.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            pdfPTable.AddCell(headerCell35);
+
+                            //Sub-headers of ROP Retentate.
+                            PdfPCell headerCell36 = new PdfPCell(new Phrase("Flow (l/h)", header));
+                            headerCell36.Rowspan = 2;
+                            headerCell36.Colspan = 1;
+                            headerCell36.Padding = 5;
+                            headerCell36.BorderWidth = 1.5f;
+                            headerCell36.HorizontalAlignment = Element.ALIGN_CENTER;
+                            headerCell36.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            pdfPTable.AddCell(headerCell36);
+
+                            PdfPCell headerCell37 = new PdfPCell(new Phrase("Condu. (ms)", header));
+                            headerCell37.Rowspan = 2;
+                            headerCell37.Colspan = 1;
+                            headerCell37.Padding = 5;
+                            headerCell37.BorderWidth = 1.5f;
+                            headerCell37.HorizontalAlignment = Element.ALIGN_CENTER;
+                            headerCell37.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            pdfPTable.AddCell(headerCell37);
+
+                            //Sub-headers of NF Loop 1
+                            PdfPCell headerCell21 = new PdfPCell(new Phrase("Flow (l/h)", header));
                             headerCell21.Rowspan = 1;
                             headerCell21.Colspan = 1;
                             headerCell21.Padding = 5;
@@ -299,7 +395,7 @@ namespace Powder_MISProduct.ReportUI
                             headerCell21.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell21);
 
-                            PdfPCell headerCell22 = new PdfPCell(new Phrase("PERM. FLOW (M³/HR)", header));
+                            PdfPCell headerCell22 = new PdfPCell(new Phrase("Pressure (Bar)", header));
                             headerCell22.Rowspan = 1;
                             headerCell22.Colspan = 1;
                             headerCell22.Padding = 5;
@@ -308,8 +404,7 @@ namespace Powder_MISProduct.ReportUI
                             headerCell22.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell22);
 
-                            //Sub-headers of NF Loop 2.
-                            PdfPCell headerCell23 = new PdfPCell(new Phrase("PRESS. (BAR)", header));
+                            PdfPCell headerCell23 = new PdfPCell(new Phrase("Condu. (ms)", header));
                             headerCell23.Rowspan = 1;
                             headerCell23.Colspan = 1;
                             headerCell23.Padding = 5;
@@ -317,27 +412,10 @@ namespace Powder_MISProduct.ReportUI
                             headerCell23.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell23.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell23);
+                                                                                    
 
-                            PdfPCell headerCell24 = new PdfPCell(new Phrase("TEMP. (°C)", header));
-                            headerCell24.Rowspan = 1;
-                            headerCell24.Colspan = 1;
-                            headerCell24.Padding = 5;
-                            headerCell24.BorderWidth = 1.5f;
-                            headerCell24.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell24.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell24);
-
-                            PdfPCell headerCell25 = new PdfPCell(new Phrase("PERM. FLOW (M³/HR)", header));
-                            headerCell25.Rowspan = 1;
-                            headerCell25.Colspan = 1;
-                            headerCell25.Padding = 5;
-                            headerCell25.BorderWidth = 1.5f;
-                            headerCell25.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell25.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell25);
-
-                            //Sub-headers of NF Concentrate.
-                            PdfPCell headerCell26 = new PdfPCell(new Phrase("FLOW (M³/HR)", header));
+                            //Sub-headers of NF Loop 2.
+                            PdfPCell headerCell26 = new PdfPCell(new Phrase("Flow (l/h)", header));
                             headerCell26.Rowspan = 1;
                             headerCell26.Colspan = 1;
                             headerCell26.Padding = 5;
@@ -346,7 +424,7 @@ namespace Powder_MISProduct.ReportUI
                             headerCell26.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell26);
 
-                            PdfPCell headerCell27 = new PdfPCell(new Phrase("RATIO (%)", header));
+                            PdfPCell headerCell27 = new PdfPCell(new Phrase("Pressure (Bar)", header));
                             headerCell27.Rowspan = 1;
                             headerCell27.Colspan = 1;
                             headerCell27.Padding = 5;
@@ -355,7 +433,7 @@ namespace Powder_MISProduct.ReportUI
                             headerCell27.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell27);
 
-                            PdfPCell headerCell28 = new PdfPCell(new Phrase("BRIX (%)", header));
+                            PdfPCell headerCell28 = new PdfPCell(new Phrase("Condu. (ms)", header));
                             headerCell28.Rowspan = 1;
                             headerCell28.Colspan = 1;
                             headerCell28.Padding = 5;
@@ -363,184 +441,17 @@ namespace Powder_MISProduct.ReportUI
                             headerCell28.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell28.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable.AddCell(headerCell28);
+                            
+                            //float[] widthsTAS = new float[30]{
+                            //210f, 140f, 140f, 150f, 140f, 160f,
+                            //190f, 140f, 140f, 150f, 140f, 160f,
+                            //190f, 140f, 140f, 150f, 140f, 160f,
+                            //190f, 140f, 140f, 150f, 140f, 160f,
+                            //210f, 140f, 140f, 150f, 140f, 160f
 
-                            PdfPCell headerCell29 = new PdfPCell(new Phrase("pH", header));
-                            headerCell29.Rowspan = 1;
-                            headerCell29.Colspan = 1;
-                            headerCell29.Padding = 5;
-                            headerCell29.BorderWidth = 1.5f;
-                            headerCell29.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell29.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell29);
+                            //};
 
-                            //Sub-headers of ROP Feed
-                            PdfPCell headerCell30 = new PdfPCell(new Phrase("FLOW (M³/HR)", header));
-                            headerCell30.Rowspan = 1;
-                            headerCell30.Colspan = 1;
-                            headerCell30.Padding = 5;
-                            headerCell30.BorderWidth = 1.5f;
-                            headerCell30.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell30.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell30);
-
-                            PdfPCell headerCell31 = new PdfPCell(new Phrase("PRESS. (BAR)", header));
-                            headerCell31.Rowspan = 1;
-                            headerCell31.Colspan = 1;
-                            headerCell31.Padding = 5;
-                            headerCell31.BorderWidth = 1.5f;
-                            headerCell31.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell31.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell31);
-
-                            PdfPCell headerCell32 = new PdfPCell(new Phrase("Level (%)", header));
-                            headerCell32.Rowspan = 1;
-                            headerCell32.Colspan = 1;
-                            headerCell32.Padding = 5;
-                            headerCell32.BorderWidth = 1.5f;
-                            headerCell32.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell32.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell32);
-
-                            //Sub-header for ROP Loop 1
-                            PdfPCell headerCell33 = new PdfPCell(new Phrase("PRESS. (BAR)", header));
-                            headerCell33.Rowspan = 1;
-                            headerCell33.Colspan = 1;
-                            headerCell33.Padding = 5;
-                            headerCell33.BorderWidth = 1.5f;
-                            headerCell33.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell33.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell33);
-
-                            PdfPCell headerCell34 = new PdfPCell(new Phrase("TEMP. (°C)", header));
-                            headerCell34.Rowspan = 1;
-                            headerCell34.Colspan = 1;
-                            headerCell34.Padding = 5;
-                            headerCell34.BorderWidth = 1.5f;
-                            headerCell34.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell34.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell34);
-
-                            PdfPCell headerCell40 = new PdfPCell(new Phrase("PERM. FLOW (M³/HR)", header));
-                            headerCell40.Rowspan = 1;
-                            headerCell40.Colspan = 1;
-                            headerCell40.Padding = 5;
-                            headerCell40.BorderWidth = 1.5f;
-                            headerCell40.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell40.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell40);
-
-                            //Sub-header for ROP Loop 2
-                            PdfPCell headerCell41 = new PdfPCell(new Phrase("PRESS. (BAR)", header));
-                            headerCell41.Rowspan = 1;
-                            headerCell41.Colspan = 1;
-                            headerCell41.Padding = 5;
-                            headerCell41.BorderWidth = 1.5f;
-                            headerCell41.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell41.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell41);
-
-                            PdfPCell headerCell42 = new PdfPCell(new Phrase("TEMP. (°C)", header));
-                            headerCell42.Rowspan = 1;
-                            headerCell42.Colspan = 1;
-                            headerCell42.Padding = 5;
-                            headerCell42.BorderWidth = 1.5f;
-                            headerCell42.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell42.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell42);
-
-                            PdfPCell headerCell43 = new PdfPCell(new Phrase("PERM. FLOW (M³/HR)", header));
-                            headerCell43.Rowspan = 1;
-                            headerCell43.Colspan = 1;
-                            headerCell43.Padding = 5;
-                            headerCell43.BorderWidth = 1.5f;
-                            headerCell43.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell43.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell43);
-
-                            //Sub-header for ROP Concentrate
-                            PdfPCell headerCell44 = new PdfPCell(new Phrase("FLOW (M³/HR)", header));
-                            headerCell44.Rowspan = 1;
-                            headerCell44.Colspan = 1;
-                            headerCell44.Padding = 5;
-                            headerCell44.BorderWidth = 1.5f;
-                            headerCell44.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell44.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell44);
-
-                            PdfPCell headerCell45 = new PdfPCell(new Phrase("RATIO", header));
-                            headerCell45.Rowspan = 1;
-                            headerCell45.Colspan = 1;
-                            headerCell45.Padding = 5;
-                            headerCell45.BorderWidth = 1.5f;
-                            headerCell45.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell45.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable.AddCell(headerCell45);
-
-                            //////////////////////////////////////////////Adding header for Table2 /////////////////
-
-                            PdfPCell headerCell36 = new PdfPCell(new Phrase("NANO FEED TOTAL LITERS", header));
-                            headerCell36.Rowspan = 1;
-                            headerCell36.Colspan = 1;
-                            headerCell36.Padding = 5;
-                            headerCell36.BorderWidth = 1.5f;
-                            headerCell36.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell36.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable1.AddCell(headerCell36);
-
-                            PdfPCell headerCell47 = new PdfPCell(new Phrase("NANO CONC TOTAL LITERS", header));
-                            headerCell47.Rowspan = 1;
-                            headerCell47.Colspan = 1;
-                            headerCell47.Padding = 5;
-                            headerCell47.BorderWidth = 1.5f;
-                            headerCell47.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell47.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable1.AddCell(headerCell47);
-
-                            PdfPCell headerCell46 = new PdfPCell(new Phrase("RO FEED TOTAL LITERS", header));
-                            headerCell46.Rowspan = 1;
-                            headerCell46.Colspan = 1;
-                            headerCell46.Padding = 5;
-                            headerCell46.BorderWidth = 1.5f;
-                            headerCell46.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell46.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable1.AddCell(headerCell46);
-
-                            PdfPCell headerCell37 = new PdfPCell(new Phrase("RO CONC TOTAL LITERS", header));
-                            headerCell37.Rowspan = 1;
-                            headerCell37.Colspan = 1;
-                            headerCell37.Padding = 5;
-                            headerCell37.BorderWidth = 1.5f;
-                            headerCell37.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell37.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable1.AddCell(headerCell37);
-
-                            PdfPCell headerCell38 = new PdfPCell(new Phrase("PERMEATE TOTAL LITERS", header));
-                            headerCell38.Rowspan = 1;
-                            headerCell38.Colspan = 1;
-                            headerCell38.Padding = 5;
-                            headerCell38.BorderWidth = 1.5f;
-                            headerCell38.HorizontalAlignment = Element.ALIGN_CENTER;
-                            headerCell38.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            pdfPTable1.AddCell(headerCell38);
-
-                            float[] widthsTAS = new float[30]{
-                            210f, 140f, 140f, 150f, 140f, 160f,
-                            190f, 140f, 140f, 150f, 140f, 160f,
-                            190f, 140f, 140f, 150f, 140f, 160f,
-                            190f, 140f, 140f, 150f, 140f, 160f,
-                            210f, 140f, 140f, 150f, 140f, 160f
-
-                            };
-
-                            pdfPTable.SetWidths(widthsTAS);
-
-                            //pdfPTable1.WidthPercentage = 30.0f;
-                            //pdfPTable1.SpacingBefore = 200;
-                            //float[] widths = new float[] { 1f, 1f, 1f };
-                            //pdfPTable1.TotalWidth = 300f;
-                            //pdfPTable1.LockedWidth = true;
-                            //pdfPTable1.HorizontalAlignment = Element.ALIGN_LEFT;
-                            //pdfPTable1.SetWidths(widths);
+                            //pdfPTable.SetWidths(widthsTAS);
 
                             foreach (GridViewRow gridViewRow in gvMassBalanceReport.Rows)
                             {
@@ -580,44 +491,6 @@ namespace Powder_MISProduct.ReportUI
                                 pdfPTable.HeaderRows = 1;
                             }
 
-                            foreach (GridViewRow gridViewRow in gvTotal.Rows)
-                            {
-                                foreach (TableCell tableCell in gridViewRow.Cells)
-                                {
-                                    string cellText = Server.HtmlDecode(tableCell.Text);
-                                    iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 23);
-
-                                    DateTime dDate;
-                                    double dbvalue;
-                                    int intvalue;
-
-                                    if (DateTime.TryParse(cellText, out dDate))
-                                    {
-                                        PdfPCell CellTwoHdr = new PdfPCell(new Phrase(cellText));
-                                        CellTwoHdr.HorizontalAlignment = Element.ALIGN_CENTER;
-                                        CellTwoHdr.Padding = 5;
-                                        pdfPTable1.AddCell(CellTwoHdr);
-                                    }
-                                    else if (double.TryParse(cellText, out dbvalue) || Int32.TryParse(cellText, out intvalue))
-                                    {
-                                        PdfPCell CellTwoHdr = new PdfPCell(new Phrase(cellText));
-                                        CellTwoHdr.HorizontalAlignment = Element.ALIGN_CENTER;
-                                        CellTwoHdr.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                        CellTwoHdr.Padding = 5;
-                                        pdfPTable1.AddCell(CellTwoHdr);
-                                    }
-                                    else
-                                    {
-                                        PdfPCell CellTwoHdr = new PdfPCell(new Phrase(cellText));
-                                        CellTwoHdr.HorizontalAlignment = Element.ALIGN_CENTER;
-                                        CellTwoHdr.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                        CellTwoHdr.Padding = 5;
-                                        pdfPTable1.AddCell(CellTwoHdr);
-                                    }
-                                }
-                                pdfPTable1.HeaderRows = 1;
-                            }
-
                             var imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + "/images/Britania.png";
                             iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
 
@@ -626,7 +499,6 @@ namespace Powder_MISProduct.ReportUI
                             jpg.SetAbsolutePosition(120, 1560);
 
                             StringReader sr = new StringReader(sb.ToString());
-                            StringReader sr1 = new StringReader("<br/><br/><br/>");
                             Document pdfDoc = new Document(iTextSharp.text.PageSize.A1.Rotate(), -150f, -150f, 40f, 30f);
 
                             HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
@@ -638,11 +510,7 @@ namespace Powder_MISProduct.ReportUI
                             pdfDoc.Add(jpg);
 
                             pdfDoc.Add(pdfPTable);
-                            htmlparser.Parse(sr1);
-                            pdfDoc.Add(pdfPTable1);
-
-                            //htmlparser.Parse(sr1);
-
+                            
                             //----------- FOOTER -----------
                             PdfPTable footer = new PdfPTable(2);
                             PdfPTable footer2 = new PdfPTable(2);
@@ -659,7 +527,7 @@ namespace Powder_MISProduct.ReportUI
                             pdfDoc.Close();
                             Response.ContentType = "application/pdf";
 
-                            Response.AddHeader("content-disposition", "attachment;" + "filename=NF_RO_Prod_Report_" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("hh:mm:ss") + ".pdf");
+                            Response.AddHeader("content-disposition", "attachment;" + "filename=NF_RO_CIP_Report_" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("hh:mm:ss") + ".pdf");
                             Response.Cache.SetCacheability(HttpCacheability.NoCache);
                             Response.Write(pdfDoc);
                             Response.Flush();
@@ -698,7 +566,7 @@ namespace Powder_MISProduct.ReportUI
                     Response.ContentType = "application/vnd.ms-excel";
                     Response.ContentEncoding = System.Text.Encoding.Unicode;
                     Response.BinaryWrite(System.Text.Encoding.Unicode.GetPreamble());
-                    string filename = "NF_&_RO_Prod_Report" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("hh:mm:ss") + ".xls";
+                    string filename = "NF_&_RO_CIP_Report_" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("hh:mm:ss") + ".xls";
                     Response.AddHeader("content-disposition", "attachment;filename=" + filename);
                     Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
@@ -768,77 +636,7 @@ namespace Powder_MISProduct.ReportUI
                     cold = count - 8;
                     gvMassBalanceReport.RenderControl(hw);
 
-                    /////////////////////////////////////////////////////
-
-                    StringWriter sw1 = new StringWriter();
-                    HtmlTextWriter hw1 = new HtmlTextWriter(sw1);
-
-                    gvTotal.AllowPaging = false;
-                    gvTotal.GridLines = GridLines.Both;
-                    foreach (TableCell cell in gvTotal.HeaderRow.Cells)
-                    {
-                        cell.BackColor = gvTotal.HeaderStyle.BackColor;
-                        count++;
-                    }
-                    foreach (GridViewRow row in gvTotal.Rows)
-                    {
-                        row.BackColor = System.Drawing.Color.White;
-                        foreach (TableCell cell in row.Cells)
-                        {
-                            if (row.RowIndex % 2 == 0)
-                            {
-                                cell.BackColor = gvTotal.AlternatingRowStyle.BackColor;
-                            }
-                            else
-                            {
-                                cell.BackColor = gvTotal.RowStyle.BackColor;
-                            }
-                            cell.CssClass = "textmode";
-                            cell.HorizontalAlign = HorizontalAlign.Center;
-                            List<Control> controls = new List<Control>();
-
-                            //Add controls to be removed to Generic List
-                            foreach (Control control in cell.Controls)
-                            {
-                                controls.Add(control);
-                            }
-
-                            //Loop through the controls to be removed and replace then with Literal
-                            foreach (Control control in controls)
-                            {
-                                switch (control.GetType().Name)
-                                {
-                                    case "HyperLink":
-                                        cell.Controls.Add(new Literal { Text = (control as HyperLink).Text });
-                                        break;
-                                    case "TextBox":
-                                        cell.Controls.Add(new Literal { Text = (control as TextBox).Text });
-                                        break;
-                                    case "LinkButton":
-                                        cell.Controls.Add(new Literal { Text = (control as LinkButton).Text });
-                                        break;
-                                    case "CheckBox":
-                                        cell.Controls.Add(new Literal { Text = (control as CheckBox).Text });
-                                        break;
-                                    case "RadioButton":
-                                        cell.Controls.Add(new Literal { Text = (control as RadioButton).Text });
-                                        break;
-                                }
-                                cell.Controls.Remove(control);
-                            }
-                        }
-                    }
-
-                    // colh for set colspan for Ornanisation Name, Adress and Report Name
-                    // cold for set colspan  for Date
-                    // int colh1, cold1;
-                    // colh = count - 4;
-                    //cold = count - 8;
-                    gvTotal.RenderControl(hw1);
-
-
-                    //////////////////////////////////////////////////////
-                    string strSubTitle = "NF and ROP Report";
+                    string strSubTitle = "NF and ROP CIP Report";
 
                     var imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + "/images/Britania.png";
 
@@ -863,7 +661,7 @@ namespace Powder_MISProduct.ReportUI
                              "</tr>" +
                     "</table>" +
 
-                          "<br/>" + sw.ToString() + "<br/>" + sw1.ToString() + "<br/></div>";
+                          "<br/>" + sw.ToString()+"</div>";
 
                     string style = @"<!--mce:2-->";
                     Response.Write(style);
@@ -890,7 +688,7 @@ namespace Powder_MISProduct.ReportUI
         {
             try
             {
-                NFandRO_ProdLog_ReportBL objBL = new NFandRO_ProdLog_ReportBL();
+                NFandRO_CIPLog_ReportBL objBL = new NFandRO_CIPLog_ReportBL();
                 DateTime dtFromDateTime = DateTime.ParseExact(txtFromDate.Text + " " + txtFromTime.Text, "dd/MM/yyyy HH:mm:ss",
                     CultureInfo.InvariantCulture);
                 DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text + " " + txtToTime.Text, "dd/MM/yyyy HH:mm:ss",
@@ -898,24 +696,17 @@ namespace Powder_MISProduct.ReportUI
                 //string tankNo = ddlTankNumber.SelectedValue.ToString();
                 if (dtFromDateTime <= dtToDateTime)
                 {
-                    var objResult = objBL.NFandRO_ProdReportData(dtFromDateTime, dtToDateTime);
+                    var objResult = objBL.NFandRO_CIPReportData(dtFromDateTime, dtToDateTime);
 
                     if (objResult.ResutlDs.Tables[0].Rows.Count > 0)
                     {
                         gvMassBalanceReport.DataSource = objResult.ResutlDs.Tables[0];
                         gvMassBalanceReport.DataBind();
                     }
-                    if (objResult.ResutlDs.Tables[1].Rows.Count > 0)
-                    {
-                        gvTotal.DataSource = objResult.ResutlDs.Tables[1];
-                        gvTotal.DataBind();
-                    }
-
-                    if (gvMassBalanceReport.Rows.Count > 0 || gvTotal.Rows.Count>0)
+                    
+                    if (gvMassBalanceReport.Rows.Count > 0)
                     {
                         gvMassBalanceReport.Visible = true;
-                        gvTotal.Visible = true;
-
                         divExport.Visible = true;
                         divNo.Visible = false;
                     }
@@ -928,7 +719,6 @@ namespace Powder_MISProduct.ReportUI
                 else
                 {
                     gvMassBalanceReport.Visible = false;
-                    gvTotal.Visible = false;
 
                     ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
                    "<script>alert('From date is greater than To Date!');</script>");
@@ -978,7 +768,7 @@ namespace Powder_MISProduct.ReportUI
                 BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1257, BaseFont.NOT_EMBEDDED);
                 if (this.iCount != 0)
                 {
-                    ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("Plant Mass Balance Report", FONT), 1100, 1660, 0);
+                    ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("NF and ROP CIP Report", FONT), 1100, 1660, 0);
                 }
                 iCount = iCount + 1;
 
@@ -1012,7 +802,7 @@ namespace Powder_MISProduct.ReportUI
                 headerTableCell = new TableHeaderCell();
                 headerTableCell.RowSpan = 3;
                 headerTableCell.ColumnSpan = 1;
-                headerTableCell.Text = "Date - Time";
+                headerTableCell.Text = "Date Time";
                 headerTableCell.Wrap = true;
                 headerRow1.Controls.Add(headerTableCell);
 
@@ -1020,90 +810,222 @@ namespace Powder_MISProduct.ReportUI
                 headerTableCell = new TableHeaderCell();
                 headerTableCell.RowSpan = 3;
                 headerTableCell.ColumnSpan = 1;
-                headerTableCell.Text = "OPER. NAME";
+                headerTableCell.Text = "CIP recipie";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+                
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 3;
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.Text = "CIP Chemical";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 3;
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.Text = "Chemical Usage (Liters)";
                 headerTableCell.Wrap = true;
                 headerRow1.Controls.Add(headerTableCell);
 
                 headerTableCell = new TableHeaderCell();
                 headerTableCell.RowSpan = 1;
-                headerTableCell.ColumnSpan = 17;
-                headerTableCell.Text = "NANO FILTRATION";
+                headerTableCell.ColumnSpan = 3;
+                headerTableCell.Text = "Feed";
                 headerTableCell.Wrap = true;
                 headerRow1.Controls.Add(headerTableCell);
 
                 headerTableCell = new TableHeaderCell();
                 headerTableCell.RowSpan = 1;
-                headerTableCell.ColumnSpan = 11;
-                headerTableCell.Text = "REVERSE OSMOSIS POLISHER";
+                headerTableCell.ColumnSpan = 3;
+                headerTableCell.Text = "Retentate";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 4;
+                headerTableCell.Text = "NF Loop 1";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 4;
+                headerTableCell.Text = "NF Loop 2";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 3;
+                headerTableCell.Text = "ROP Feed";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 2;
+                headerTableCell.Text = "ROP Loop 11";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 2;
+                headerTableCell.Text = "ROP Loop 12";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 2;
+                headerTableCell.Text = "ROP Retentate";
                 headerTableCell.Wrap = true;
                 headerRow1.Controls.Add(headerTableCell);
 
                 // Sub header start Here (headerRow2)
-                // Sub Header for Nano filtration
-
+                // Sub Header for Feed
                 headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 2;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "FILTER BANK";
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Flow (l/h)";
                 headerTableCell.Wrap = true;
                 headerRow2.Controls.Add(headerTableCell);
 
                 headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 5;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "FEED BALANCE TANK -NF";
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Baseline Pressure (Bar)";
+                headerTableCell.Wrap = true;
+                headerRow2.Controls.Add(headerTableCell);
+                
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Condu. (ms)";
+                headerTableCell.Wrap = true;
+                headerRow2.Controls.Add(headerTableCell);
+
+                //Sub header for Retentate
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Flow (l/h)";
+                headerTableCell.Wrap = true;
+                headerRow2.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "pH";
+                headerTableCell.Wrap = true;
+                headerRow2.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Condu. (ms)";
+                headerTableCell.Wrap = true;
+                headerRow2.Controls.Add(headerTableCell);
+
+                //Sub header for NF Loop 1
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Temp (°C)";
                 headerTableCell.Wrap = true;
                 headerRow2.Controls.Add(headerTableCell);
 
                 headerTableCell = new TableHeaderCell();
                 headerTableCell.ColumnSpan = 3;
                 headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "LOOP 1";
+                headerTableCell.Text = "Permeate";
+                headerTableCell.Wrap = true;
+                headerRow2.Controls.Add(headerTableCell);
+
+                //Sub header for NF Loop 2
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Temp (°C)";
                 headerTableCell.Wrap = true;
                 headerRow2.Controls.Add(headerTableCell);
 
                 headerTableCell = new TableHeaderCell();
                 headerTableCell.ColumnSpan = 3;
                 headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "LOOP 2";
+                headerTableCell.Text = "Permeate";
+                headerTableCell.Wrap = true;
+                headerRow2.Controls.Add(headerTableCell);
+
+                //Sub header for ROP Feed
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "FLow (l/h)";
+                headerTableCell.Wrap = true;
+                headerRow2.Controls.Add(headerTableCell);
+                
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Condu. (ms)";
                 headerTableCell.Wrap = true;
                 headerRow2.Controls.Add(headerTableCell);
 
                 headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 4;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "CONCENTRATE";
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Pressure (Bar)";
                 headerTableCell.Wrap = true;
                 headerRow2.Controls.Add(headerTableCell);
 
-                // Sub Header for Reverse osmosis polisher.
+                //Sub header for ROP Loop 11
                 headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 3;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "FEED";
-                headerTableCell.Wrap = true;
-                headerRow2.Controls.Add(headerTableCell);
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 3;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "LOOP 1";
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Temp. (°C)";
                 headerTableCell.Wrap = true;
                 headerRow2.Controls.Add(headerTableCell);
 
                 headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 3;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "LOOP 2";
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Pressure (Bar)";
+                headerTableCell.Wrap = true;
+                headerRow2.Controls.Add(headerTableCell);
+
+                //Sub header for ROP Loop 12
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Temp. (°C)";
                 headerTableCell.Wrap = true;
                 headerRow2.Controls.Add(headerTableCell);
 
                 headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 2;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "CONCENTRATE";
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Pressure (Bar)";
                 headerTableCell.Wrap = true;
                 headerRow2.Controls.Add(headerTableCell);
+
+                //Sub header for ROP Retentate
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Flow (l/h)";
+                headerTableCell.Wrap = true;
+                headerRow2.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 2;
+                headerTableCell.Text = "Condu. (ms)";
+                headerTableCell.Wrap = true;
+                headerRow2.Controls.Add(headerTableCell);
+                
 
                 // Sub header start Here (headerRow3)
                 // Code for headerRow3
@@ -1114,74 +1036,16 @@ namespace Powder_MISProduct.ReportUI
                 TableHeaderCell headerCell4 = new TableHeaderCell();
                 TableHeaderCell headerCell5 = new TableHeaderCell();
                 TableHeaderCell headerCell6 = new TableHeaderCell();
-                TableHeaderCell headerCell7 = new TableHeaderCell();
-                TableHeaderCell headerCell8 = new TableHeaderCell();
-                TableHeaderCell headerCell9 = new TableHeaderCell();
-                TableHeaderCell headerCell10 = new TableHeaderCell();
-                TableHeaderCell headerCell11 = new TableHeaderCell();
-                TableHeaderCell headerCell12 = new TableHeaderCell();
-                TableHeaderCell headerCell13 = new TableHeaderCell();
-                TableHeaderCell headerCell14 = new TableHeaderCell();
-                TableHeaderCell headerCell15 = new TableHeaderCell();
-                TableHeaderCell headerCell16 = new TableHeaderCell();
-                TableHeaderCell headerCell17 = new TableHeaderCell();
-                TableHeaderCell headerCell18 = new TableHeaderCell();
-                TableHeaderCell headerCell19 = new TableHeaderCell();
-                TableHeaderCell headerCell20 = new TableHeaderCell();
-                TableHeaderCell headerCell21 = new TableHeaderCell();
-                TableHeaderCell headerCell22 = new TableHeaderCell();
-                TableHeaderCell headerCell23 = new TableHeaderCell();
-                TableHeaderCell headerCell24 = new TableHeaderCell();
-                TableHeaderCell headerCell25 = new TableHeaderCell();
-                TableHeaderCell headerCell26 = new TableHeaderCell();
-                TableHeaderCell headerCell27 = new TableHeaderCell();
-                TableHeaderCell headerCell28 = new TableHeaderCell();
 
-                // Sub Header for Filter bank
-                headerCell1.Text = "PRESS. IN (BAR)";
-                headerCell2.Text = "PRESS. OUT (BAR)";
+                // Sub Header for NF Loop1
+                headerCell1.Text = "Flow (l/h)";
+                headerCell2.Text = "Pressure (Bar)";
+                headerCell3.Text = "Condu (ms)";
 
-                // Sub Header for Feed balance tank - NF
-                headerCell3.Text = "Level (%)";
-                headerCell4.Text = "Flow (M³/HR)";
-                headerCell5.Text = "PRESS. (BAR)";
-                headerCell6.Text = "BRIX (%)";
-                headerCell7.Text = "pH";
-
-                // Sub Header for Loop1
-                headerCell8.Text = "PRESS. (BAR)";
-                headerCell9.Text = "TEMP. (°C)";
-                headerCell10.Text = "PERM. FLOW (M³/HR)";
-
-                // Sub Header for Loop2
-                headerCell11.Text = "PRESS. (BAR)";
-                headerCell12.Text = "TEMP. (°C)";
-                headerCell13.Text = "PERM. FLOW (M³/HR)";
-
-                // Sub Header for Concentrate
-                headerCell14.Text = "FLOW (M³/HR)";
-                headerCell15.Text = "RATIO (%)";
-                headerCell16.Text = "BRIX (%)";
-                headerCell17.Text = "pH";
-
-                // Sub Header for Feed
-                headerCell18.Text = "FLOW (M³/HR)";
-                headerCell19.Text = "PRESS. (BAR)";
-                headerCell20.Text = "Level (%)";
-
-                // Sub Header for Loop1
-                headerCell21.Text = "PRESS. (BAR)";
-                headerCell22.Text = "TEMP. (°C)";
-                headerCell23.Text = "PERM. FLOW (M³/HR)";
-
-                // Sub Header for Loop2
-                headerCell24.Text = "PRESS. (BAR)";
-                headerCell25.Text = "TEMP. (°C)";
-                headerCell26.Text = "PERM. FLOW (M³/HR)";
-
-                // Sub Header for Concentrate
-                headerCell27.Text = "FLOW (M³/HR)";
-                headerCell28.Text = "RATIO";
+                // Sub Header for NF Loop2
+                headerCell4.Text = "Flow (l/h)";
+                headerCell5.Text = "Pressure (Bar)";
+                headerCell6.Text = "Condu. (ms)";
 
                 headerRow3.Controls.Add(headerCell1);
                 headerRow3.Controls.Add(headerCell2);
@@ -1189,82 +1053,11 @@ namespace Powder_MISProduct.ReportUI
                 headerRow3.Controls.Add(headerCell4);
                 headerRow3.Controls.Add(headerCell5);
                 headerRow3.Controls.Add(headerCell6);
-                headerRow3.Controls.Add(headerCell7);
-                headerRow3.Controls.Add(headerCell8);
-                headerRow3.Controls.Add(headerCell9);
-                headerRow3.Controls.Add(headerCell10);
-                headerRow3.Controls.Add(headerCell11);
-                headerRow3.Controls.Add(headerCell12);
-                headerRow3.Controls.Add(headerCell13);
-                headerRow3.Controls.Add(headerCell14);
-                headerRow3.Controls.Add(headerCell15);
-                headerRow3.Controls.Add(headerCell16);
-                headerRow3.Controls.Add(headerCell17);
-                headerRow3.Controls.Add(headerCell18);
-                headerRow3.Controls.Add(headerCell19);
-                headerRow3.Controls.Add(headerCell20);
-                headerRow3.Controls.Add(headerCell21);
-                headerRow3.Controls.Add(headerCell22);
-                headerRow3.Controls.Add(headerCell23);
-                headerRow3.Controls.Add(headerCell24);
-                headerRow3.Controls.Add(headerCell25);
-                headerRow3.Controls.Add(headerCell26);
-                headerRow3.Controls.Add(headerCell27);
-                headerRow3.Controls.Add(headerCell28);
-
+                
                 gvMassBalanceReport.Controls[0].Controls.AddAt(0, headerRow3);
                 gvMassBalanceReport.Controls[0].Controls.AddAt(0, headerRow2);
                 gvMassBalanceReport.Controls[0].Controls.AddAt(0, headerRow1);
 
-            }
-        }
-
-        protected void gvTotal_RowCreated(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
-                GridViewRow headerRow1 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
-
-                TableHeaderCell headerTableCell = new TableHeaderCell();
-
-                // Code for headerRow1
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.RowSpan = 1;
-                headerTableCell.ColumnSpan = 1;
-                headerTableCell.Text = "NANO FEED TOTAL LITERS";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.RowSpan = 1;
-                headerTableCell.ColumnSpan = 1;
-                headerTableCell.Text = "NANO CONC TOTAL LITERS";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.RowSpan = 1;
-                headerTableCell.ColumnSpan = 1;
-                headerTableCell.Text = "RO FEED TOTAL LITERS";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.RowSpan = 1;
-                headerTableCell.ColumnSpan = 1;
-                headerTableCell.Text = "RO CONC TOTAL LITERS";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 1;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "PERMEATE TOTAL LITERS";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-                gvTotal.Controls[0].Controls.AddAt(0, headerRow1);
             }
         }
 

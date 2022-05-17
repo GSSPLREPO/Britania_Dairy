@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Master/MainMaster.Master" AutoEventWireup="true" CodeBehind="NFandRO_ProdLog_Report.aspx.cs" Inherits="Powder_MISProduct.ReportUI.NFandRO_ProdLog_Report" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Master/MainMaster.Master" AutoEventWireup="true" CodeBehind="NFandRO_CIPLog_Report.aspx.cs" Inherits="Powder_MISProduct.ReportUI.NFandRO_CIPLog_Report" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -7,7 +6,7 @@
     <div id="breadcrumb">
         <ul class="breadcrumb">
             <li><i class="fa fa-home"></i><a href="../WebUI/DashBoard.aspx">Home</a></li>
-            <li class="active">NF & RO Production Log</li>
+            <li class="active">NF & RO CIP Log</li>
         </ul>
     </div>
     <div class="col-md-12">
@@ -15,7 +14,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-10" style="font-size: 24px;">
-                        NF & RO Production Log
+                        NF & RO CIP Log
                    
                     </div>
                     <div class="col-md-2" id="divExport" runat="server">
@@ -109,13 +108,13 @@
                 </div>
                 
                 <%--2. Total data--%>
-                <div class="row" style="padding-top: 10px; overflow: scroll;">
+                <%--<div class="row" style="padding-top: 10px; overflow: scroll;">
                     <div class="form-group has-error col-md-4" title="Varient wise total production" style="overflow; height: 300px">
                     <asp:GridView runat="server" ID="gvTotal" CssClass="table table-striped" ShowHeader="false"
                             AutoGenerateColumns="True" GridLines="Both" HeaderStyle-Wrap="false" OnRowCreated="gvTotal_RowCreated">
                            </asp:GridView>
                     </div>
-                </div>
+                </div>--%>
 
                 <div class="row"> 
                     <div class="col-md-12 center" id="divNo" runat="server">No records found.</div>
@@ -178,4 +177,3 @@
         });
     </script>
 </asp:Content>
-

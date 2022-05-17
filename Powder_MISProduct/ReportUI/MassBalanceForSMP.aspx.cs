@@ -455,8 +455,9 @@ namespace Powder_MISProduct.ReportUI
                         //};
                         //pdfPTable1.SetWidths(widthsTAS1);
 
-                        pdfPTable1.WidthPercentage=30;
-                        pdfPTable1.HorizontalAlignment = Element.ALIGN_LEFT;
+                        //pdfPTable1.WidthPercentage=30;
+                        //pdfPTable1.HorizontalAlignment = Element.ALIGN_LEFT;
+                      
                         foreach (GridViewRow gridViewRow in gvMassBalanceReport.Rows)
                         {
                             foreach (TableCell tableCell in gridViewRow.Cells)
@@ -814,9 +815,11 @@ namespace Powder_MISProduct.ReportUI
                         gvTotal.DataBind();
                     }
 
-                    if (gvMassBalanceReport.Rows.Count > 0)
+                    if (gvMassBalanceReport.Rows.Count > 0 || gvTotal.Rows.Count>0)
                     {
                         gvMassBalanceReport.Visible = true;
+                        gvTotal.Visible = true;
+
                         divExport.Visible = true;
                         divNo.Visible = false;
                     }
@@ -829,6 +832,7 @@ namespace Powder_MISProduct.ReportUI
                 else
                 {
                     gvMassBalanceReport.Visible = false;
+                    gvTotal.Visible = false;
 
                     ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
                    "<script>alert('From date is greater than To Date!');</script>");

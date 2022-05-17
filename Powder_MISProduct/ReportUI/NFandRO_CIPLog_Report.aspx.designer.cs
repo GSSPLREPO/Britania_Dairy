@@ -11,7 +11,7 @@ namespace Powder_MISProduct.ReportUI
 {
 
 
-    public partial class NFandRO_ProdLog_Report
+    public partial class NFandRO_CIPLog_Report
     {
 
         /// <summary>
@@ -112,15 +112,6 @@ namespace Powder_MISProduct.ReportUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvMassBalanceReport;
-
-        /// <summary>
-        /// gvTotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTotal;
 
         /// <summary>
         /// divNo control.

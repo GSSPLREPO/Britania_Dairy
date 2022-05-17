@@ -6,7 +6,7 @@
     <div id="breadcrumb">
         <ul class="breadcrumb">
             <li><i class="fa fa-home"></i><a href="../WebUI/DashBoard.aspx">Home</a></li>
-            <li class="active">MASS BALANCE WHEY REPORT</li>
+            <li class="active">MASS BALANCE FOR SMP</li>
         </ul>
     </div>
     <div class="col-md-12">
@@ -14,7 +14,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-10" style="font-size: 24px;">
-                        Mass Balance Whey Report
+                        Mass Balance For SMP
                    
                     </div>
                     <div class="col-md-2" id="divExport" runat="server">
@@ -110,9 +110,7 @@
                 <%--2. Total data--%>
                 <div class="row" style="padding-top: 10px; overflow: scroll;">
                     <div class="form-group has-error col-md-4" title="Varient wise total production" style="overflow; height: 300px">
-                     <h4>Overall data </h4>
-                      
-                         <asp:GridView runat="server" ID="gvTotal" CssClass="table table-striped" ShowHeader="false"
+                     <asp:GridView runat="server" ID="gvTotal" CssClass="table table-striped" ShowHeader="false"
                             AutoGenerateColumns="True" GridLines="Both" HeaderStyle-Wrap="false" OnRowCreated="gvTotal_RowCreated">
                            </asp:GridView>
                     </div>

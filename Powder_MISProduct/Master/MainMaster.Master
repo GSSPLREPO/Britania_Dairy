@@ -158,6 +158,8 @@
                             <ul class="submenu">
                                 <li id="MassBalanceWhey" runat="server" visible="false"><a href="../ReportUI/MassBalanceWhey.aspx"><span class="submenu-label">Mass Balance Whey</span></a></li>
                                 <li id="MassBalanceForSMP" runat="server" visible="false"><a href="../ReportUI/MassBalanceForSMP.aspx"><span class="submenu-label">Mass Balance For SMP</span></a></li>
+                                <li id="NFandROProdLog" runat="server" visible="true"><a href="../ReportUI/NFandRO_ProdLog_Report.aspx"><span class="submenu-label">NF & RO Prod Log</span></a></li>
+                                <li id="NFandROCIPLog" runat="server" visible="true"><a href="../ReportUI/NFandRO_CIPLog_Report.aspx"><span class="submenu-label">NF & RO CIP Log</span></a></li>
                                 <li id="WheyAnalysisReport" runat="server" visible="true"><a href="../ReportUI/WheyAnalysisReport.aspx"><span class="submenu-label">WheyAnalysisReport</span></a></li>
                                <li id="Transfer" runat="server" visible="true"><a href="../ReportUI/Transfer.aspx"><span class="submenu-label">Transfer</span></a></li>                                                            
                                 <li id="UtilityConsumption" runat="server" visible="true"><a href="../ReportUI/UtilityConsumption.aspx"><span class="submenu-label">UtilityConsumption</span></a></li>

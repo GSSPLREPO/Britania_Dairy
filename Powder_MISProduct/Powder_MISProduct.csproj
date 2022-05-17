@@ -330,6 +330,7 @@
     <Content Include="ReportUI\MaintenanceReport.aspx" />
     <Content Include="ReportUI\MassBalanceForSMP.aspx" />
     <Content Include="ReportUI\MassBalanceWhey.aspx" />
+    <Content Include="ReportUI\NFandRO_CIPLog_Report.aspx" />
     <Content Include="ReportUI\NFandRO_ProdLog_Report.aspx" />
     <Content Include="ReportUI\NFWheyStorage.aspx" />
     <Content Include="ReportUI\PastwheyStorage.aspx" />
@@ -530,6 +531,13 @@
     </Compile>
     <Compile Include="ReportUI\MassBalanceWhey.aspx.designer.cs">
       <DependentUpon>MassBalanceWhey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUI\NFandRO_CIPLog_Report.aspx.cs">
+      <DependentUpon>NFandRO_CIPLog_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportUI\NFandRO_CIPLog_Report.aspx.designer.cs">
+      <DependentUpon>NFandRO_CIPLog_Report.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReportUI\NFandRO_ProdLog_Report.aspx.cs">
       <DependentUpon>NFandRO_ProdLog_Report.aspx</DependentUpon>
