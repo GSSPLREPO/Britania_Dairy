@@ -533,6 +533,7 @@ namespace Powder_MISProduct.ReportUI
                             };
 
                             pdfPTable.SetWidths(widthsTAS);
+                            pdfPTable1.WidthPercentage = 30;
 
                             //pdfPTable1.WidthPercentage = 30.0f;
                             //pdfPTable1.SpacingBefore = 200;
@@ -577,7 +578,7 @@ namespace Powder_MISProduct.ReportUI
                                         pdfPTable.AddCell(CellTwoHdr);
                                     }
                                 }
-                                pdfPTable.HeaderRows = 1;
+                                //pdfPTable.HeaderRows = 1;
                             }
 
                             foreach (GridViewRow gridViewRow in gvTotal.Rows)
@@ -911,7 +912,7 @@ namespace Powder_MISProduct.ReportUI
                         gvTotal.DataBind();
                     }
 
-                    if (gvMassBalanceReport.Rows.Count > 0 || gvTotal.Rows.Count>0)
+                    if (gvMassBalanceReport.Rows.Count > 0 && gvTotal.Rows.Count>0)
                     {
                         gvMassBalanceReport.Visible = true;
                         gvTotal.Visible = true;
@@ -922,6 +923,7 @@ namespace Powder_MISProduct.ReportUI
                     else
                     {
                         divExport.Visible = false;
+                        gvTotal.Visible = false;
                         divNo.Visible = true;
                     }
                 }

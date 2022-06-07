@@ -69,7 +69,7 @@
                     <ul class="dropdown-menu">
                         <li><a tabindex="-1" href="../WebUI/Employee.aspx" class="main-link"><i class="fa fa-edit fa-lg"></i>&nbsp; Edit profile</a></li>
                         <li class="divider"></li>
-                      <%--  <li id="AboutSoftware"><a tabindex="-1" href="../WebUI/AboutSoftware.aspx" class="main-link"><i class="fa fa-info-circle fa-lg"></i>&nbsp;About Software</a></li>
+                        <%--  <li id="AboutSoftware"><a tabindex="-1" href="../WebUI/AboutSoftware.aspx" class="main-link"><i class="fa fa-info-circle fa-lg"></i>&nbsp;About Software</a></li>
                         <li class="divider"></li>--%>
                         <li><a tabindex="-1" class="main-link logoutConfirm_open" href="#logoutConfirm"><i class="fa fa-lock fa-lg"></i>&nbsp; Log out</a></li>
                     </ul>
@@ -96,7 +96,7 @@
                         </strong></h4>
                     </div>
                 </div>
-                <div class="main-menu" id="cssmenu" runat="server" style="height:80%;scrollbar-base-color:white; overflow:auto;">
+                <div class="main-menu" id="cssmenu" runat="server" style="height: 80%; scrollbar-base-color: white; overflow: auto;">
                     <ul>
                         <li class="openable open">
                             <a href="#">
@@ -109,7 +109,7 @@
                             </a>
                             <ul class="submenu">
                                 <li id="Shift" runat="server" visible="false"><a href="../WebUI/Shift.aspx"><span class="submenu-label">Shift</span></a></li>
-                             <%--   <li id="DryerPlantStatus" runat="server" visible="false"><a href="../WebUI/DryerPlantStatus.aspx"><span class="submenu-label">Dryer Plant Status</span></a></li>
+                                <%--   <li id="DryerPlantStatus" runat="server" visible="false"><a href="../WebUI/DryerPlantStatus.aspx"><span class="submenu-label">Dryer Plant Status</span></a></li>
                                 <li id="EvapPlantStatus" runat="server" visible="false"><a href="../WebUI/PlantStatusEvap.aspx"><span class="submenu-label">Evaporator Plant Status</span></a></li>
                                 <li id="DryerTag" runat="server" visible="false"><a href="../WebUI/DryerTag.aspx"><span class="submenu-label">Dryer Tags</span></a></li>
                                 <li id="Evaporator1Tag" runat="server" visible="false"><a href="../WebUI/Evaporator1Tag.aspx"><span class="submenu-label">Evaporator 1 Tags</span></a></li>
@@ -124,9 +124,9 @@
                                 <li id="MassBalanceFactor" runat="server" visible="false"><a href="../WebUI/MassBalanceFactor.aspx"><span class="submenu-label">MassBalanceFactor</span></a></li>
                                 <li id="EquipmentMaster" runat="server" visible="false"><a href="../WebUI/EquipmentMaster.aspx"><span class="submenu-label">Equipment Master</span></a></li>
                                 <li id="DeviceMaster" runat="server" visible="false"><a href="../WebUI/DeviceMaster.aspx"><span class="submenu-label">Device Master</span></a></li>--%>
-                               <li id="WeighAnalysis" runat="server" visible="false"><a href="../WebUI/WeighAnalysis.aspx"><span class="submenu-label">WeighAnalysis</span></a></li>
-                               <li id="Inventory" runat="server" visible="false"><a href="../WebUI/Inventory.aspx"><span class="submenu-label">Inventory</span></a></li>
-                               <li id="Lab" runat="server" visible="false"><a href="../WebUI/Lab.aspx"><span class="submenu-label">Lab</span></a></li>
+                                <li id="WeighAnalysis" runat="server" visible="false"><a href="../WebUI/WeighAnalysis.aspx"><span class="submenu-label">WeighAnalysis</span></a></li>
+                                <li id="Inventory" runat="server" visible="false"><a href="../WebUI/Inventory.aspx"><span class="submenu-label">Inventory</span></a></li>
+                                <li id="Lab" runat="server" visible="false"><a href="../WebUI/Lab.aspx"><span class="submenu-label">Lab</span></a></li>
 
 
                             </ul>
@@ -161,12 +161,12 @@
                                 <li id="NFandROProdLog" runat="server" visible="true"><a href="../ReportUI/NFandRO_ProdLog_Report.aspx"><span class="submenu-label">NF & RO Prod Log</span></a></li>
                                 <li id="NFandROCIPLog" runat="server" visible="true"><a href="../ReportUI/NFandRO_CIPLog_Report.aspx"><span class="submenu-label">NF & RO CIP Log</span></a></li>
                                 <li id="WheyAnalysisReport" runat="server" visible="true"><a href="../ReportUI/WheyAnalysisReport.aspx"><span class="submenu-label">WheyAnalysisReport</span></a></li>
-                               <li id="Transfer" runat="server" visible="true"><a href="../ReportUI/Transfer.aspx"><span class="submenu-label">Transfer</span></a></li>                                                            
+                                <li id="Transfer" runat="server" visible="true"><a href="../ReportUI/Transfer.aspx"><span class="submenu-label">Transfer</span></a></li>
                                 <li id="UtilityConsumption" runat="server" visible="true"><a href="../ReportUI/UtilityConsumption.aspx"><span class="submenu-label">UtilityConsumption</span></a></li>
 
                                 <li id="RWSTStorage" runat="server" visible="true"><a href="../ReportUI/RWSTStorage.aspx"><span class="submenu-label">RWSTStorage</span></a></li>
                                 <li id="PastwheyStorage" runat="server" visible="true"><a href="../ReportUI/PastwheyStorage.aspx"><span class="submenu-label">PastwheyStorage</span></a></li>
-                               <%-- <li id="DryerProductionLogReport" runat="server" visible="true"><a href="../ReportUI/DryerProductionLogReport.aspx"><span class="submenu-label">Dryer Production Log</span></a></li>
+                                <%-- <li id="DryerProductionLogReport" runat="server" visible="true"><a href="../ReportUI/DryerProductionLogReport.aspx"><span class="submenu-label">Dryer Production Log</span></a></li>
                                 <li id="EvaporationCipLogReport" runat="server" visible="true"><a href="../ReportUI/EvaporationCipLogReport.aspx"><span class="submenu-label">Evaporation Cip Log</span></a></li>
                                 <li id="PowderProductionLogReport" runat="server" visible="true"><a href="../ReportUI/PowderProductionLogReport.aspx"><span class="submenu-label">Powder Production Log</span></a></li>--%>
 
@@ -181,14 +181,14 @@
                                 <li id="ChemicalConsumption" runat="server" visible="true"><a href="../ReportUI/ChemicalConsumption.aspx"><span class="submenu-label">ChemicalConsumption</span></a></li>
                                 <li id="InventoryReport" runat="server" visible="true"><a href="../ReportUI/InventoryReport.aspx"><span class="submenu-label">InventoryReport</span></a></li>
                                 <li id="MaintenanceReport" runat="server" visible="true"><a href="../ReportUI/MaintenanceReport.aspx"><span class="submenu-label">MaintenanceReport</span></a></li>
-                                 <li id="LabReport" runat="server" visible="true"><a href="../ReportUI/LabReport.aspx"><span class="submenu-label">LabReport</span></a></li>
+                                <li id="LabReport" runat="server" visible="true"><a href="../ReportUI/LabReport.aspx"><span class="submenu-label">LabReport</span></a></li>
 
                                 <li id="EvaporatorLog" runat="server" visible="false"><a href="../ReportUI/EvaporatorLog.aspx"><span class="submenu-label">EvaporatorLog</span></a></li>
-                                 <li id="DryerDataLog" runat="server" visible="false"><a href="../ReportUI/DryerDataLog.aspx"><span class="submenu-label">DryerDataLog</span></a></li>
-                                
+                                <li id="DryerDataLog" runat="server" visible="false"><a href="../ReportUI/DryerDataLog.aspx"><span class="submenu-label">DryerDataLog</span></a></li>
+
                                 <li id="ConcFeedTankStatus" runat="server" visible="false"><a href="../ReportUI/ConcFeedTankStatus.aspx"><span class="submenu-label">ConcFeedTankStatus</span></a></li>
                                 <li id="CrystallizationTankStatus" runat="server" visible="false"><a href="../ReportUI/CrystallizationTankStatus.aspx"><span class="submenu-label">CrystallizationTankStatus</span></a></li>
-                            <%--    <li id="BreakdownReport" runat="server" visible="false"><a href="../ReportUI/BreakDownMaintainanceReport.aspx"><span class="submenu-label">BreakDown Maintainance</span></a></li>
+                                <%--    <li id="BreakdownReport" runat="server" visible="false"><a href="../ReportUI/BreakDownMaintainanceReport.aspx"><span class="submenu-label">BreakDown Maintainance</span></a></li>
                                 <li id="RoutineReport" runat="server" visible="false"><a href="../ReportUI/RoutineMaintainanceReport.aspx"><span class="submenu-label">Preventive Maintainance</span></a></li>
                                 <li id="PowderProcessingCostReport" runat="server" visible="false"><a href="../ReportUI/PowderProcessingCostReport.aspx"><span class="submenu-label">Powder Processing Cost Report</span></a></li>
                                  <%--<li id="ROCIP" runat="server" visible="false"><a href="../ReportUI/ROCIP.aspx"><span class="submenu-label">RO CIP Report</span></a></li>
@@ -217,11 +217,11 @@
                                 <span class="menu-hover"></span>
                             </a>
                             <ul class="submenu">
-                                <li id="Maintenance" runat="server" visible="false"><a href="../WebUI/Maintenance.aspx"><span class="submenu-label"> Maintainance</span></a></li>
-<%--                                <li id="RoutineMaintainance" runat="server" visible="false"><a href="../WebUI/RoutineMaintainance.aspx"><span class="submenu-label">Preventive Maintainance</span></a></li>--%>
+                                <li id="Maintenance" runat="server" visible="false"><a href="../WebUI/Maintenance.aspx"><span class="submenu-label">Maintainance</span></a></li>
+                                <%--                                <li id="RoutineMaintainance" runat="server" visible="false"><a href="../WebUI/RoutineMaintainance.aspx"><span class="submenu-label">Preventive Maintainance</span></a></li>--%>
                             </ul>
                         </li>
-                       <%-- <li class="openable open">
+                        <%-- <li class="openable open">
                             <a href="#">
                                 <span class="menu-icon">
                                     <i class="fa fa-cogs fa-lg"></i>
@@ -281,6 +281,7 @@
                     </ul>
                     <div class="alert alert-info">
                         Welcome to DAIRY Management Information System. 
+                   
                     </div>
                 </div>
             </div>
@@ -297,11 +298,12 @@
                 <div class="col-sm-6">
                     <p class="no-margin">
                         &copy; 2021 <strong>GEA Process Engineering (India) Pvt Limited</strong>. ALL Rights Reserved.
+                   
                     </p>
                 </div>
                 <div class="col-sm-6">
                     <div class="nav navbar-nav navbar-right">
-                      <%--  <a href="http://www.banyantreesoft.com" target="_blank">Powered By :
+                        <%--  <a href="http://www.banyantreesoft.com" target="_blank">Powered By :
                             <img src="../images/banyantreelogo.gif" />
                         </a>--%>
                     </div>

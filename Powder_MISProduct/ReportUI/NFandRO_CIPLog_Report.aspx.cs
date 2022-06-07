@@ -99,7 +99,6 @@ namespace Powder_MISProduct.ReportUI
                             headerCell1.BorderWidth = 1.5f;
                             headerCell1.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            headerCell1.MinimumHeight = 50f;
                             pdfPTable.AddCell(headerCell1);
 
                             PdfPCell headerCell2 = new PdfPCell(new Phrase("CIP Recipie", header));
@@ -109,7 +108,6 @@ namespace Powder_MISProduct.ReportUI
                             headerCell2.BorderWidth = 1.5f;
                             headerCell2.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell2.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            headerCell2.MinimumHeight = 50f;
                             pdfPTable.AddCell(headerCell2);
 
                             PdfPCell headerCell3 = new PdfPCell(new Phrase("CIP Chemical", header));
@@ -119,7 +117,6 @@ namespace Powder_MISProduct.ReportUI
                             headerCell3.BorderWidth = 1.5f;
                             headerCell3.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell3.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            headerCell2.MinimumHeight = 50f;
                             pdfPTable.AddCell(headerCell3);
 
                             PdfPCell headerCell4 = new PdfPCell(new Phrase("Chemical Usage (Liters)", header));
@@ -129,7 +126,7 @@ namespace Powder_MISProduct.ReportUI
                             headerCell4.BorderWidth = 1.5f;
                             headerCell4.HorizontalAlignment = Element.ALIGN_CENTER;
                             headerCell4.VerticalAlignment = Element.ALIGN_MIDDLE;
-                            headerCell2.MinimumHeight = 50f;
+                           // headerCell2.MinimumHeight = 50f;
                             pdfPTable.AddCell(headerCell4);
                             
                             PdfPCell headerCell5 = new PdfPCell(new Phrase("Feed", header));
@@ -488,7 +485,7 @@ namespace Powder_MISProduct.ReportUI
                                         pdfPTable.AddCell(CellTwoHdr);
                                     }
                                 }
-                                pdfPTable.HeaderRows = 1;
+                               // pdfPTable.HeaderRows = 1;
                             }
 
                             var imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + "/images/Britania.png";

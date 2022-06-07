@@ -455,7 +455,7 @@ namespace Powder_MISProduct.ReportUI
                         //};
                         //pdfPTable1.SetWidths(widthsTAS1);
 
-                        //pdfPTable1.WidthPercentage=30;
+                        pdfPTable1.WidthPercentage=30;
                         //pdfPTable1.HorizontalAlignment = Element.ALIGN_LEFT;
                       
                         foreach (GridViewRow gridViewRow in gvMassBalanceReport.Rows)
@@ -815,7 +815,7 @@ namespace Powder_MISProduct.ReportUI
                         gvTotal.DataBind();
                     }
 
-                    if (gvMassBalanceReport.Rows.Count > 0 || gvTotal.Rows.Count>0)
+                    if (gvMassBalanceReport.Rows.Count > 0 && gvTotal.Rows.Count>0)
                     {
                         gvMassBalanceReport.Visible = true;
                         gvTotal.Visible = true;

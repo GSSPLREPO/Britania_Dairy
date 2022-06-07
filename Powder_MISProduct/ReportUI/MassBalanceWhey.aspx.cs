@@ -86,7 +86,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell1.Rowspan = 1;
                         headerCell1.Colspan = 6;
                         headerCell1.Padding = 5;
-                        headerCell1.BorderWidth = 1.5f;
+                        //headerCell1.BorderWidth = 1.5f;
                         headerCell1.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell1);
@@ -95,7 +95,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell2.Rowspan = 1;
                         headerCell2.Colspan = 6;
                         headerCell2.Padding = 5;
-                        headerCell2.BorderWidth = 1.5f;
+                        //headerCell2.BorderWidth = 1.5f;
                         headerCell2.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell2.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell2);
@@ -104,7 +104,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell3.Rowspan = 1;
                         headerCell3.Colspan = 6;
                         headerCell3.Padding = 5;
-                        headerCell3.BorderWidth = 1.5f;
+                        //headerCell3.BorderWidth = 1.5f;
                         headerCell3.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell3.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell3);
@@ -113,7 +113,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell4.Rowspan = 1;
                         headerCell4.Colspan = 6;
                         headerCell4.Padding = 5;
-                        headerCell4.BorderWidth = 1.5f;
+                        //headerCell4.BorderWidth = 1.5f;
                         headerCell4.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell4.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell4);
@@ -122,7 +122,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell35.Rowspan = 1;
                         headerCell35.Colspan = 6;
                         headerCell35.Padding = 5;
-                        headerCell35.BorderWidth = 1.5f;
+                        //headerCell35.BorderWidth = 1.5f;
                         headerCell35.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell35.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell35);
@@ -132,7 +132,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell5.Rowspan = 1;
                         headerCell5.Colspan = 1;
                         headerCell5.Padding = 5;
-                        headerCell5.BorderWidth = 1.5f;
+                       // headerCell5.BorderWidth = 1.5f;
                         headerCell5.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell5.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell5);
@@ -141,7 +141,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell6.Rowspan = 1;
                         headerCell6.Colspan = 1;
                         headerCell6.Padding = 5;
-                        headerCell6.BorderWidth = 1.5f;
+                       // headerCell6.BorderWidth = 1.5f;
                         headerCell6.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell6.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell6);
@@ -150,7 +150,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell7.Rowspan = 1;
                         headerCell7.Colspan = 1;
                         headerCell7.Padding = 5;
-                        headerCell7.BorderWidth = 1.5f;
+                        //headerCell7.BorderWidth = 1.5f;
                         headerCell7.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell7.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell7);
@@ -159,7 +159,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell8.Rowspan = 1;
                         headerCell8.Colspan = 1;
                         headerCell8.Padding = 5;
-                        headerCell8.BorderWidth = 1.5f;
+                        //headerCell8.BorderWidth = 1.5f;
                         headerCell8.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell8.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell8);
@@ -168,7 +168,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell9.Rowspan = 1;
                         headerCell9.Colspan = 1;
                         headerCell9.Padding = 5;
-                        headerCell9.BorderWidth = 1.5f;
+                        //headerCell9.BorderWidth = 1.5f;
                         headerCell9.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell9.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell9);
@@ -177,7 +177,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell10.Rowspan = 1;
                         headerCell10.Colspan = 1;
                         headerCell10.Padding = 5;
-                        headerCell10.BorderWidth = 1.5f;
+                        //headerCell10.BorderWidth = 1.5f;
                         headerCell10.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell10.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell10);
@@ -187,7 +187,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell11.Rowspan = 1;
                         headerCell11.Colspan = 1;
                         headerCell11.Padding = 5;
-                        headerCell11.BorderWidth = 1.5f;
+                        //headerCell11.BorderWidth = 1.5f;
                         headerCell11.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell11.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell11);
@@ -196,7 +196,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell12.Rowspan = 1;
                         headerCell12.Colspan = 1;
                         headerCell12.Padding = 5;
-                        headerCell12.BorderWidth = 1.5f;
+                        //headerCell12.BorderWidth = 1.5f;
                         headerCell12.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell12.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell12);
@@ -205,7 +205,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell13.Rowspan = 1;
                         headerCell13.Colspan = 1;
                         headerCell13.Padding = 5;
-                        headerCell13.BorderWidth = 1.5f;
+                        //headerCell13.BorderWidth = 1.5f;
                         headerCell13.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell13.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell13);
@@ -214,7 +214,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell14.Rowspan = 1;
                         headerCell14.Colspan = 1;
                         headerCell14.Padding = 5;
-                        headerCell14.BorderWidth = 1.5f;
+                        //headerCell14.BorderWidth = 1.5f;
                         headerCell14.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell14.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell14);
@@ -223,7 +223,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell15.Rowspan = 1;
                         headerCell15.Colspan = 1;
                         headerCell15.Padding = 5;
-                        headerCell15.BorderWidth = 1.5f;
+                        //headerCell15.BorderWidth = 1.5f;
                         headerCell15.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell15.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell15);
@@ -232,7 +232,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell16.Rowspan = 1;
                         headerCell16.Colspan = 1;
                         headerCell16.Padding = 5;
-                        headerCell16.BorderWidth = 1.5f;
+                        //headerCell16.BorderWidth = 1.5f;
                         headerCell16.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell16.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell16);
@@ -242,7 +242,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell17.Rowspan = 1;
                         headerCell17.Colspan = 1;
                         headerCell17.Padding = 5;
-                        headerCell17.BorderWidth = 1.5f;
+                        //headerCell17.BorderWidth = 1.5f;
                         headerCell17.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell17.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell17);
@@ -251,7 +251,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell18.Rowspan = 1;
                         headerCell18.Colspan = 1;
                         headerCell18.Padding = 5;
-                        headerCell18.BorderWidth = 1.5f;
+                        //headerCell18.BorderWidth = 1.5f;
                         headerCell18.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell18.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell18);
@@ -260,7 +260,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell19.Rowspan = 1;
                         headerCell19.Colspan = 1;
                         headerCell19.Padding = 5;
-                        headerCell19.BorderWidth = 1.5f;
+                        //headerCell19.BorderWidth = 1.5f;
                         headerCell19.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell19.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell19);
@@ -269,7 +269,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell20.Rowspan = 1;
                         headerCell20.Colspan = 1;
                         headerCell20.Padding = 5;
-                        headerCell20.BorderWidth = 1.5f;
+                        //headerCell20.BorderWidth = 1.5f;
                         headerCell20.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell20.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell20);
@@ -278,7 +278,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell21.Rowspan = 1;
                         headerCell21.Colspan = 1;
                         headerCell21.Padding = 5;
-                        headerCell21.BorderWidth = 1.5f;
+                        //headerCell21.BorderWidth = 1.5f;
                         headerCell21.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell21.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell21);
@@ -287,7 +287,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell22.Rowspan = 1;
                         headerCell22.Colspan = 1;
                         headerCell22.Padding = 5;
-                        headerCell22.BorderWidth = 1.5f;
+                        //headerCell22.BorderWidth = 1.5f;
                         headerCell22.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell22.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell22);
@@ -297,7 +297,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell23.Rowspan = 1;
                         headerCell23.Colspan = 1;
                         headerCell23.Padding = 5;
-                        headerCell23.BorderWidth = 1.5f;
+                        //headerCell23.BorderWidth = 1.5f;
                         headerCell23.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell23.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell23);
@@ -306,7 +306,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell24.Rowspan = 1;
                         headerCell24.Colspan = 1;
                         headerCell24.Padding = 5;
-                        headerCell24.BorderWidth = 1.5f;
+                        //headerCell24.BorderWidth = 1.5f;
                         headerCell24.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell24.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell24);
@@ -315,7 +315,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell25.Rowspan = 1;
                         headerCell25.Colspan = 1;
                         headerCell25.Padding = 5;
-                        headerCell25.BorderWidth = 1.5f;
+                        //headerCell25.BorderWidth = 1.5f;
                         headerCell25.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell25.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell25);
@@ -324,7 +324,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell26.Rowspan = 1;
                         headerCell26.Colspan = 1;
                         headerCell26.Padding = 5;
-                        headerCell26.BorderWidth = 1.5f;
+                        //headerCell26.BorderWidth = 1.5f;
                         headerCell26.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell26.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell26);
@@ -333,7 +333,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell27.Rowspan = 1;
                         headerCell27.Colspan = 1;
                         headerCell27.Padding = 5;
-                        headerCell27.BorderWidth = 1.5f;
+                        //headerCell27.BorderWidth = 1.5f;
                         headerCell27.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell27.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell27);
@@ -342,7 +342,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell28.Rowspan = 1;
                         headerCell28.Colspan = 1;
                         headerCell28.Padding = 5;
-                        headerCell28.BorderWidth = 1.5f;
+                        //headerCell28.BorderWidth = 1.5f;
                         headerCell28.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell28.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell28);
@@ -352,7 +352,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell29.Rowspan = 1;
                         headerCell29.Colspan = 1;
                         headerCell29.Padding = 5;
-                        headerCell29.BorderWidth = 1.5f;
+                        //headerCell29.BorderWidth = 1.5f;
                         headerCell29.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell29.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell29);
@@ -361,7 +361,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell30.Rowspan = 1;
                         headerCell30.Colspan = 1;
                         headerCell30.Padding = 5;
-                        headerCell30.BorderWidth = 1.5f;
+                        //headerCell30.BorderWidth = 1.5f;
                         headerCell30.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell30.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell30);
@@ -370,7 +370,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell31.Rowspan = 1;
                         headerCell31.Colspan = 1;
                         headerCell31.Padding = 5;
-                        headerCell31.BorderWidth = 1.5f;
+                        //headerCell31.BorderWidth = 1.5f;
                         headerCell31.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell31.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell31);
@@ -379,7 +379,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell32.Rowspan = 1;
                         headerCell32.Colspan = 1;
                         headerCell32.Padding = 5;
-                        headerCell32.BorderWidth = 1.5f;
+                        //headerCell32.BorderWidth = 1.5f;
                         headerCell32.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell32.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell32);
@@ -388,7 +388,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell33.Rowspan = 1;
                         headerCell33.Colspan = 1;
                         headerCell33.Padding = 5;
-                        headerCell33.BorderWidth = 1.5f;
+                        //headerCell33.BorderWidth = 1.5f;
                         headerCell33.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell33.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell33);
@@ -397,7 +397,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell34.Rowspan = 1;
                         headerCell34.Colspan = 1;
                         headerCell34.Padding = 5;
-                        headerCell34.BorderWidth = 1.5f;
+                        //headerCell34.BorderWidth = 1.5f;
                         headerCell34.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell34.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell34);
@@ -455,6 +455,7 @@ namespace Powder_MISProduct.ReportUI
                         //float[] widths = new float[] { 1f, 1f, 1f };
                         //pdfPTable1.TotalWidth = 300f;
                         //pdfPTable1.LockedWidth = true;
+                        pdfPTable1.WidthPercentage=30;
                         //pdfPTable1.HorizontalAlignment = Element.ALIGN_LEFT;
                         //pdfPTable1.SetWidths(widths);
 
@@ -493,7 +494,7 @@ namespace Powder_MISProduct.ReportUI
                                     pdfPTable.AddCell(CellTwoHdr);
                                 }
                             }
-                            pdfPTable.HeaderRows = 1;
+                            //pdfPTable.HeaderRows = 1;
                         }
 
                         foreach (GridViewRow gridViewRow in gvTotal.Rows)
@@ -531,7 +532,7 @@ namespace Powder_MISProduct.ReportUI
                                     pdfPTable1.AddCell(CellTwoHdr);
                                 }
                             }
-                            pdfPTable1.HeaderRows = 1;
+                            //pdfPTable1.HeaderRows = 1;
                         }
                         
                         var imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + "/images/Britania.png";
@@ -815,7 +816,7 @@ namespace Powder_MISProduct.ReportUI
                         gvTotal.DataBind();
                     }
 
-                    if (gvMassBalanceReport.Rows.Count > 0 || gvTotal.Rows.Count>0)
+                    if (gvMassBalanceReport.Rows.Count > 0 && gvTotal.Rows.Count>0)
                     {
                         gvMassBalanceReport.Visible = true;
                         gvTotal.Visible = true;
@@ -826,7 +827,9 @@ namespace Powder_MISProduct.ReportUI
                     else
                     {
                         divExport.Visible = false;
+                        gvTotal.Visible = false;
                         divNo.Visible = true;
+
                     }
                 }
                 else
