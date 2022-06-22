@@ -99,6 +99,15 @@ namespace Powder_MISProduct.ReportUI
                         headerCell2.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell2.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell2);
+                        
+                        PdfPCell headerCell40 = new PdfPCell(new Phrase("Milk transfer to Powder plant", header));
+                        headerCell40.Rowspan = 1;
+                        headerCell40.Colspan = 6;
+                        headerCell40.Padding = 5;
+                        headerCell40.BorderWidth = 1.5f;
+                        headerCell40.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell40.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell40);
 
                         PdfPCell headerCell3 = new PdfPCell(new Phrase("Other Inputs", header));
                         headerCell3.Rowspan = 1;
@@ -236,6 +245,61 @@ namespace Powder_MISProduct.ReportUI
                         headerCell16.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell16.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell16);
+
+                        //Sub-headers of Milk transfer to Powder plant
+                        PdfPCell headerCell41 = new PdfPCell(new Phrase("Equipment", header));
+                        headerCell41.Rowspan = 1;
+                        headerCell41.Colspan = 1;
+                        headerCell41.Padding = 5;
+                        headerCell41.BorderWidth = 1.5f;
+                        headerCell41.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell41.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell41);
+
+                        PdfPCell headerCell42 = new PdfPCell(new Phrase("Qty (kg)", header));
+                        headerCell6.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        headerCell42.Rowspan = 1;
+                        headerCell42.Colspan = 1;
+                        headerCell42.Padding = 5;
+                        headerCell42.BorderWidth = 1.5f;
+                        headerCell42.HorizontalAlignment = Element.ALIGN_CENTER;
+                        pdfPTable.AddCell(headerCell42);
+
+                        PdfPCell headerCell43 = new PdfPCell(new Phrase("Fat (%)", header));
+                        headerCell43.Rowspan = 1;
+                        headerCell43.Colspan = 1;
+                        headerCell43.Padding = 5;
+                        headerCell43.BorderWidth = 1.5f;
+                        headerCell43.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell43.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell43);
+
+                        PdfPCell headerCell44 = new PdfPCell(new Phrase("SNF (%)", header));
+                        headerCell44.Rowspan = 1;
+                        headerCell44.Colspan = 1;
+                        headerCell44.Padding = 5;
+                        headerCell44.BorderWidth = 1.5f;
+                        headerCell44.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell44.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell44);
+
+                        PdfPCell headerCell45 = new PdfPCell(new Phrase("Fat (Kg)", header));
+                        headerCell45.Rowspan = 1;
+                        headerCell45.Colspan = 1;
+                        headerCell45.Padding = 5;
+                        headerCell45.BorderWidth = 1.5f;
+                        headerCell45.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell45.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell45);
+
+                        PdfPCell headerCell46 = new PdfPCell(new Phrase("SNF (Kg)", header));
+                        headerCell46.Rowspan = 1;
+                        headerCell46.Colspan = 1;
+                        headerCell46.Padding = 5;
+                        headerCell46.BorderWidth = 1.5f;
+                        headerCell46.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell46.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell46);
 
                         //Sub-headers of Other Inputs
                         PdfPCell headerCell17 = new PdfPCell(new Phrase("Equipment", header));
@@ -404,7 +468,7 @@ namespace Powder_MISProduct.ReportUI
 
                         //////////////////////////////////////////////Adding header for Table2 /////////////////
 
-                        PdfPCell headerCell36 = new PdfPCell(new Phrase("Plant Mass Balance for Whey", header));
+                        PdfPCell headerCell36 = new PdfPCell(new Phrase("Plant Mass Balance for Milk", header));
                         headerCell36.Rowspan = 1;
                         headerCell36.Colspan = 1;
                         headerCell36.Padding = 5;
@@ -440,12 +504,13 @@ namespace Powder_MISProduct.ReportUI
                         headerCell39.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable1.AddCell(headerCell39);
 
-                        float[] widthsTAS = new float[30]{
-                            210f, 140f, 140f, 150f, 140f, 160f,
-                            190f, 140f, 140f, 150f, 140f, 160f,
-                            190f, 140f, 140f, 150f, 140f, 160f,
-                            190f, 140f, 140f, 150f, 140f, 160f,
-                            210f, 140f, 140f, 150f, 140f, 160f
+                        float[] widthsTAS = new float[36]{
+                            210f, 130f, 140f, 150f, 130f, 160f,
+                            210f, 130f, 140f, 150f, 130f, 160f,
+                            210f, 130f, 140f, 150f, 130f, 160f,
+                            210f, 130f, 140f, 150f, 130f, 160f,
+                            210f, 130f, 140f, 150f, 130f, 160f,
+                            210f, 130f, 140f, 150f, 130f, 160f
 
                         };
                         pdfPTable.SetWidths(widthsTAS);
@@ -931,6 +996,13 @@ namespace Powder_MISProduct.ReportUI
                 headerTableCell = new TableHeaderCell();
                 headerTableCell.RowSpan = 1;
                 headerTableCell.ColumnSpan = 6;
+                headerTableCell.Text = "Milk transfer to Powder plant";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+                
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 6;
                 headerTableCell.Text = "Other Inputs";
                 headerTableCell.Wrap = true;
                 headerRow1.Controls.Add(headerTableCell);
@@ -983,6 +1055,12 @@ namespace Powder_MISProduct.ReportUI
                 TableHeaderCell headerCell28 = new TableHeaderCell();
                 TableHeaderCell headerCell29 = new TableHeaderCell();
                 TableHeaderCell headerCell30 = new TableHeaderCell();
+                TableHeaderCell headerCell31 = new TableHeaderCell();
+                TableHeaderCell headerCell32 = new TableHeaderCell();
+                TableHeaderCell headerCell33 = new TableHeaderCell();
+                TableHeaderCell headerCell34 = new TableHeaderCell();
+                TableHeaderCell headerCell35 = new TableHeaderCell();
+                TableHeaderCell headerCell36 = new TableHeaderCell();
 
                 // Sub Header for Opening
                 headerCell1.Text = "Equipment";
@@ -999,6 +1077,14 @@ namespace Powder_MISProduct.ReportUI
                 headerCell10.Text = "Fat (Kg)";
                 headerCell11.Text = "SNF (%)";
                 headerCell12.Text = "SNF (Kg)";
+                
+                // Sub Header for Milk transfer to powder plant
+                headerCell31.Text = "Equipment";
+                headerCell32.Text = "Qty (Kg)";
+                headerCell33.Text = "Fat (%)";
+                headerCell34.Text = "Fat (Kg)";
+                headerCell35.Text = "SNF (%)";
+                headerCell36.Text = "SNF (Kg)";
 
                 // Sub Header for Other Inputs
                 headerCell13.Text = "Equipment";
@@ -1055,6 +1141,12 @@ namespace Powder_MISProduct.ReportUI
                 headerRow2.Controls.Add(headerCell28);
                 headerRow2.Controls.Add(headerCell29);
                 headerRow2.Controls.Add(headerCell30);
+                headerRow2.Controls.Add(headerCell31);
+                headerRow2.Controls.Add(headerCell32);
+                headerRow2.Controls.Add(headerCell33);
+                headerRow2.Controls.Add(headerCell34);
+                headerRow2.Controls.Add(headerCell35);
+                headerRow2.Controls.Add(headerCell36);
 
                 gvMassBalanceReport.Controls[0].Controls.AddAt(0, headerRow2);
                 gvMassBalanceReport.Controls[0].Controls.AddAt(0, headerRow1);

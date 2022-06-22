@@ -20,10 +20,17 @@ namespace Powder_MISProduct.ReportUI
 {
     public partial class CreamTankStatus : System.Web.UI.Page
     {
+        #region Page load
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                divExport.Visible = false;
+                txtFromDate.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                txtToDate.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            }
         }
+        #endregion
 
         #region VerifyRenderingInServerForm
         public override void VerifyRenderingInServerForm(Control control)
@@ -43,20 +50,33 @@ namespace Powder_MISProduct.ReportUI
                   CultureInfo.InvariantCulture);
                 DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text + " " + txtToTime.Text, "dd/MM/yyyy HH:mm:ss",
                     CultureInfo.InvariantCulture);
-                objResult = objCreamTank.CreamTankStatusReport(dtFromDateTime, dtToDateTime);
-                if (objResult.ResultDt.Rows.Count > 0)
+                if (dtFromDateTime <= dtToDateTime)
                 {
-                    gvCreamTankStatus.DataSource = objResult.ResultDt;
-                    gvCreamTankStatus.DataBind();
-                    // imgWordButton.Visible = imgExcelButton.Visible = true;
-                    divNo.Visible = false;
+                    objResult = objCreamTank.CreamTankStatusReport(dtFromDateTime, dtToDateTime);
+                    if (objResult.ResultDt.Rows.Count > 0)
+                    {
+                        gvCreamTankStatus.DataSource = objResult.ResultDt;
+                        gvCreamTankStatus.DataBind();
+                        // imgWordButton.Visible = imgExcelButton.Visible = true;
+                        divNo.Visible = false;
+                        divExport.Visible = true;
+                        gvCreamTankStatus.Visible = true;
+                    }
+                    else
+                    {
+                        // imgWordButton.Visible = imgExcelButton.Visible = false;
+                        divNo.Visible = true;
+                        divExport.Visible = false;
+                        gvCreamTankStatus.Visible = false;
+                        // ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
+                        //"<script>alert('No Record Found.');</script>");
+                    }
                 }
                 else
                 {
-                    // imgWordButton.Visible = imgExcelButton.Visible = false;
-                    divNo.Visible = true;
-                    // ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
-                    //"<script>alert('No Record Found.');</script>");
+                    gvCreamTankStatus.Visible = false;
+                    ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
+                   "<script>alert('You are not select From Date greater than To Date.');</script>");
                 }
             }
             catch (Exception ex)
@@ -178,25 +198,6 @@ namespace Powder_MISProduct.ReportUI
                     TableHeaderCell headerCell10;
                     TableHeaderCell headerCell11;
                     TableHeaderCell headerCell12;
-                    TableHeaderCell headerCell13;
-                    TableHeaderCell headerCell14;
-                    TableHeaderCell headerCell15;
-                    TableHeaderCell headerCell16;
-                    TableHeaderCell headerCell17;
-                    TableHeaderCell headerCell18;
-                    TableHeaderCell headerCell19;
-                    TableHeaderCell headerCell20;
-                    TableHeaderCell headerCell21;
-                    TableHeaderCell headerCell22;
-                    TableHeaderCell headerCell23;
-                    TableHeaderCell headerCell24;
-                    TableHeaderCell headerCell25;
-                    TableHeaderCell headerCell26;
-                    TableHeaderCell headerCell27;
-                    TableHeaderCell headerCell28;
-
-
-
 
 
                     headerCell1 = new TableHeaderCell();
@@ -206,33 +207,13 @@ namespace Powder_MISProduct.ReportUI
                     headerCell5 = new TableHeaderCell();
 
                     headerCell6 = new TableHeaderCell();
-                    headerCell7 = new TableHeaderCell();
+                    //headerCell7 = new TableHeaderCell();
                     headerCell8 = new TableHeaderCell();
-                    headerCell9 = new TableHeaderCell();
-                    headerCell10 = new TableHeaderCell();
+                    //headerCell9 = new TableHeaderCell();
+                   // headerCell10 = new TableHeaderCell();
 
-                    headerCell11 = new TableHeaderCell();
-                    headerCell12 = new TableHeaderCell();
-                    //headerCell13 = new TableHeaderCell();
-                    //headerCell14 = new TableHeaderCell();
-                    //headerCell15 = new TableHeaderCell();
-
-                    //headerCell16 = new TableHeaderCell();
-                    //headerCell17 = new TableHeaderCell();
-                    //headerCell18 = new TableHeaderCell();
-                    //headerCell19 = new TableHeaderCell();
-                    //headerCell20 = new TableHeaderCell();
-
-                    //headerCell21 = new TableHeaderCell();
-                    //headerCell22 = new TableHeaderCell();
-                    //headerCell23 = new TableHeaderCell();
-                    //headerCell24 = new TableHeaderCell();
-                    //headerCell25 = new TableHeaderCell();
-                    //headerCell26 = new TableHeaderCell();
-                    //headerCell27 = new TableHeaderCell();
-                    //headerCell28 = new TableHeaderCell();
-
-
+                    //headerCell11 = new TableHeaderCell();
+                    //headerCell12 = new TableHeaderCell();
 
                     headerCell1.Text = "Types of Cream";
                     headerCell2.Text = "Tank Status";
@@ -241,38 +222,8 @@ namespace Powder_MISProduct.ReportUI
                     headerCell5.Text = "Ageing timer(hr)";
                     headerCell6.Text = "Dirty Time(hr)";
 
-
-
-                     headerCell8.Text = "Cream Dispatch Quantity";
-                    //headerCell9.Text = "Qty (Ltrs)";
-                    //headerCell10.Text = "Temp (°C)";
-                    //headerCell11.Text = "Ageing timer(hr)";
-                    //headerCell12.Text = "Dirty Time(hr)";
-
-
-                    //headerCell15.Text = "Qty (Ltrs)";
-                    //headerCell16.Text = "Temp (°C)";
-                    //headerCell17.Text = "Inoculation Time(min)";
-                    //headerCell18.Text = "Curd Breaking Time(min)";
-                    //headerCell19.Text = "Ageing Time(hr)";
-                    //headerCell20.Text = "CIP Time(hr)";
-                    //headerCell21.Text = "QC Released Time";
-
-                    //headerCell22.Text = "Qty (Ltrs)";
-                    //headerCell23.Text = "Temp (°C)";
-                    //headerCell24.Text = "Inoculation Time(min)";
-                    //headerCell25.Text = "Curd Breaking Time(min)";
-                    //headerCell26.Text = "Ageing Time(hr)";
-                    //headerCell27.Text = "CIP Time(hr)";
-                    //headerCell28.Text = "QC Released Time";
-
-
-
-
-
-
-
-
+                    headerCell8.Text = "Cream Dispatch Quantity";
+                    
                     headerRow2.Controls.Add(headerCell1);
                     headerRow2.Controls.Add(headerCell2);
                     headerRow2.Controls.Add(headerCell3);
@@ -282,31 +233,7 @@ namespace Powder_MISProduct.ReportUI
                     headerRow2.Controls.Add(headerCell6);
                     //  headerRow2.Controls.Add(headerCell7);
                     headerRow2.Controls.Add(headerCell8);
-                    //headerRow2.Controls.Add(headerCell9);
-                    //headerRow2.Controls.Add(headerCell10);
-
-                    //headerRow2.Controls.Add(headerCell11);
-                    //headerRow2.Controls.Add(headerCell12);
-                    //headerRow2.Controls.Add(headerCell13);
-                    //headerRow2.Controls.Add(headerCell14);
-                    //headerRow2.Controls.Add(headerCell15);
-
-                    //headerRow2.Controls.Add(headerCell16);
-                    //headerRow2.Controls.Add(headerCell17);
-                    //headerRow2.Controls.Add(headerCell18);
-                    //headerRow2.Controls.Add(headerCell19);
-                    //headerRow2.Controls.Add(headerCell20);
-
-                    //headerRow2.Controls.Add(headerCell21);
-                    //headerRow2.Controls.Add(headerCell22);
-                    //headerRow2.Controls.Add(headerCell23);
-                    //headerRow2.Controls.Add(headerCell24);
-                    //headerRow2.Controls.Add(headerCell25);
-                    //headerRow2.Controls.Add(headerCell26);
-                    //headerRow2.Controls.Add(headerCell27);
-                    //headerRow2.Controls.Add(headerCell28);
-
-
+                    
                     gvCreamTankStatus.Controls[0].Controls.AddAt(0, headerRow2);
                     gvCreamTankStatus.Controls[0].Controls.AddAt(0, headerRow1);
                 }

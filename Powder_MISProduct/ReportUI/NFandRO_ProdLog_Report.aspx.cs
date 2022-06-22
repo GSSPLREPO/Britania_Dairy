@@ -478,7 +478,7 @@ namespace Powder_MISProduct.ReportUI
 
                             //////////////////////////////////////////////Adding header for Table2 /////////////////
 
-                            PdfPCell headerCell36 = new PdfPCell(new Phrase("NANO FEED TOTAL LITERS", header));
+                            PdfPCell headerCell36 = new PdfPCell(new Phrase("NF FEED TOTAL LITERS", header));
                             headerCell36.Rowspan = 1;
                             headerCell36.Colspan = 1;
                             headerCell36.Padding = 5;
@@ -487,7 +487,7 @@ namespace Powder_MISProduct.ReportUI
                             headerCell36.VerticalAlignment = Element.ALIGN_MIDDLE;
                             pdfPTable1.AddCell(headerCell36);
 
-                            PdfPCell headerCell47 = new PdfPCell(new Phrase("NANO CONC TOTAL LITERS", header));
+                            PdfPCell headerCell47 = new PdfPCell(new Phrase("NF CONC TOTAL LITERS", header));
                             headerCell47.Rowspan = 1;
                             headerCell47.Colspan = 1;
                             headerCell47.Padding = 5;
@@ -1233,14 +1233,14 @@ namespace Powder_MISProduct.ReportUI
                 headerTableCell = new TableHeaderCell();
                 headerTableCell.RowSpan = 1;
                 headerTableCell.ColumnSpan = 1;
-                headerTableCell.Text = "NANO FEED TOTAL LITERS";
+                headerTableCell.Text = "NF FEED TOTAL LITERS";
                 headerTableCell.Wrap = true;
                 headerRow1.Controls.Add(headerTableCell);
 
                 headerTableCell = new TableHeaderCell();
                 headerTableCell.RowSpan = 1;
                 headerTableCell.ColumnSpan = 1;
-                headerTableCell.Text = "NANO CONC TOTAL LITERS";
+                headerTableCell.Text = "NF CONC TOTAL LITERS";
                 headerTableCell.Wrap = true;
                 headerRow1.Controls.Add(headerTableCell);
 
