@@ -13,7 +13,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-10" style="font-size: 24px;">
-                      Cream Tank Status Report
+                     Past Cream Tank Status Report
                     </div>
                     <div class="col-md-2 right" id="divExport" runat="server">
                         <asp:LinkButton ID="imgPDFButton" runat="server" OnClick="imgPDFButton_Click" CssClass="btn btn-danger quick-btn"><i class="fa fa-file-pdf-o"></i></asp:LinkButton>
