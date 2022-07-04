@@ -1,25 +1,21 @@
-﻿using System;
-using System.Data;
-using System.Collections.Generic;
+﻿using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using Powder_MISProduct.BL;
+using Powder_MISProduct.Common;
+using System;
 using System.Globalization;
-using System.IO;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Powder_MISProduct.BL;
-using log4net;
-using Powder_MISProduct.Common;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
-using iTextSharp.text.html.simpleparser;
-using System.Drawing;
+using System.IO;
 using System.Text;
-
 
 namespace Powder_MISProduct.ReportUI
 {
-    public partial class CIP : System.Web.UI.Page
+    public partial class CIP_3 : System.Web.UI.Page
     {
         #region Load page event
         protected void Page_Load(object sender, EventArgs e)
@@ -64,7 +60,7 @@ namespace Powder_MISProduct.ReportUI
 
                     if (this.iCount != 0)
                     {
-                        ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("CIP Log Reprot C3F1", FONT), 1190, 1665, 0);
+                        ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("CIP Log Reprot C3F3", FONT), 1190, 1665, 0);
                     }
                     iCount = iCount + 1;
 
@@ -94,7 +90,7 @@ namespace Powder_MISProduct.ReportUI
             {
                 string text = Session[ApplicationSession.OrganisationName].ToString();
                 string text1 = Session[ApplicationSession.OrganisationAddress].ToString();
-                string text2 = "CIP Log Report - C3F1";
+                string text2 = "CIP Log Report - C3F3";
 
                 using (StringWriter sw = new StringWriter())
                 {
@@ -616,7 +612,7 @@ namespace Powder_MISProduct.ReportUI
                         pdfDoc.Close();
                         Response.ContentType = "application/pdf";
 
-                        Response.AddHeader("content-disposition", "attachment;" + "filename=CIP_Log_Report_C3F1_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + "_" + DateTime.Now.Date.ToString("HH:mm:ss") + ".pdf");
+                        Response.AddHeader("content-disposition", "attachment;" + "filename=CIP_Log_Report_C3F3_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + "_" + DateTime.Now.Date.ToString("HH:mm:ss") + ".pdf");
                         Response.Cache.SetCacheability(HttpCacheability.NoCache);
                         Response.Write(pdfDoc);
                         Response.Flush();
@@ -653,7 +649,7 @@ namespace Powder_MISProduct.ReportUI
                 Response.ContentType = "application/vnd.ms-excel";
                 Response.ContentEncoding = System.Text.Encoding.Unicode;
                 Response.BinaryWrite(System.Text.Encoding.Unicode.GetPreamble());
-                string filename = "CIP_Log_Report_C3F1_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + "_" + DateTime.Now.Date.ToString("HH:mm:ss") + ".xls";
+                string filename = "CIP_Log_Report_C3F3_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + "_" + DateTime.Now.Date.ToString("HH:mm:ss") + ".xls";
                 Response.AddHeader("content-disposition", "attachment;filename=" + filename);
                 Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
@@ -744,7 +740,7 @@ namespace Powder_MISProduct.ReportUI
 
 
                 gvCIPReport.RenderControl(hw);
-                string strSubTitle = "CPL Log Report C3F1";
+                string strSubTitle = "CPL Log Report C3F3";
 
                 string imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath());
                 string imageURL1 = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath1());
@@ -784,46 +780,6 @@ namespace Powder_MISProduct.ReportUI
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Oops! There is some technical issue. Please Contact to your administrator.');", true);
             }
 
-            //try
-            //{
-            //    string text = Session[ApplicationSession.OrganisationName].ToString();
-            //    string text1 = Session[ApplicationSession.OrganisationAddress].ToString();
-            //    string text2 = "CIP Log REPORT";
-            //    string filename = "CIP Log REPORT" + DateTime.Now.Date.ToString("dd-MM-yyyy") + ".xls";
-            //    Response.AddHeader("content-disposition", "attachment;filename=" + filename);
-            //    //Response.AddHeader("content-disposition", "attachment;filename=WeighbridgeSummaryReport.xls");
-            //    Response.Charset = "";
-            //    Response.ContentType = "application/vnd.ms-excel";
-            //    StringWriter sw = new StringWriter();
-            //    HtmlTextWriter hw = new HtmlTextWriter(sw);
-            //    gvCIPReport.AllowPaging = false;
-            //    gvCIPReport.RenderControl(hw);
-            //    string strTitle = text;
-            //    string Date = DateTime.UtcNow.AddHours(5.5).ToString();
-            //    string strSubTitle = text2 + "</br>";
-            //    //string strPath = Request.Url.GetLeftPart(UriPartial.Authority) + "/images/Logo1.gif";
-            //    string strPath = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath());
-            //    string strPath1 = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath1());
-
-            //    string content = "<div align='left' style='font-family:verdana;font-size:16px'><img width='100' height='100' src='" + strPath + "'/></div><div align='center' style='font-family:verdana;font-size:16px;style='text-align:center'><img width='100' height='100' src='" + strPath1 + "'/></div><div align='center' style='font-family:verdana;font-size:16px'><span style='font-size:16px;font-weight:bold;color:Black;'>" + Session[ApplicationSession.OrganisationName] +
-            //           "</span><br/><span style='font-size:13px;font-weight:bold;color:Black;'>" + Session[ApplicationSession.OrganisationAddress] + "</span><br/>" +
-            //              "<span align='center' style='font-family:verdana;font-size:13px'><strong>" + strSubTitle + "</strong></span><br/>" +
-            //              "<div align='center' style='font-family:verdana;font-size:12px'><strong>From Date :</strong>" +
-            //          DateTime.ParseExact(txtFromDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture) +
-            //           "&nbsp;&nbsp;&nbsp;&nbsp;<strong> To Date :</strong>" +
-            //           DateTime.ParseExact(txtToDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture) +
-            //           "</div><br/> "
-            //           + sw.ToString() + "<br/></div>";
-            //    Response.Output.Write(content);
-            //    Response.Flush();
-            //    Response.End();
-            //}
-            //catch (Exception ex)
-            //{
-            //    // log.Error("Button EXCEL", ex);
-            //    ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Oops! There is some technical issue. Please Contact to your administrator.');", true);
-            //}
-
         }
 
         protected void btnGo_Click(object sender, EventArgs e)
@@ -839,7 +795,7 @@ namespace Powder_MISProduct.ReportUI
 
                 if (dtFromDateTime <= dtToDateTime)
                 {
-                    objResult = objTransfer.CIPLogReport(dtFromDateTime, dtToDateTime, 1);
+                    objResult = objTransfer.CIPLogReport(dtFromDateTime, dtToDateTime, 3);
                     if (objResult.ResultDt.Rows.Count > 0)
                     {
                         gvCIPReport.DataSource = objResult.ResultDt;

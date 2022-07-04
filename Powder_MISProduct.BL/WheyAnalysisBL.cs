@@ -83,7 +83,7 @@ namespace Powder_MISProduct.BL
         {
             try
             {
-                pSqlParameter = new SqlParameter[28];
+                pSqlParameter = new SqlParameter[30];
 
                 pSqlParameter[0] = new SqlParameter("@Id", SqlDbType.Int);
                 pSqlParameter[0].Direction = ParameterDirection.Input;
@@ -92,7 +92,7 @@ namespace Powder_MISProduct.BL
                 pSqlParameter[1] = new SqlParameter("@Date", SqlDbType.NVarChar);
                 pSqlParameter[1].Direction = ParameterDirection.Input;
                 pSqlParameter[1].Value = objWheyAnalysisBo.Date;
-
+                                
                 pSqlParameter[2] = new SqlParameter("@SampleName", SqlDbType.NVarChar);
                 pSqlParameter[2].Direction = ParameterDirection.Input;
                 pSqlParameter[2].Value = objWheyAnalysisBo.SampleName;
@@ -195,9 +195,22 @@ namespace Powder_MISProduct.BL
                 pSqlParameter[26].Value = objWheyAnalysisBo.IsDeleted;
 
 
-                pSqlParameter[27] = new SqlParameter("@Time", SqlDbType.Time);
+                //pSqlParameter[27] = new SqlParameter("@Time", SqlDbType.VarChar);
+                //pSqlParameter[27].Direction = ParameterDirection.Input;
+                //pSqlParameter[27].Value = objWheyAnalysisBo.Time;
+
+                pSqlParameter[27] = new SqlParameter("@SampleDateTime", SqlDbType.VarChar);
                 pSqlParameter[27].Direction = ParameterDirection.Input;
-                pSqlParameter[27].Value = objWheyAnalysisBo.Time;
+                pSqlParameter[27].Value = objWheyAnalysisBo.SampleDate;
+                
+                pSqlParameter[28] = new SqlParameter("@CreatedDate", SqlDbType.DateTime);
+                pSqlParameter[28].Direction = ParameterDirection.Input;
+                pSqlParameter[28].Value = objWheyAnalysisBo.CreatedDate;
+                
+                pSqlParameter[29] = new SqlParameter("@CreatedBy", SqlDbType.Int);
+                pSqlParameter[29].Direction = ParameterDirection.Input;
+                pSqlParameter[29].Value = objWheyAnalysisBo.CreatedBy;
+
 
                 sSql = "usp_WheyAnalysis_Insert";
                 int iResult = Database.ExecuteNonQuery(CommandType.StoredProcedure, sSql, pSqlParameter);
@@ -250,6 +263,7 @@ namespace Powder_MISProduct.BL
                 pSqlParameter[3].Direction = ParameterDirection.Input;
                 pSqlParameter[3].Value = objWheyAnalysisBo.SampleNo;
 
+                pSqlParameter[4] = new SqlParameter("@ProductName", SqlDbType.NVarChar);
                 pSqlParameter[4] = new SqlParameter("@ProductName", SqlDbType.NVarChar);
                 pSqlParameter[4].Direction = ParameterDirection.Input;
                 pSqlParameter[4].Value = objWheyAnalysisBo.ProductName;
@@ -343,13 +357,17 @@ namespace Powder_MISProduct.BL
                 pSqlParameter[26].Direction = ParameterDirection.Input;
                 pSqlParameter[26].Value = objWheyAnalysisBo.LastModifiedBy;
 
-                pSqlParameter[27] = new SqlParameter("@LastModifiedDate", SqlDbType.VarChar);
+                pSqlParameter[27] = new SqlParameter("@LastModifiedDate", SqlDbType.DateTime);
                 pSqlParameter[27].Direction = ParameterDirection.Input;
                 pSqlParameter[27].Value = objWheyAnalysisBo.LastModifiedDate;
 
-                pSqlParameter[28] = new SqlParameter("@Time", SqlDbType.Time);
+                //pSqlParameter[28] = new SqlParameter("@Time", SqlDbType.Time);
+                //pSqlParameter[28].Direction = ParameterDirection.Input;
+                //pSqlParameter[28].Value = objWheyAnalysisBo.Time;
+                
+                pSqlParameter[28] = new SqlParameter("@SampleDateTime", SqlDbType.VarChar);
                 pSqlParameter[28].Direction = ParameterDirection.Input;
-                pSqlParameter[28].Value = objWheyAnalysisBo.Time;
+                pSqlParameter[28].Value = objWheyAnalysisBo.SampleDate;
 
 
                 sSql = "usp_WheyAnalysis_Update";
@@ -429,7 +447,7 @@ namespace Powder_MISProduct.BL
                 pSqlParameter[1].Direction = ParameterDirection.Input;
                 pSqlParameter[1].Value = intLastModifiedBy;
 
-                pSqlParameter[2] = new SqlParameter("@LastModifiedDate", SqlDbType.VarChar);
+                pSqlParameter[2] = new SqlParameter("@LastModifiedDate", SqlDbType.DateTime);
                 pSqlParameter[2].Direction = ParameterDirection.Input;
                 pSqlParameter[2].Value = strLastModifiedDate;
 

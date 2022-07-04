@@ -11,7 +11,7 @@ namespace Powder_MISProduct.ReportUI
 {
 
 
-    public partial class WheyAnalysisReport
+    public partial class CIP_2
     {
 
         /// <summary>
@@ -87,13 +87,13 @@ namespace Powder_MISProduct.ReportUI
         protected global::System.Web.UI.WebControls.Button btnGo;
 
         /// <summary>
-        /// gvWheyAnalysis control.
+        /// gvCIPReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvWheyAnalysis;
+        protected global::System.Web.UI.WebControls.GridView gvCIPReport;
 
         /// <summary>
         /// divNo control.

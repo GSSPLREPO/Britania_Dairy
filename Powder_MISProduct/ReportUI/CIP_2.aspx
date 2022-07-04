@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/MainMaster.Master" AutoEventWireup="true" CodeBehind="EvaporatorLog.aspx.cs" Inherits="Powder_MISProduct.ReportUI.EvaporatorLog" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/MainMaster.Master" AutoEventWireup="true" CodeBehind="CIP_2.aspx.cs" Inherits="Powder_MISProduct.ReportUI.CIP_2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <div id="breadcrumb">
+       <div id="breadcrumb">
         <ul class="breadcrumb">
             <li><i class="fa fa-home"></i><a href="../WebUI/DashBoard.aspx">Home</a></li>
-            <li class="active">| Evaporator Log Report</li>
+            <li class="active">CIP Log Report-C3F2</li>
         </ul>
     </div>
     <div class="col-md-12">
@@ -13,7 +13,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-10" style="font-size: 24px;">
-                        Evaporator Log Report
+                        CIP Log Report-C3F2
                     </div>
                     <div class="col-md-2 right" id="divExport" runat="server">
                         <asp:LinkButton ID="imgPDFButton" runat="server" OnClick="imgPDFButton_Click" CssClass="btn btn-danger quick-btn"><i class="fa fa-file-pdf-o"></i></asp:LinkButton>
@@ -83,58 +83,23 @@
                 <br />
                 <div class="row">
                     <div class="col-md-12" style="overflow: scroll">
-                         <div class="col-md-12" style="overflow: scroll">
-                        <asp:GridView ID="gvEvaporator" runat="server" GridLines="Both" 
+                        <asp:GridView ID="gvCIPReport" runat="server" GridLines="Both" 
                         AutoGenerateColumns="true" HeaderStyle-Wrap="false"
                         Width="100%" ShowHeader="false"
-                        OnRowCreated="gvEvaporator_RowCreated" OnPreRender="gvEvaporator_PreRender"
+                        OnRowCreated="gvCIPReport_RowCreated"
                         HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped" 
                         HeaderStyle-HorizontalAlign="Center" >
                         <RowStyle HorizontalAlign="Center"  Width="100%"/>
-                         </asp:GridView>
-                        <%-- <asp:GridView runat="server" ID="gvEvaporator"
-                        AutoGenerateColumns="False" GridLines="Both" HeaderStyle-Wrap="false"
-                        HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped" OnPreRender="gvEvaporator_PreRender1">
-                           <Columns>
-                            <asp:BoundField DataField="SrNo" HeaderText="Sr No." ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="Date" HeaderText="Date" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="Time" HeaderText="Time" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="PlantStatus" HeaderText="PlantStatus" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="EvapBalanceTank" HeaderText="EvapBalanceTank(%)" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="FeedFlow" HeaderText="FeedFlow(Kg/hr)" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="FeedConductivity" HeaderText="FeedConductivity(ms/cm)" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="FeedPreheatertmp" HeaderText="FeedPreheatertmp(°C)" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="PCDTemp" HeaderText="PCDTemp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="FV1Heatingtemp" HeaderText="FV1Heatingtemp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="FV2Heatingtemp" HeaderText="FV2Heatingtemp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="DSITemp" HeaderText="DSITemp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="FV1regenerationtemp" HeaderText="FV1regenerationtemp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="FV2regenerationtemp" HeaderText="FV2regenerationtemp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="Cal1Temp" HeaderText="Cal1Temp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="Cal2Temp" HeaderText="Cal2Temp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="Cal3Temp" HeaderText="Cal3Temp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="Cal4Temp" HeaderText="Cal4Temp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="CondenserCWInTemp" HeaderText="CondenserCWInTemp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="CondenserCWOutTemp" HeaderText="CondenserCWOutTemp(°C)" ItemStyle-Wrap="false" />
-                         <asp:BoundField DataField="CondenserTemp" HeaderText="CondenserTemp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="PlantVaccum" HeaderText="PlantVaccum(mbar)" ItemStyle-Wrap="false" />
-
-                               <asp:BoundField DataField="PCDTVRPressure" HeaderText="PCDTVRPressure(barg)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="CalTVRPressure" HeaderText="CalTVRPressure(barg)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="DSIBackPressure" HeaderText="DSIBackPressure(barg)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="DSISteamSupplyPressure" HeaderText="DSISteamSupplyPressure(barg)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="DSIOutletTemp" HeaderText="DSIOutletTemp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="CondensateCond" HeaderText="CondensateCond(ms/cm)" ItemStyle-Wrap="false" />
-                         <asp:BoundField DataField="Ejector1SteamPressure" HeaderText="Ejector1SteamPressure(barg)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="Ejector2SteamPressure" HeaderText="Ejector2SteamPressure(barg)" ItemStyle-Wrap="false" />
-
-                               <asp:BoundField DataField="ConcFlow" HeaderText="ConcFlow(Kg/hr)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="FinalConcDensity" HeaderText="FinalConcDensity(Kg/m3)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-                            <asp:BoundField DataField="FinalConcFlow" HeaderText="FinalConcFlow(Kg/hr)" ItemStyle-Wrap="false" />
-                         <asp:BoundField DataField="FinalConcTemp" HeaderText="FinalConcTemp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-
+                         </asp:GridView>  
+                        
+                       <%-- <asp:GridView runat="server" ID="gvCIPReport"
+                        OnRowCreated="gvCIPReport_RowCreated"
+                        AutoGenerateColumns="true" GridLines="Both"
+                        HeaderStyle-Wrap="false" ShowHeader="false" HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped">
+                        <Columns>
+                            
                         </Columns>
-                         </asp:GridView>--%>
+                    </asp:GridView>--%>
 
                     </div>
                 </div>
@@ -144,7 +109,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <script type="text/javascript">
+      <script type="text/javascript">
         var date = new Date();
         var end = new Date(date.getFullYear(), date.getMonth(), date.getDate());
         var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());

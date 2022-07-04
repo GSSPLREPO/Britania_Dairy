@@ -78,6 +78,15 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Lab;
 
         /// <summary>
+        /// TankLabReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TankLabReport;
+
+        /// <summary>
         /// Role control.
         /// </summary>
         /// <remarks>
@@ -238,6 +247,24 @@ namespace Powder_MISProduct.Master
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl CIP;
+
+        /// <summary>
+        /// CIP2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CIP2;
+
+        /// <summary>
+        /// CIP3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CIP3;
 
         /// <summary>
         /// ChemicalConsumption control.

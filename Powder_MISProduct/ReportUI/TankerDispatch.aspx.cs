@@ -70,7 +70,7 @@ namespace Powder_MISProduct.ReportUI
 
                     if (this.iCount != 0)
                     {
-                        ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("TankerDispatch REPORT", FONT), 1190, 1665, 0);
+                        ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("Tanker Dispatch Report", FONT), 1190, 1665, 0);
                     }
                     iCount = iCount + 1;
 
@@ -358,7 +358,7 @@ namespace Powder_MISProduct.ReportUI
                         pdfDoc.Close();
                         Response.ContentType = "application/pdf";
 
-                        Response.AddHeader("content-disposition", "attachment;" + "filename=WPL_Log_Report_" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("HH:mm:ss") + ".pdf");
+                        Response.AddHeader("content-disposition", "attachment;" + "filename=Tanker_Dispatch_Report_" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("HH:mm:ss") + ".pdf");
                         Response.Cache.SetCacheability(HttpCacheability.NoCache);
                         Response.Write(pdfDoc);
                         Response.Flush();

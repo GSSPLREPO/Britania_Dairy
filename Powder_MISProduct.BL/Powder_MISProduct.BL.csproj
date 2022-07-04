@@ -67,6 +67,7 @@
     <Compile Include="ScreenBL.cs" />
     <Compile Include="ShiftBl.cs" />
     <Compile Include="TankerDispatchBL.cs" />
+    <Compile Include="TankLabReportBL.cs" />
     <Compile Include="TransferBL.cs" />
     <Compile Include="UtilityConsumptionBl.cs" />
     <Compile Include="WheyAnalysisBL.cs" />

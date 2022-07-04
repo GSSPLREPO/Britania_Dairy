@@ -111,8 +111,17 @@ namespace Powder_MISProduct.WebUI
                     {
                         if (objResult.ResultDt.Rows.Count > 0)
                         {
-                            txtDate.Text = objResult.ResultDt.Rows[0][WheyAnalysisBO.WheyAnalysis_DateTime].ToString();
-                            txttime.Text = objResult.ResultDt.Rows[0][WheyAnalysisBO.WheyAnalysis_Time].ToString();
+                            var Date = objResult.ResultDt.Rows[0][WheyAnalysisBO.WheyAnalysis_DateTime].ToString().Split(' ');
+                            var SampleDate = objResult.ResultDt.Rows[0][WheyAnalysisBO.WheyAnalysis_SampleDateTime].ToString().Split(' ');
+
+                            //txtDate.Text = objResult.ResultDt.Rows[0][WheyAnalysisBO.WheyAnalysis_DateTime].ToString();
+                            //txttime.Text = objResult.ResultDt.Rows[0][WheyAnalysisBO.WheyAnalysis_Time].ToString();
+                            
+                            txtDate.Text = Date[0];
+                            txttime.Text = Date[1];
+                            txtSampleDate.Text = SampleDate[0];
+                            txtSampleTime.Text = SampleDate[1];
+
                             txtSampleNo.Text = objResult.ResultDt.Rows[0][WheyAnalysisBO.WheyAnalysis_SampleNo].ToString();
                             txtsamplename.Text = objResult.ResultDt.Rows[0][WheyAnalysisBO.WheyAnalysis_SampleName].ToString();
                             txtProductName.Text = objResult.ResultDt.Rows[0][WheyAnalysisBO.WheyAnalysis_ProductName].ToString();
@@ -192,8 +201,10 @@ namespace Powder_MISProduct.WebUI
                     WheyAnalysisBO objWheyAnalysisBO = new WheyAnalysisBO();
                     WheyAnalysisBL objWheyAnalysisBL = new WheyAnalysisBL();
 
-                    objWheyAnalysisBO.Date = txtDate.Text.Trim();
-                    objWheyAnalysisBO.Time = txttime.Text.Trim();
+                    objWheyAnalysisBO.Date = txtDate.Text.Trim() +" "+ txttime.Text.Trim();
+                    //objWheyAnalysisBO.Time = txttime.Text.Trim();
+                    objWheyAnalysisBO.SampleDate = txtSampleDate.Text.Trim()+ " " +txtSampleTime.Text.Trim();
+                    //objWheyAnalysisBO.SampleTime = txtSampleTime.Text.Trim();
                     objWheyAnalysisBO.SampleName = txtsamplename.Text.Trim();
                     objWheyAnalysisBO.SampleNo = txtSampleNo.Text.Trim();
                     objWheyAnalysisBO.ProductName = txtProductName.Text.Trim();

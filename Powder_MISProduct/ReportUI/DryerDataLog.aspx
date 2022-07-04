@@ -84,10 +84,18 @@
                 <br />
                 <div class="row">
                     <div class="col-md-12" style="overflow: scroll">
-                         <asp:GridView runat="server" ID="gvDryer"
+                         <div class="col-md-12" style="overflow: scroll">
+                        <asp:GridView ID="gvDryer" runat="server" GridLines="Both" 
+                        AutoGenerateColumns="true" HeaderStyle-Wrap="false"
+                        Width="100%" ShowHeader="false"
+                        OnRowCreated="gvDryer_RowCreated" OnPreRender="gvDryer_PreRender"
+                        HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped" 
+                        HeaderStyle-HorizontalAlign="Center" >
+                        <RowStyle HorizontalAlign="Center"  Width="100%"/>
+                         </asp:GridView>
+                         <%--<asp:GridView runat="server" ID="gvDryer"
                         AutoGenerateColumns="False" GridLines="Both" HeaderStyle-Wrap="false"
                         HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped" OnPreRender="gvDryer_PreRender">
-<%--                        <RowStyle HorizontalAlign="Center"  Width="100%"/>--%>
                            <Columns>
                             <asp:BoundField DataField="SrNo" HeaderText="Sr No." ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Date" HeaderText="Date" ItemStyle-Wrap="false" />
@@ -125,13 +133,12 @@
                             <asp:BoundField DataField="Dryerexhausttemp" HeaderText="Dryerexhausttemp(°C)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
                             <asp:BoundField DataField="SFBDPT" HeaderText="SFBDPT(mmWC)" ItemStyle-Wrap="false" />
                          <asp:BoundField DataField="Cyclone1dpt" HeaderText="Cyclone1dpt(mmWC)" ItemStyle-Wrap="false" ><ItemStyle CssClass="right-align" /></asp:BoundField>
-<%--                            <asp:BoundField DataField="Remarks" HeaderText="Remarks" ItemStyle-Wrap="false" />--%>
                             <asp:BoundField DataField="RootsBlowerpressure" HeaderText="RootsBlowerpressure(mmWC)" ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="RootsBlowerTemp" HeaderText="RootsBlowerTemp(°C)" ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Recoverytankqnt" HeaderText="Recoverytankqnt(Lit)" ItemStyle-Wrap="false" />
 
                         </Columns>
-                         </asp:GridView>
+                         </asp:GridView>--%>
 
                     </div>
                 </div>

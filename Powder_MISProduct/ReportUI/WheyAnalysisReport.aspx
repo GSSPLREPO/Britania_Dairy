@@ -83,10 +83,17 @@
                 <br />
                 <div class="row">
                     <div class="col-md-12" style="overflow: scroll">
-                         <asp:GridView runat="server" ID="gvWheyAnalysis"
+                         <asp:GridView ID="gvWheyAnalysis" runat="server" GridLines="Both" 
+                        AutoGenerateColumns="true" HeaderStyle-Wrap="false"
+                        Width="100%" ShowHeader="false"
+                        OnRowCreated="gvWheyAnalysis_RowCreated" OnPreRender="gvWheyAnalysis_PreRender"
+                        HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped" 
+                        HeaderStyle-HorizontalAlign="Center" >
+                        <RowStyle HorizontalAlign="Center"  Width="100%"/>
+                         </asp:GridView>
+                         <%--<asp:GridView runat="server" ID="gvWheyAnalysis"
                         AutoGenerateColumns="False" GridLines="Both" HeaderStyle-Wrap="false"
                         HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped" OnPreRender="gvWheyAnalysis_PreRender">
-<%--                        <RowStyle HorizontalAlign="Center"  Width="100%"/>--%>
                                   <Columns>
                             <asp:BoundField DataField="SrNo" HeaderText="Sr No." ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Date" HeaderText="Date" ItemStyle-Wrap="false" />
@@ -116,7 +123,7 @@
                              <asp:BoundField DataField="Status" HeaderText="Status" ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Remarks" HeaderText="Remark" ItemStyle-Wrap="false" />
                         </Columns>
-                         </asp:GridView>
+                         </asp:GridView>--%>
 
                     </div>
                 </div>

@@ -319,6 +319,8 @@
     <Content Include="Content\_bootstrap-datetimepicker.less" />
     <Content Include="ReportUI\ChemicalConsumption.aspx" />
     <Content Include="ReportUI\CIP.aspx" />
+    <Content Include="ReportUI\CIP_2.aspx" />
+    <Content Include="ReportUI\CIP_3.aspx" />
     <Content Include="ReportUI\ConcFeedTankStatus.aspx" />
     <Content Include="ReportUI\CPLLog.aspx" />
     <Content Include="ReportUI\CreamBufferTankStatus.aspx" />
@@ -435,6 +437,7 @@
     <Content Include="WebUI\Role.aspx" />
     <Content Include="WebUI\RoleRights.aspx" />
     <Content Include="WebUI\Shift.aspx" />
+    <Content Include="WebUI\TankLabReport.aspx" />
     <Content Include="WebUI\WeighAnalysis.aspx" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
@@ -596,6 +599,20 @@
     </Compile>
     <Compile Include="ReportUI\CIP.aspx.designer.cs">
       <DependentUpon>CIP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUI\CIP_2.aspx.cs">
+      <DependentUpon>CIP_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportUI\CIP_2.aspx.designer.cs">
+      <DependentUpon>CIP_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUI\CIP_3.aspx.cs">
+      <DependentUpon>CIP_3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportUI\CIP_3.aspx.designer.cs">
+      <DependentUpon>CIP_3.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReportUI\ConcFeedTankStatus.aspx.cs">
       <DependentUpon>ConcFeedTankStatus.aspx</DependentUpon>
@@ -834,6 +851,13 @@
     </Compile>
     <Compile Include="WebUI\Shift.aspx.designer.cs">
       <DependentUpon>Shift.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUI\TankLabReport.aspx.cs">
+      <DependentUpon>TankLabReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUI\TankLabReport.aspx.designer.cs">
+      <DependentUpon>TankLabReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebUI\WeighAnalysis.aspx.cs">
       <DependentUpon>WeighAnalysis.aspx</DependentUpon>
