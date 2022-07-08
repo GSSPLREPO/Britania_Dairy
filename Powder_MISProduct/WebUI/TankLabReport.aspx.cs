@@ -291,6 +291,12 @@ namespace Powder_MISProduct.WebUI
                 txtTankName.Text = "Whey Reception From Whey Section";
             else if(temp== "Yogurt Frop Tp")
                 txtTankName.Text = "Yogurt Reception From Yogurt  Section";
+            else if(temp== "SMP/WMP/DW From TP")
+                txtTankName.Text = "Milk recived from LMP to Evap";
+            else if(temp== "Evap Product Out")
+                txtTankName.Text = "Product Outlet From Evap";
+            else if(temp== "Dryer Product In")
+                txtTankName.Text = "Product Inlet to Dryer";
 
         }
 

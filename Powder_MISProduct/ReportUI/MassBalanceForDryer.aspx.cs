@@ -19,10 +19,17 @@ using System.Globalization;
 
 namespace Powder_MISProduct.ReportUI
 {
-    public partial class MassBalanceWhey : System.Web.UI.Page
+    public partial class MassBalanceForDryer : System.Web.UI.Page
     {
+        /// <summary>
+        /// Created By: Farheen
+        /// Created Date: 08 July'22
+        /// Description: Mass balance for dryer report.
+        /// </summary>
+        
         private static ILog log = LogManager.GetLogger(typeof(MassBalanceWhey));
         //private Microsoft.Office.Interop.Excel.Application excelApp;
+        #region Page load event
         protected void Page_Load(object sender, EventArgs e)
         {
             divExport.Visible = false;
@@ -34,7 +41,221 @@ namespace Powder_MISProduct.ReportUI
 
             }
         }
+        #endregion
 
+        #region GridView row-created event
+
+        protected void gvMassBalanceReport_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                GridViewRow headerRow1 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
+                GridViewRow headerRow2 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
+
+                TableHeaderCell headerTableCell = new TableHeaderCell();
+
+                // Code for headerRow1
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 6;
+                headerTableCell.Text = "Opening Stock";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 6;
+                headerTableCell.Text = "Milk Received";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 6;
+                headerTableCell.Text = "Other Inputs";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 6;
+                headerTableCell.RowSpan = 1;
+                headerTableCell.Text = "Dispatch";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 6;
+                headerTableCell.RowSpan = 1;
+                headerTableCell.Text = "Closing";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                // Sub header start Here (headerRow2)
+
+
+                // Code for headerRow3
+                TableHeaderCell headerCell1 = new TableHeaderCell();
+                TableHeaderCell headerCell2 = new TableHeaderCell();
+                TableHeaderCell headerCell3 = new TableHeaderCell();
+                TableHeaderCell headerCell4 = new TableHeaderCell();
+                TableHeaderCell headerCell5 = new TableHeaderCell();
+                TableHeaderCell headerCell6 = new TableHeaderCell();
+                TableHeaderCell headerCell7 = new TableHeaderCell();
+                TableHeaderCell headerCell8 = new TableHeaderCell();
+                TableHeaderCell headerCell9 = new TableHeaderCell();
+                TableHeaderCell headerCell10 = new TableHeaderCell();
+                TableHeaderCell headerCell11 = new TableHeaderCell();
+                TableHeaderCell headerCell12 = new TableHeaderCell();
+                TableHeaderCell headerCell13 = new TableHeaderCell();
+                TableHeaderCell headerCell14 = new TableHeaderCell();
+                TableHeaderCell headerCell15 = new TableHeaderCell();
+                TableHeaderCell headerCell16 = new TableHeaderCell();
+                TableHeaderCell headerCell17 = new TableHeaderCell();
+                TableHeaderCell headerCell18 = new TableHeaderCell();
+                TableHeaderCell headerCell19 = new TableHeaderCell();
+                TableHeaderCell headerCell20 = new TableHeaderCell();
+                TableHeaderCell headerCell21 = new TableHeaderCell();
+                TableHeaderCell headerCell22 = new TableHeaderCell();
+                TableHeaderCell headerCell23 = new TableHeaderCell();
+                TableHeaderCell headerCell24 = new TableHeaderCell();
+                TableHeaderCell headerCell25 = new TableHeaderCell();
+                TableHeaderCell headerCell26 = new TableHeaderCell();
+                TableHeaderCell headerCell27 = new TableHeaderCell();
+                TableHeaderCell headerCell28 = new TableHeaderCell();
+                TableHeaderCell headerCell29 = new TableHeaderCell();
+                TableHeaderCell headerCell30 = new TableHeaderCell();
+
+                // Sub Header for Opening
+                headerCell1.Text = "Equipment";
+                headerCell2.Text = "Qty (Kg)";
+                headerCell3.Text = "Fat (%)";
+                headerCell4.Text = "Fat (Kg)";
+                headerCell5.Text = "SNF (%)";
+                headerCell6.Text = "SNF (Kg)";
+
+                // Sub Header for Receipt
+                headerCell7.Text = "Equipment";
+                headerCell8.Text = "Qty (Kg)";
+                headerCell9.Text = "Fat (%)";
+                headerCell10.Text = "Fat (Kg)";
+                headerCell11.Text = "SNF (%)";
+                headerCell12.Text = "SNF (Kg)";
+
+                // Sub Header for Other Inputs
+                headerCell13.Text = "Equipment";
+                headerCell14.Text = "Qty (Kg)";
+                headerCell15.Text = "Fat (%)";
+                headerCell16.Text = "Fat (Kg)";
+                headerCell17.Text = "SNF (%)";
+                headerCell18.Text = "SNF (Kg)";
+
+                // Sub Header for Dispatch
+                headerCell19.Text = "Equipment";
+                headerCell20.Text = "Qty (Kg)";
+                headerCell21.Text = "Fat (%)";
+                headerCell22.Text = "Fat (Kg)";
+                headerCell23.Text = "SNF (%)";
+                headerCell24.Text = "SNF (Kg)";
+
+
+                // Sub Header for Closing
+                headerCell25.Text = "Equipment";
+                headerCell26.Text = "Qty (Kg)";
+                headerCell27.Text = "Fat (%)";
+                headerCell28.Text = "Fat (Kg)";
+                headerCell29.Text = "SNF (%)";
+                headerCell30.Text = "SNF (Kg)";
+
+                headerRow2.Controls.Add(headerCell1);
+                headerRow2.Controls.Add(headerCell2);
+                headerRow2.Controls.Add(headerCell3);
+                headerRow2.Controls.Add(headerCell4);
+                headerRow2.Controls.Add(headerCell5);
+                headerRow2.Controls.Add(headerCell6);
+                headerRow2.Controls.Add(headerCell7);
+                headerRow2.Controls.Add(headerCell8);
+                headerRow2.Controls.Add(headerCell9);
+                headerRow2.Controls.Add(headerCell10);
+                headerRow2.Controls.Add(headerCell11);
+                headerRow2.Controls.Add(headerCell12);
+                headerRow2.Controls.Add(headerCell13);
+                headerRow2.Controls.Add(headerCell14);
+                headerRow2.Controls.Add(headerCell15);
+                headerRow2.Controls.Add(headerCell16);
+                headerRow2.Controls.Add(headerCell17);
+                headerRow2.Controls.Add(headerCell18);
+                headerRow2.Controls.Add(headerCell19);
+                headerRow2.Controls.Add(headerCell20);
+                headerRow2.Controls.Add(headerCell21);
+                headerRow2.Controls.Add(headerCell22);
+                headerRow2.Controls.Add(headerCell23);
+                headerRow2.Controls.Add(headerCell24);
+                headerRow2.Controls.Add(headerCell25);
+                headerRow2.Controls.Add(headerCell26);
+                headerRow2.Controls.Add(headerCell27);
+                headerRow2.Controls.Add(headerCell28);
+                headerRow2.Controls.Add(headerCell29);
+                headerRow2.Controls.Add(headerCell30);
+
+                gvMassBalanceReport.Controls[0].Controls.AddAt(0, headerRow2);
+                gvMassBalanceReport.Controls[0].Controls.AddAt(0, headerRow1);
+
+            }
+        }
+
+        protected void gvTotal_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                GridViewRow headerRow1 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
+
+                TableHeaderCell headerTableCell = new TableHeaderCell();
+
+                // Code for headerRow1
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.Text = "Plant Mass Balance For Dryer";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.RowSpan = 1;
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.Text = "Units (Kg)";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 1;
+                headerTableCell.Text = "Fat (Kg)";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 1;
+                headerTableCell.Text = "SNF (Kg)";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+                headerTableCell = new TableHeaderCell();
+                headerTableCell.ColumnSpan = 1;
+                headerTableCell.RowSpan = 1;
+                headerTableCell.Text = "TS";
+                headerTableCell.Wrap = true;
+                headerRow1.Controls.Add(headerTableCell);
+
+
+                gvTotal.Controls[0].Controls.AddAt(0, headerRow1);
+            }
+        }
+
+        #endregion
+        
         #region Export to PDF Button Click
         protected void imgbtnPDF_OnClick(object sender, EventArgs e)
         {
@@ -42,18 +263,21 @@ namespace Powder_MISProduct.ReportUI
             {
                 string text = Session[ApplicationSession.OrganisationName].ToString();
                 string text1 = Session[ApplicationSession.OrganisationAddress].ToString();
-                string text2 = "Performance Qualification Report - Mass Balance Of Whey Processing";
+                string text2 = "Performance Qualification Report - Mass Balance Of Dryer";
 
                 using (StringWriter sw = new StringWriter())
                 {
                     using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                     {
+                        DateTime dtfromDateTime = DateTime.ParseExact(txtFromDate.Text + " " + txtFromTime.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                        DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text + " " + txtToTime.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+
                         System.Text.StringBuilder sb = new StringBuilder();
-                        sb.Append("<div align='center' style='font-size:25px;font-weight:bold;color:Black;'>");
+                        sb.Append("<div align='center' style='font-size:16px;font-weight:bold;color:Black;'>");
                         sb.Append(text);
                         sb.Append("</div>");
                         sb.Append("<br/>");
-                        sb.Append("<div align='center' style='font-size:20px;font-weight:bold;color:Black;'>");
+                        sb.Append("<div align='center' style='font-size:13px;font-weight:bold;color:Black;'>");
                         sb.Append(text1);
                         sb.Append("</div>");
                         sb.Append("<br/>");
@@ -63,15 +287,15 @@ namespace Powder_MISProduct.ReportUI
                         sb.Append("<br/>");
 
                         string content = "<table style='display: table;width: 900px; clear:both;'> <tr> <th colspan='7'"
-                            + "style='float: left;padding-left: 265px;'><div align='left'><strong>From Date : </strong>" +
-                            txtFromDate.Text + " " + txtFromTime.Text + "</div></th>";
+                            + "style='float: left;padding-left: 275px;'><div align='left'><strong>From Date : </strong>" +
+                            dtfromDateTime + "</div></th>";
 
                         content += "<th style='float:left; padding-left:-180px;'></th>";
 
                         content += "<th style='float:left; padding-left:-210px;'></th>";
 
-                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-165px;'><strong> To Date: </strong>" + //colspan='4' 
-                        txtToDate.Text + " " + txtToTime.Text + "</th>" +
+                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-200px;'><strong> To DateTime: </strong>" +
+                        dtToDateTime + "</th>" +
                         "</tr></table>";
                         sb.Append(content);
                         sb.Append("<br/>");
@@ -91,7 +315,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell1);
 
-                        PdfPCell headerCell2 = new PdfPCell(new Phrase("Whey Received", header));
+                        PdfPCell headerCell2 = new PdfPCell(new Phrase("Milk Received", header));
                         headerCell2.Rowspan = 1;
                         headerCell2.Colspan = 6;
                         headerCell2.Padding = 5;
@@ -132,7 +356,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell5.Rowspan = 1;
                         headerCell5.Colspan = 1;
                         headerCell5.Padding = 5;
-                       // headerCell5.BorderWidth = 1.5f;
+                        // headerCell5.BorderWidth = 1.5f;
                         headerCell5.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell5.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell5);
@@ -141,7 +365,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell6.Rowspan = 1;
                         headerCell6.Colspan = 1;
                         headerCell6.Padding = 5;
-                       // headerCell6.BorderWidth = 1.5f;
+                        // headerCell6.BorderWidth = 1.5f;
                         headerCell6.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell6.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell6);
@@ -403,8 +627,8 @@ namespace Powder_MISProduct.ReportUI
                         pdfPTable.AddCell(headerCell34);
 
                         //////////////////////////////////////////////Adding header for Table2 /////////////////
-                        
-                        PdfPCell headerCell36 = new PdfPCell(new Phrase("Plant Mass Balance for Whey", header));
+
+                        PdfPCell headerCell36 = new PdfPCell(new Phrase("Plant Mass Balance for Dryer", header));
                         headerCell36.Rowspan = 1;
                         headerCell36.Colspan = 1;
                         headerCell36.Padding = 5;
@@ -455,7 +679,7 @@ namespace Powder_MISProduct.ReportUI
                             190f, 140f, 140f, 150f, 140f, 160f,
                             190f, 140f, 140f, 150f, 140f, 160f,
                             210f, 140f, 140f, 150f, 140f, 160f
-                            
+
                         };
                         pdfPTable.SetWidths(widthsTAS);
 
@@ -464,7 +688,7 @@ namespace Powder_MISProduct.ReportUI
                         //float[] widths = new float[] { 1f, 1f, 1f };
                         //pdfPTable1.TotalWidth = 300f;
                         //pdfPTable1.LockedWidth = true;
-                        pdfPTable1.WidthPercentage=30;
+                        pdfPTable1.WidthPercentage = 30;
                         //pdfPTable1.HorizontalAlignment = Element.ALIGN_LEFT;
                         //pdfPTable1.SetWidths(widths);
 
@@ -543,13 +767,20 @@ namespace Powder_MISProduct.ReportUI
                             }
                             //pdfPTable1.HeaderRows = 1;
                         }
-                        
-                        var imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + "/images/Britania.png";
+
+                        var imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath());
+                        var imageURL1 = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath1());
+
                         iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
+                        iTextSharp.text.Image jpg1 = iTextSharp.text.Image.GetInstance(imageURL1);
+
 
                         jpg.Alignment = Element.ALIGN_CENTER;
                         //jpg.SetAbsolutePosition(30, 1075);
                         jpg.SetAbsolutePosition(120, 1560);
+
+                        jpg1.Alignment = Element.ALIGN_RIGHT;
+                        jpg1.SetAbsolutePosition(2050, 1530);
 
                         StringReader sr = new StringReader(sb.ToString());
                         StringReader sr1 = new StringReader("<br/><br/><br/>");
@@ -562,6 +793,7 @@ namespace Powder_MISProduct.ReportUI
                         pdfDoc.Open();
                         htmlparser.Parse(sr);
                         pdfDoc.Add(jpg);
+                        pdfDoc.Add(jpg1);
 
                         pdfDoc.Add(pdfPTable);
                         htmlparser.Parse(sr1);
@@ -585,7 +817,7 @@ namespace Powder_MISProduct.ReportUI
                         pdfDoc.Close();
                         Response.ContentType = "application/pdf";
 
-                        Response.AddHeader("content-disposition", "attachment;" + "filename=Mass_Balance_Whey_Report_" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("hh:mm:ss") + ".pdf");
+                        Response.AddHeader("content-disposition", "attachment;" + "filename=Mass_Balance_Dryer_Report_" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("hh:mm:ss") + ".pdf");
                         Response.Cache.SetCacheability(HttpCacheability.NoCache);
                         Response.Write(pdfDoc);
                         Response.Flush();
@@ -616,13 +848,12 @@ namespace Powder_MISProduct.ReportUI
                 Response.ContentType = "application/vnd.ms-excel";
                 Response.ContentEncoding = System.Text.Encoding.Unicode;
                 Response.BinaryWrite(System.Text.Encoding.Unicode.GetPreamble());
-                string filename = "Mass_Balance_Whey_Report" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("hh:mm:ss") + ".xls";
+                string filename = "Mass_Balance_Dryer_Report_" + DateTime.Now.ToString("dd/MM/yyyy") + "_" + DateTime.Now.ToString("HH:mm:ss") + ".xls";
                 Response.AddHeader("content-disposition", "attachment;filename=" + filename);
                 Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
                 StringWriter sw = new StringWriter();
                 HtmlTextWriter hw = new HtmlTextWriter(sw);
-
                 gvMassBalanceReport.AllowPaging = false;
                 gvMassBalanceReport.GridLines = GridLines.Both;
                 foreach (TableCell cell in gvMassBalanceReport.HeaderRow.Cells)
@@ -630,8 +861,35 @@ namespace Powder_MISProduct.ReportUI
                     cell.BackColor = gvMassBalanceReport.HeaderStyle.BackColor;
                     count++;
                 }
+
+                // colh for set colspan for Ornanisation Name, Adress and Report Name
+                // cold for set colspan  for Date
+                int colh, cold;
+                int temp = 0;
+                string strTh = string.Empty;
+
+                if (count <= 9)
+                {
+                    temp = 9 - count;
+                    count = count + temp;
+                    if (temp > 1)
+                    {
+                        temp = 1;
+                    }
+                    for (int i = 0; i < temp; i++)
+                    {
+                        strTh = strTh + "<th></th>";
+                    }
+
+                }
+
+                colh = count - 4;
+                cold = count - 8;
+
+
                 foreach (GridViewRow row in gvMassBalanceReport.Rows)
                 {
+
                     row.BackColor = System.Drawing.Color.White;
                     foreach (TableCell cell in row.Cells)
                     {
@@ -679,11 +937,7 @@ namespace Powder_MISProduct.ReportUI
                     }
                 }
 
-                // colh for set colspan for Ornanisation Name, Adress and Report Name
-                // cold for set colspan  for Date
-                int colh, cold;
-                colh = count - 4;
-                cold = count - 8;
+
                 gvMassBalanceReport.RenderControl(hw);
 
                 /////////////////////////////////////////////////////
@@ -749,39 +1003,39 @@ namespace Powder_MISProduct.ReportUI
 
                 // colh for set colspan for Ornanisation Name, Adress and Report Name
                 // cold for set colspan  for Date
-               // int colh1, cold1;
-               // colh = count - 4;
+                // int colh1, cold1;
+                // colh = count - 4;
                 //cold = count - 8;
                 gvTotal.RenderControl(hw1);
 
 
                 //////////////////////////////////////////////////////
-                string strSubTitle = "Performance Qualification Report - Mass Balance Of Whey Processing";
 
-                var imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + "/images/Britania.png";
+                string strSubTitle = "Performance Qualification Report - Mass Balance Of Dryer";
+
+                string imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath());
+                string imageURL1 = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath1());
 
                 string content = "<div align='center' style='font-family:verdana;font-size:16px; width:800px;'>" +
                   "<table style='display: table; width: 800px; clear:both;'>" +
                   "<tr> </tr>" +
-                  "<tr><th></th><th><img height='80' width='100' src='" + imageURL + "'/></th>" +
-                  "<th colspan='" + colh + "' style='width: 600px; float: left; font-weight:bold;font-size:16px;'>" + Session[ApplicationSession.OrganisationName] +
-
+                  "<tr><th><img height='90' width='180' src='" + imageURL1 + "'/></th>" +
+                   strTh +
+                  "<th colspan='" + colh + "' style='width: 600px; float: left; font-weight:bold;font-size:16px;'>" + Session[ApplicationSession.OrganisationName] + strTh +
+                  "<th><img  height= '80' width= '120' src='" + imageURL + "'/></th>" +
                      "</tr>" +
-                     "<tr><th colspan='2'></th><th colspan='" + colh + "' style='font-size:13px;font-weight:bold;color:Black;'>" + Session[ApplicationSession.OrganisationAddress] + "</th></tr>" +
-                     "<tr><th colspan='2'></th><th colspan='" + colh + "'></th></tr>" +
-                     "<tr><th colspan='2'></th><th colspan='" + colh + "' style='font-size:22px;color:Maroon;'><b>" + strSubTitle + "</b></th></tr>" +
+                     "<tr><th colspan='2'>'" + strTh + "'</th><th colspan='" + colh + "' style='font-size:13px;font-weight:bold;color:Black;'>" + Session[ApplicationSession.OrganisationAddress] + "</th></tr>" +
+                     "<tr><th colspan='2'>'" + strTh + "'</th><th colspan='" + colh + "'></th></tr>" +
+                     "<tr><th colspan='2'>'" + strTh + "'</th><th colspan='" + colh + "' style='font-size:22px;color:Maroon;'><b>" + strSubTitle + "</b></th></tr>" +
                      "<tr></tr>" +
-
                      "<tr><th colspan='4' align='left' style='width: 200px; float: left;'><strong> From Date&Time : </strong>" +
                 (DateTime.ParseExact(txtFromDate.Text + " " + txtFromTime.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)).ToString() + "</th>" +
-                "<th colspan='" + cold + "'></th>" +
+                "<th colspan='" + cold + "'></th>" + strTh + strTh +
                 "<th colspan = '4' align = 'right' style = 'width: 200px; float: right;'><strong> To Date&Time : </strong>" +
                             (DateTime.ParseExact(txtToDate.Text + " " + txtToTime.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)).ToString() + "</th></tr>" +
-
-                         "</tr>" +
                 "</table>" +
 
-                      "<br/>" + sw.ToString() + "<br/>"+sw1.ToString()+"<br/></div>";
+                      "<br/>" + sw.ToString() + "<br/>" + sw1.ToString() + "<br/></div>";
 
                 string style = @"<!--mce:2-->";
                 Response.Write(style);
@@ -793,7 +1047,7 @@ namespace Powder_MISProduct.ReportUI
             }
             catch (Exception ex)
             {
-                log.Error("Button EXCEL", ex);
+                //log.Error("Button EXCEL", ex);
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Oops! There is some technical issue. Please Contact to your administrator.');", true);
             }
         }
@@ -804,7 +1058,7 @@ namespace Powder_MISProduct.ReportUI
         {
             try
             {
-                MassBalanceWheyBL objBL = new MassBalanceWheyBL();
+                MassBalanceForDryerBL objBL = new MassBalanceForDryerBL();
                 DateTime dtFromDateTime = DateTime.ParseExact(txtFromDate.Text + " " + txtFromTime.Text, "dd/MM/yyyy HH:mm:ss",
                     CultureInfo.InvariantCulture);
                 DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text + " " + txtToTime.Text, "dd/MM/yyyy HH:mm:ss",
@@ -812,7 +1066,7 @@ namespace Powder_MISProduct.ReportUI
                 //string tankNo = ddlTankNumber.SelectedValue.ToString();
                 if (dtFromDateTime <= dtToDateTime)
                 {
-                    var objResult = objBL.MassBalanceReportWhey(dtFromDateTime, dtToDateTime);
+                    var objResult = objBL.MassBalanceReportForDryer(dtFromDateTime, dtToDateTime);
 
                     if (objResult.ResutlDs.Tables[0].Rows.Count > 0)
                     {
@@ -825,7 +1079,7 @@ namespace Powder_MISProduct.ReportUI
                         gvTotal.DataBind();
                     }
 
-                    if (gvMassBalanceReport.Rows.Count > 0 && gvTotal.Rows.Count>0)
+                    if (gvMassBalanceReport.Rows.Count > 0 && gvTotal.Rows.Count > 0)
                     {
                         gvMassBalanceReport.Visible = true;
                         gvTotal.Visible = true;
@@ -894,7 +1148,7 @@ namespace Powder_MISProduct.ReportUI
                 BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1257, BaseFont.NOT_EMBEDDED);
                 if (this.iCount != 0)
                 {
-                    ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("Plant Mass Balance Report", FONT), 1100, 1660, 0);
+                    ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("Mass Balance Of Dryer Report", FONT), 1100, 1660, 0);
                 }
                 iCount = iCount + 1;
 
@@ -912,217 +1166,5 @@ namespace Powder_MISProduct.ReportUI
         }
         #endregion
 
-        #region GridView row-created event
-
-        protected void gvMassBalanceReport_RowCreated(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
-                GridViewRow headerRow1 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
-                GridViewRow headerRow2 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
-
-                TableHeaderCell headerTableCell = new TableHeaderCell();
-
-                // Code for headerRow1
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.RowSpan = 1;
-                headerTableCell.ColumnSpan = 6;
-                headerTableCell.Text = "Opening Stock";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.RowSpan = 1;
-                headerTableCell.ColumnSpan = 6;
-                headerTableCell.Text = "Whey Received";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.RowSpan = 1;
-                headerTableCell.ColumnSpan = 6;
-                headerTableCell.Text = "Other Inputs";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 6;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "Dispatch";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 6;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "Closing";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-                // Sub header start Here (headerRow2)
-
-
-                // Code for headerRow3
-                TableHeaderCell headerCell1 = new TableHeaderCell();
-                TableHeaderCell headerCell2 = new TableHeaderCell();
-                TableHeaderCell headerCell3 = new TableHeaderCell();
-                TableHeaderCell headerCell4 = new TableHeaderCell();
-                TableHeaderCell headerCell5 = new TableHeaderCell();
-                TableHeaderCell headerCell6 = new TableHeaderCell();
-                TableHeaderCell headerCell7 = new TableHeaderCell();
-                TableHeaderCell headerCell8 = new TableHeaderCell();
-                TableHeaderCell headerCell9 = new TableHeaderCell();
-                TableHeaderCell headerCell10 = new TableHeaderCell();
-                TableHeaderCell headerCell11 = new TableHeaderCell();
-                TableHeaderCell headerCell12 = new TableHeaderCell();
-                TableHeaderCell headerCell13 = new TableHeaderCell();
-                TableHeaderCell headerCell14 = new TableHeaderCell();
-                TableHeaderCell headerCell15 = new TableHeaderCell();
-                TableHeaderCell headerCell16 = new TableHeaderCell();
-                TableHeaderCell headerCell17 = new TableHeaderCell();
-                TableHeaderCell headerCell18 = new TableHeaderCell();
-                TableHeaderCell headerCell19 = new TableHeaderCell();
-                TableHeaderCell headerCell20 = new TableHeaderCell();
-                TableHeaderCell headerCell21 = new TableHeaderCell();
-                TableHeaderCell headerCell22 = new TableHeaderCell();
-                TableHeaderCell headerCell23 = new TableHeaderCell();
-                TableHeaderCell headerCell24 = new TableHeaderCell();
-                TableHeaderCell headerCell25 = new TableHeaderCell();
-                TableHeaderCell headerCell26 = new TableHeaderCell();
-                TableHeaderCell headerCell27 = new TableHeaderCell();
-                TableHeaderCell headerCell28 = new TableHeaderCell();
-                TableHeaderCell headerCell29 = new TableHeaderCell();
-                TableHeaderCell headerCell30 = new TableHeaderCell();
-
-                // Sub Header for Opening
-                headerCell1.Text = "Equipment";
-                headerCell2.Text = "Qty (Kg)";
-                headerCell3.Text = "Fat (%)";
-                headerCell4.Text = "Fat (Kg)";
-                headerCell5.Text = "SNF (%)";
-                headerCell6.Text = "SNF (Kg)";
-                
-                // Sub Header for Receipt
-                headerCell7.Text = "Equipment";
-                headerCell8.Text = "Qty (Kg)";
-                headerCell9.Text = "Fat (%)";
-                headerCell10.Text = "Fat (Kg)";
-                headerCell11.Text = "SNF (%)";
-                headerCell12.Text = "SNF (Kg)";
-                
-                // Sub Header for Other Inputs
-                headerCell13.Text = "Equipment";
-                headerCell14.Text = "Qty (Kg)";
-                headerCell15.Text = "Fat (%)";
-                headerCell16.Text = "Fat (Kg)";
-                headerCell17.Text = "SNF (%)";
-                headerCell18.Text = "SNF (Kg)";
-
-                // Sub Header for Dispatch
-                headerCell19.Text = "Equipment";
-                headerCell20.Text = "Qty (Kg)";
-                headerCell21.Text = "Fat (%)";
-                headerCell22.Text = "Fat (Kg)";
-                headerCell23.Text = "SNF (%)";
-                headerCell24.Text = "SNF (Kg)";
-
-
-                // Sub Header for Closing
-                headerCell25.Text = "Equipment";
-                headerCell26.Text = "Qty (Kg)";
-                headerCell27.Text = "Fat (%)";
-                headerCell28.Text = "Fat (Kg)";
-                headerCell29.Text = "SNF (%)";
-                headerCell30.Text = "SNF (Kg)";
-
-                headerRow2.Controls.Add(headerCell1);
-                headerRow2.Controls.Add(headerCell2);
-                headerRow2.Controls.Add(headerCell3);
-                headerRow2.Controls.Add(headerCell4);
-                headerRow2.Controls.Add(headerCell5);
-                headerRow2.Controls.Add(headerCell6);
-                headerRow2.Controls.Add(headerCell7);
-                headerRow2.Controls.Add(headerCell8);
-                headerRow2.Controls.Add(headerCell9);
-                headerRow2.Controls.Add(headerCell10);
-                headerRow2.Controls.Add(headerCell11);
-                headerRow2.Controls.Add(headerCell12);
-                headerRow2.Controls.Add(headerCell13);
-                headerRow2.Controls.Add(headerCell14);
-                headerRow2.Controls.Add(headerCell15);
-                headerRow2.Controls.Add(headerCell16);
-                headerRow2.Controls.Add(headerCell17);
-                headerRow2.Controls.Add(headerCell18);
-                headerRow2.Controls.Add(headerCell19);
-                headerRow2.Controls.Add(headerCell20);
-                headerRow2.Controls.Add(headerCell21);
-                headerRow2.Controls.Add(headerCell22);
-                headerRow2.Controls.Add(headerCell23);
-                headerRow2.Controls.Add(headerCell24);
-                headerRow2.Controls.Add(headerCell25);
-                headerRow2.Controls.Add(headerCell26);
-                headerRow2.Controls.Add(headerCell27);
-                headerRow2.Controls.Add(headerCell28);
-                headerRow2.Controls.Add(headerCell29);
-                headerRow2.Controls.Add(headerCell30);
-
-                gvMassBalanceReport.Controls[0].Controls.AddAt(0, headerRow2);
-                gvMassBalanceReport.Controls[0].Controls.AddAt(0, headerRow1);
-
-            }
-        }
-
-        protected void gvTotal_RowCreated(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.Header)
-            { 
-                GridViewRow headerRow1 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
-
-                TableHeaderCell headerTableCell = new TableHeaderCell();
-
-                // Code for headerRow1
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.RowSpan = 1;
-                headerTableCell.ColumnSpan = 1;
-                headerTableCell.Text = "Plant Mass Balance For Milk";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.RowSpan = 1;
-                headerTableCell.ColumnSpan = 1;
-                headerTableCell.Text = "Units (Kg)";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 1;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "Fat (Kg)";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 1;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "SNF (Kg)";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-                
-                headerTableCell = new TableHeaderCell();
-                headerTableCell.ColumnSpan = 1;
-                headerTableCell.RowSpan = 1;
-                headerTableCell.Text = "TS";
-                headerTableCell.Wrap = true;
-                headerRow1.Controls.Add(headerTableCell);
-
-
-                gvTotal.Controls[0].Controls.AddAt(0, headerRow1);
-            }
-        }
-
-        #endregion
     }
 }

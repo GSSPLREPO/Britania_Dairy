@@ -152,6 +152,9 @@
                                     <asp:ListItem Value="F13T01" Text="F13T01"></asp:ListItem>
                                     <asp:ListItem Value="Whey Frop TP" Text="Whey Frop TP"></asp:ListItem>
                                     <asp:ListItem Value="Yogurt Frop Tp" Text="Yogurt Frop Tp"></asp:ListItem>
+                                    <asp:ListItem Value="SMP/WMP/DW From TP" Text="SMP/WMP/DW From TP"></asp:ListItem>
+                                    <asp:ListItem Value="Evap Product Out" Text="Evap Product Out"></asp:ListItem>
+                                    <asp:ListItem Value="Dryer Product In" Text="Dryer Product In"></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="DropDownListTankName" ValidationGroup="g1"
                                     SetFocusOnError="True" ErrorMessage="Select Silo Tag No" ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>

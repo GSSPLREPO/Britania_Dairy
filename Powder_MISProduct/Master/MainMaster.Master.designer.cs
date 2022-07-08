@@ -42,24 +42,6 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl cssmenu;
 
         /// <summary>
-        /// Shift control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Shift;
-
-        /// <summary>
-        /// WeighAnalysis control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WeighAnalysis;
-
-        /// <summary>
         /// Inventory control.
         /// </summary>
         /// <remarks>
@@ -78,6 +60,15 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Lab;
 
         /// <summary>
+        /// Shift control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Shift;
+
+        /// <summary>
         /// TankLabReport control.
         /// </summary>
         /// <remarks>
@@ -87,13 +78,13 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl TankLabReport;
 
         /// <summary>
-        /// Role control.
+        /// WeighAnalysis control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Role;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WeighAnalysis;
 
         /// <summary>
         /// Employee control.
@@ -105,6 +96,15 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Employee;
 
         /// <summary>
+        /// Role control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Role;
+
+        /// <summary>
         /// RoleRights control.
         /// </summary>
         /// <remarks>
@@ -114,130 +114,13 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl RoleRights;
 
         /// <summary>
-        /// MassBalanceWhey control.
+        /// ChemicalConsumption control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MassBalanceWhey;
-
-        /// <summary>
-        /// MassBalanceForSMP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MassBalanceForSMP;
-
-        /// <summary>
-        /// WheyAnalysisReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WheyAnalysisReport;
-
-        /// <summary>
-        /// Transfer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Transfer;
-
-        /// <summary>
-        /// UtilityConsumption control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UtilityConsumption;
-
-        /// <summary>
-        /// RWSTStorage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RWSTStorage;
-
-        /// <summary>
-        /// PastwheyStorage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PastwheyStorage;
-
-        /// <summary>
-        /// NFWheyStorage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NFWheyStorage;
-
-        /// <summary>
-        /// ROPermeateStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ROPermeateStatus;
-
-        /// <summary>
-        /// CreamBufferTankStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CreamBufferTankStatus;
-
-        /// <summary>
-        /// CreamTankStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CreamTankStatus;
-
-        /// <summary>
-        /// WPLLog control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WPLLog;
-
-        /// <summary>
-        /// CPLLog control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CPLLog;
-
-        /// <summary>
-        /// TankerDispatch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TankerDispatch;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ChemicalConsumption;
 
         /// <summary>
         /// CIP control.
@@ -267,49 +150,49 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl CIP3;
 
         /// <summary>
-        /// ChemicalConsumption control.
+        /// ConcFeedTankStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ChemicalConsumption;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ConcFeedTankStatus;
 
         /// <summary>
-        /// InventoryReport control.
+        /// CPLLog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InventoryReport;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CPLLog;
 
         /// <summary>
-        /// MaintenanceReport control.
+        /// CreamBufferTankStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MaintenanceReport;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CreamBufferTankStatus;
 
         /// <summary>
-        /// LabReport control.
+        /// CreamTankStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LabReport;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CreamTankStatus;
 
         /// <summary>
-        /// EvaporatorLog control.
+        /// CrystallizationTankStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EvaporatorLog;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CrystallizationTankStatus;
 
         /// <summary>
         /// DryerDataLog control.
@@ -321,22 +204,157 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DryerDataLog;
 
         /// <summary>
-        /// ConcFeedTankStatus control.
+        /// EvaporatorLog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ConcFeedTankStatus;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EvaporatorLog;
 
         /// <summary>
-        /// CrystallizationTankStatus control.
+        /// InventoryReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CrystallizationTankStatus;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InventoryReport;
+
+        /// <summary>
+        /// LabReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LabReport;
+
+        /// <summary>
+        /// MaintenanceReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MaintenanceReport;
+
+        /// <summary>
+        /// MassBalanceForDryer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MassBalanceForDryer;
+
+        /// <summary>
+        /// MassBalanceForEvaporator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MassBalanceForEvaporator;
+
+        /// <summary>
+        /// MassBalanceForSMP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MassBalanceForSMP;
+
+        /// <summary>
+        /// MassBalanceWhey control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MassBalanceWhey;
+
+        /// <summary>
+        /// NFWheyStorage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NFWheyStorage;
+
+        /// <summary>
+        /// PastwheyStorage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PastwheyStorage;
+
+        /// <summary>
+        /// ROPermeateStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ROPermeateStatus;
+
+        /// <summary>
+        /// RWSTStorage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RWSTStorage;
+
+        /// <summary>
+        /// TankerDispatch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TankerDispatch;
+
+        /// <summary>
+        /// Transfer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Transfer;
+
+        /// <summary>
+        /// UtilityConsumption control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UtilityConsumption;
+
+        /// <summary>
+        /// WPLLog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WPLLog;
+
+        /// <summary>
+        /// WheyAnalysisReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WheyAnalysisReport;
 
         /// <summary>
         /// Maintenance control.

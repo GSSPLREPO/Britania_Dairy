@@ -52,6 +52,8 @@
     <Compile Include="InventoryBL.cs" />
     <Compile Include="LabBL.cs" />
     <Compile Include="MaintenanceBL.cs" />
+    <Compile Include="MassBalanceForDryerBL.cs" />
+    <Compile Include="MassBalanceForEvaporatorBL.cs" />
     <Compile Include="MassBalanceForSMP_Report_BL.cs" />
     <Compile Include="MassBalanceWheyBL.cs" />
     <Compile Include="NFandRO_CIPLog_ReportBL.cs" />
