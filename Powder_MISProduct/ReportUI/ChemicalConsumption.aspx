@@ -83,14 +83,39 @@
                 <br />
                 <div class="row">
                     <div class="col-md-12" style="overflow: scroll">
+                       <asp:GridView ID="gvChemicalConsumption" runat="server" GridLines="Both" 
+                        AutoGenerateColumns="true" HeaderStyle-Wrap="false"
+                        Width="100%" ShowHeader="false"
+                        OnRowCreated="gvChemicalConsumption_RowCreated"
+                        HeaderStyle-Font-Size="Medium" CssClass="table table-striped" 
+                        HeaderStyle-HorizontalAlign="Center" >
+                        <RowStyle HorizontalAlign="Center"  Width="100%"/>
+                         </asp:GridView>
+
+                    </div>
+                </div>
+                <div class="col-md-12 center" id="divNo" runat="server">No records found.</div>
+
+                <%--<div class="row">
+                    <div class="col-md-12" style="overflow: scroll">
                        <div class="row" id="GridView" runat="server">
 
                 <div id="table-container">
-                    <asp:GridView ID="gvChemicalConsumption" runat="server" GridLines="Both" 
+                     <div class="col-md-12" style="overflow: scroll">
+                       <asp:GridView ID="gvChemicalConsumption" runat="server" GridLines="Both" 
+                        AutoGenerateColumns="true" HeaderStyle-Wrap="false"
+                        Width="100%" ShowHeader="false"
+                        OnRowCreated="gvChemicalConsumption_RowCreated" HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped" 
+                        HeaderStyle-HorizontalAlign="Center" >
+                        <RowStyle HorizontalAlign="Center"  Width="100%"/>
+                         </asp:GridView>
+
+                    </div>--%>
+                    <%--<asp:GridView ID="gvChemicalConsumption" runat="server" GridLines="Both" 
                         AutoGenerateColumns="false" HeaderStyle-Wrap="false"
                         Width="100%" HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped">
                       <Columns>
-<%--                           <asp:BoundField DataField="Id" HeaderText="Id" ItemStyle-CssClass="hidden" HeaderStyle-CssClass="hidden" Visible="false"/>--%>
+
                           <asp:BoundField DataField="SrNo" HeaderText="SrNo " ItemStyle-Wrap="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center"  />
                           <asp:BoundField DataField="Date" HeaderText="Date" ItemStyle-Wrap="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center"  />
                           <asp:BoundField DataField="Time" HeaderText="Time" ItemStyle-Wrap="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center"  />
@@ -98,13 +123,13 @@
                            <asp:BoundField DataField="Lye" HeaderText="Lye " ItemStyle-Wrap="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center"  />
                         
                       </Columns>
-                    </asp:GridView>
-                </div>
+                    </asp:GridView>--%>
+                <%--</div>
             </div>
 
                     </div>
                 </div>
-                <div class="col-md-12 center" id="divNo" runat="server">No records found.</div>
+                <div class="col-md-12 center" id="divNo" runat="server">No records found.</div>--%>
             </div>
         </div>
     </div>

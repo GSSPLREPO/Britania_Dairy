@@ -15,6 +15,7 @@ using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using System.Drawing;
 using System.Text;
+using Font = iTextSharp.text.Font;
 
 
 namespace Powder_MISProduct.ReportUI
@@ -190,6 +191,7 @@ namespace Powder_MISProduct.ReportUI
 
                         PdfPTable pdfPTable = new PdfPTable(gvROPermeateStorage.HeaderRow.Cells.Count);
                         iTextSharp.text.Font fontHeader = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD);
+                        Font header = new Font(Font.FontFamily.TIMES_ROMAN, 15f, Font.BOLD, BaseColor.BLACK);
 
 
 
