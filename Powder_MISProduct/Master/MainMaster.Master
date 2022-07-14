@@ -127,7 +127,7 @@
                                <li id="Lab" runat="server" visible="false"><a href="../WebUI/Lab.aspx"><span class="submenu-label">Lab</span></a></li>
                                 <li id="Shift" runat="server" visible="false"><a href="../WebUI/Shift.aspx"><span class="submenu-label">Shift</span></a></li>
                                <li id="TankLabReport" runat="server" visible="false"><a href="../WebUI/TankLabReport.aspx"><span class="submenu-label">Tank Lab Report</span></a></li>
-                               <li id="WeighAnalysis" runat="server" visible="false"><a href="../WebUI/WeighAnalysis.aspx"><span class="submenu-label">WeighAnalysis</span></a></li>
+                               <li id="WeighAnalysis" runat="server" visible="false"><a href="../WebUI/WeighAnalysis.aspx"><span class="submenu-label">Whey Analysis</span></a></li>
 
 
                             </ul>
@@ -168,6 +168,7 @@
                                 <li id="CrystallizationTankStatus" runat="server" visible="false"><a href="../ReportUI/CrystallizationTankStatus.aspx"><span class="submenu-label">Crystallization Tank Status</span></a></li>
                                  <li id="DryerDataLog" runat="server" visible="false"><a href="../ReportUI/DryerDataLog.aspx"><span class="submenu-label">Dryer Data Log</span></a></li>
                                 <li id="EvaporatorLog" runat="server" visible="false"><a href="../ReportUI/EvaporatorLog.aspx"><span class="submenu-label">Evaporator Log</span></a></li>
+                                <li id="Evaporator_SCM_DataLogSheetReport" runat="server" visible="false"><a href="../ReportUI/Evaporator_SCM_DataLogSheetReport.aspx"><span class="submenu-label">Evaporator SCM Log</span></a></li>
                                 <li id="InventoryReport" runat="server" visible="true"><a href="../ReportUI/InventoryReport.aspx"><span class="submenu-label">Inventory Report</span></a></li>
                                  <li id="LabReport" runat="server" visible="true"><a href="../ReportUI/LabReport.aspx"><span class="submenu-label">Lab Report</span></a></li>
                                 <li id="MaintenanceReport" runat="server" visible="true"><a href="../ReportUI/MaintenanceReport.aspx"><span class="submenu-label">Maintenance Report</span></a></li>
@@ -182,6 +183,7 @@
                                 <li id="TankerDispatch" runat="server" visible="true"><a href="../ReportUI/TankerDispatch.aspx"><span class="submenu-label">Tanker Dispatch</span></a></li>
                                <li id="Transfer" runat="server" visible="true"><a href="../ReportUI/Transfer.aspx"><span class="submenu-label">Transfer</span></a></li>                                                            
                                 <li id="UtilityConsumption" runat="server" visible="true"><a href="../ReportUI/UtilityConsumption.aspx"><span class="submenu-label">Utility Consumption</span></a></li>
+                                <li id="VacuumCoolerAndEjector_SCM" runat="server" visible="true"><a href="../ReportUI/VacuumCoolerAndEjector_SCM.aspx"><span class="submenu-label">Vacuum Cooler & Ejector</span></a></li>
                                 <li id="WPLLog" runat="server" visible="true"><a href="../ReportUI/WPLLog.aspx"><span class="submenu-label">WPLLog</span></a></li>
                                 <li id="WheyAnalysisReport" runat="server" visible="true"><a href="../ReportUI/WheyAnalysisReport.aspx"><span class="submenu-label">Whey Analysis Report</span></a></li>
 

@@ -49,6 +49,7 @@
     <Compile Include="CreamTankStatusBL.cs" />
     <Compile Include="EmployeeBl.cs" />
     <Compile Include="EvaporatorBL.cs" />
+    <Compile Include="Evaporator_SCM_DataLogSheetBL.cs" />
     <Compile Include="InventoryBL.cs" />
     <Compile Include="LabBL.cs" />
     <Compile Include="MaintenanceBL.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="TankLabReportBL.cs" />
     <Compile Include="TransferBL.cs" />
     <Compile Include="UtilityConsumptionBl.cs" />
+    <Compile Include="VacuumCoolerAndEjector_scmBL.cs" />
     <Compile Include="WheyAnalysisBL.cs" />
     <Compile Include="WPLBL.cs" />
   </ItemGroup>

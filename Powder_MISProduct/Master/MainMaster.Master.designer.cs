@@ -213,6 +213,15 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl EvaporatorLog;
 
         /// <summary>
+        /// Evaporator_SCM_DataLogSheetReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Evaporator_SCM_DataLogSheetReport;
+
+        /// <summary>
         /// InventoryReport control.
         /// </summary>
         /// <remarks>
@@ -337,6 +346,15 @@ namespace Powder_MISProduct.Master
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl UtilityConsumption;
+
+        /// <summary>
+        /// VacuumCoolerAndEjector_SCM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl VacuumCoolerAndEjector_SCM;
 
         /// <summary>
         /// WPLLog control.
