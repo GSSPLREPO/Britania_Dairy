@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager runat="server"></asp:ScriptManager>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div id="breadcrumb">
         <ul class="breadcrumb">
             <li><i class="fa fa-home"></i><a href="../WebUI/DashBoard.aspx">Home</a></li>
@@ -35,7 +35,8 @@
             </div>
             <%--<div class="box-body no-padding">--%>
             <div class="panel-body" style="overflow-x: auto">
-                <asp:GridView runat="server" ID="gvTankReport" CssClass="table table-hover table-striped" AutoGenerateColumns="False" GridLines="None" OnRowCommand="gvTankReport_RowCommand">
+                <%--<asp:GridView runat="server" ID="gvTankReport" CssClass="table table-hover table-striped" AutoGenerateColumns="False" GridLines="None" OnRowCommand="gvTankReport_RowCommand">--%>
+                <asp:GridView runat="server" ID="gvTankReport" CssClass="table table-hover table-striped" AutoGenerateColumns="False" GridLines="None">
                     <Columns>
                         <asp:BoundField DataField="DateTime" HeaderText="Date & Time" ItemStyle-Width="70%" />
                         <asp:BoundField DataField="SampleTime" HeaderText="SampleTime" ItemStyle-Width="70%" />
@@ -53,7 +54,7 @@
                         <asp:BoundField DataField="TDS" HeaderText="TDS" ItemStyle-Width="70%" />
                         <asp:BoundField DataField="Remarks" HeaderText="Remarks" ItemStyle-Width="70%" />
 
-                        <asp:TemplateField HeaderText="Edit">
+                        <%--<asp:TemplateField HeaderText="Edit">
                             <ItemTemplate>
                                 <asp:ImageButton runat="server" ID="imgEdit" CommandName="Edit1" CommandArgument='<%# Eval("Id") %>' ItemStyle-Width="10%" ImageUrl="../images/Edit.png"></asp:ImageButton>
                             </ItemTemplate>
@@ -62,7 +63,7 @@
                             <ItemTemplate>
                                 <asp:ImageButton runat="server" ID="imgDelete" CommandName="Delete1" CommandArgument='<%# Eval("Id") %>' ItemStyle-Width="10%" ImageUrl="../images/Delete.png" OnClientClick="javascript:return confirm('Do you really want to Delete this record?');"></asp:ImageButton>
                             </ItemTemplate>
-                        </asp:TemplateField>
+                        </asp:TemplateField>--%>
                     </Columns>
                 </asp:GridView>
             </div>
@@ -85,13 +86,13 @@
                     <div class="col-md-2">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <asp:TextBox runat="server" ID="txtDate" CssClass="form-control date" placeholder="Date" />
+                            <asp:TextBox runat="server" ID="txtDate" CssClass="form-control date" placeholder="Date" Enabled="false" />
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="bootstrap-timepicker">
                             <div class="input-group">
-                                <asp:TextBox runat="server" ID="txttime" ClientIDMode="Static" CssClass="form-control timepicker" placeholder="Time" />
+                                <asp:TextBox runat="server" ID="txttime" ClientIDMode="Static" CssClass="form-control timepicker" placeholder="Time" Enabled="false" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                             </div>
                         </div>
@@ -187,12 +188,16 @@
                     <label class="col-md-2">SNF% :</label>
                     <div class="col-md-4">
                         <asp:TextBox runat="server" ID="txtSNF" CssClass="form-control" placeholder="SNF" onkeypress="return PreventDecimalPointValue(event)" MaxLength="8" />
-                        <%--<asp:RangeValidator ID="RangeValidator1" runat="server" ValidationGroup="g1" ErrorMessage="Please enter valid value!" ControlToValidate="txtSNF" MaximumValue="100.00" MinimumValue="0.00"></asp:RangeValidator>--%>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtSNF" ValidationGroup="g1"
+                                    SetFocusOnError="True" ErrorMessage="Enter SNF!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        <%--<asp:RangeValidator ID="RangeValidator1" runat="server" ValidationGroup="g1" ErrorMessage="Please enter SNF!" ControlToValidate="txtSNF"></asp:RangeValidator>--%>
                     </div>
                     <label class="col-md-2">FAT% :</label>
                     <div class="col-md-4">
                         <asp:TextBox runat="server" ID="txtFAT" CssClass="form-control" placeholder="FAT" onkeypress="return PreventDecimalPointValue(event)" MaxLength="8" />
-                        <%--<asp:RangeValidator ID="RangeValidator2" runat="server" ValidationGroup="g1" ErrorMessage="Please enter valid value!" ControlToValidate="txtFAT" MaximumValue="100.00" MinimumValue="0.00"></asp:RangeValidator>--%>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFAT" ValidationGroup="g1"
+                                    SetFocusOnError="True" ErrorMessage="Enter Fat!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        <%--<asp:RangeValidator ID="RangeValidator2" runat="server" ValidationGroup="g1" ErrorMessage="Please enter valid value!" ControlToValidate="txtFAT"></asp:RangeValidator>--%>
 
                     </div>
 
@@ -210,6 +215,8 @@
                     <label class="col-md-2">pH :</label>
                     <div class="col-md-4">
                         <asp:TextBox runat="server" ID="txtpH" CssClass="form-control" placeholder="PH" onkeypress="return PreventDecimalPointValue(event)" MaxLength="8" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtpH" ValidationGroup="g1"
+                                    SetFocusOnError="True" ErrorMessage="Enter pH!" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </div>
                 </div>
             </div>
@@ -221,10 +228,13 @@
                     <label class="col-md-2">Acidity :</label>
                     <div class="col-md-4">
                         <asp:TextBox runat="server" ID="txtAcidity" CssClass="form-control" placeholder="Acidity" onkeypress="return PreventDecimalPointValue(event)" MaxLength="8" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtAcidity" ValidationGroup="g1"
+                                    SetFocusOnError="True" ErrorMessage="Enter Acidity!" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </div>
                     <label class="col-md-2">Protein :</label>
                     <div class="col-md-4">
                         <asp:TextBox runat="server" ID="txtProtein" CssClass="form-control" placeholder="Protein" onkeypress="return PreventDecimalPointValue(event)" MaxLength="8" />
+
                     </div>
                 </div>
             </div>
@@ -238,11 +248,15 @@
                         <asp:DropDownList runat="server" ID="ddTank_Status" CssClass="form-control">
                             <asp:ListItem Text="Ok" Value="ok"></asp:ListItem>
                             <asp:ListItem Text="Not Ok" Value="Not Ok"></asp:ListItem>
+                            <asp:ListItem Text="Hold" Value="Hold"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
                     <label class="col-md-2">TDS :</label>
                     <div class="col-md-4">
                         <asp:TextBox runat="server" ID="txtTDS" CssClass="form-control" placeholder="TDS" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtTDS" ValidationGroup="g1"
+                                    SetFocusOnError="True" ErrorMessage="Enter TDS!" ForeColor="Red">*</asp:RequiredFieldValidator>
+
                     </div>
                 </div>
             </div>

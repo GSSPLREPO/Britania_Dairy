@@ -6,10 +6,13 @@ using Powder_MISProduct.BL;
 using Powder_MISProduct.BO;
 using Powder_MISProduct.Common;
 
+
 namespace Powder_MISProduct.WebUI
 {
     public partial class TankLabReport : System.Web.UI.Page
     {
+        //private static ILog log = LogManager.GetLogger(typeof(TankLabReport));
+
         #region Page load event
 
         protected void Page_Load(object sender, EventArgs e)
@@ -66,6 +69,7 @@ namespace Powder_MISProduct.WebUI
             {
                 ClearAll();
                 txtDate.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                txttime.Text = DateTime.UtcNow.AddHours(5.5).ToString("HH:mm:ss", CultureInfo.InvariantCulture);
                 txtSampleDate.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
                 PanelVisibilityMode(false, true);
                 //divIsResignDate.Visible = false;
@@ -166,7 +170,7 @@ namespace Powder_MISProduct.WebUI
                 ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
             }
         }
-        #endregion //
+        #endregion 
 
         #region ViewList
         protected void btnViewList_Click(object sender, EventArgs e)
@@ -185,71 +189,71 @@ namespace Powder_MISProduct.WebUI
         }
         #endregion
 
-        #region RowCommand Event for Edit and Delete
-        protected void gvTankReport_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            try
-            {
-                TankLabReportBL TankLabReportBL = new TankLabReportBL();
-                if (e.CommandName.ToString() == "Edit1")
-                {
-                    ViewState["Mode"] = "Edit";
-                    ViewState["Id"] = e.CommandArgument.ToString();
-                    var objResult = TankLabReportBL.TankerLabReportSelect(Convert.ToInt32(e.CommandArgument.ToString()));
-                    if (objResult != null)
-                    {
-                        if (objResult.ResultDt.Rows.Count > 0)
-                        {
-                            var Date = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_DateTime].ToString().Split(' ');
+        //#region RowCommand Event for Edit and Delete
+        //protected void gvTankReport_RowCommand(object sender, GridViewCommandEventArgs e)
+        //{
+        //    try
+        //    {
+        //        TankLabReportBL TankLabReportBL = new TankLabReportBL();
+        //        if (e.CommandName.ToString() == "Edit1")
+        //        {
+        //            ViewState["Mode"] = "Edit";
+        //            ViewState["Id"] = e.CommandArgument.ToString();
+        //            var objResult = TankLabReportBL.TankerLabReportSelect(Convert.ToInt32(e.CommandArgument.ToString()));
+        //            if (objResult != null)
+        //            {
+        //                if (objResult.ResultDt.Rows.Count > 0)
+        //                {
+        //                    var Date = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_DateTime].ToString().Split(' ');
 
-                            //var Date = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Date].ToString().Split(' ');
-                            var SampleDate = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_SampleTime].ToString().Split(' ');
-                            txtDate.Text = Date[0];
-                            txttime.Text = Date[1];
-                            txtSampleDate.Text = SampleDate[0];
-                            txtSampleTime.Text = SampleDate[1];
+        //                    //var Date = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Date].ToString().Split(' ');
+        //                    var SampleDate = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_SampleTime].ToString().Split(' ');
+        //                    txtDate.Text = Date[0];
+        //                    txttime.Text = Date[1];
+        //                    txtSampleDate.Text = SampleDate[0];
+        //                    txtSampleTime.Text = SampleDate[1];
 
-                            txtSampleID.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_SampleID].ToString();
-                            DropDownListTankName.SelectedValue = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_SiloTagNo].ToString();
-                            txtTankName.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_TankName].ToString();
-                            txtTemp.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Temp].ToString();
-                            txtSNF.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_SNF].ToString();
-                            txtFAT.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Fat].ToString();
-                            txtTS.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_TS].ToString();
-                            txtpH.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_pH].ToString();
-                            txtAcidity.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Acidity].ToString();
-                            txtProtein.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Protein].ToString();
-                            ddTank_Status.SelectedValue= objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_TankStatus].ToString();
-                            txtTDS.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_TDS].ToString();
-                            txtRemarks.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Remarks].ToString();
+        //                    txtSampleID.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_SampleID].ToString();
+        //                    DropDownListTankName.SelectedValue = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_SiloTagNo].ToString();
+        //                    txtTankName.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_TankName].ToString();
+        //                    txtTemp.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Temp].ToString();
+        //                    txtSNF.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_SNF].ToString();
+        //                    txtFAT.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Fat].ToString();
+        //                    txtTS.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_TS].ToString();
+        //                    txtpH.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_pH].ToString();
+        //                    txtAcidity.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Acidity].ToString();
+        //                    txtProtein.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Protein].ToString();
+        //                    ddTank_Status.SelectedValue= objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_TankStatus].ToString();
+        //                    txtTDS.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_TDS].ToString();
+        //                    txtRemarks.Text = objResult.ResultDt.Rows[0][TankLabReportBO.TankLab_Remarks].ToString();
 
-                            //BindMaintenance();
-                            PanelVisibilityMode(false, true);
-                        }
-                    }
-                }
-                else if (e.CommandName.ToString() == "Delete1")
-                {
-                    var objResult = TankLabReportBL.TankerLabReportDelete(Convert.ToInt32(e.CommandArgument.ToString()), Convert.ToInt32(Session[ApplicationSession.Userid]), DateTime.UtcNow.AddHours(5.5).ToString());
-                    if (objResult.Status == ApplicationResult.CommonStatusType.Success)
-                    {
-                        ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Record Deleted Successfully!');</script>");
-                        PanelVisibilityMode(true, false);
-                        BindTankReport();
-                    }
-                    else
-                    {
-                        ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // log.Error("Error", ex);
-                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
-            }
-        }
-        #endregion //
+        //                    //BindMaintenance();
+        //                    PanelVisibilityMode(false, true);
+        //                }
+        //            }
+        //        }
+        //        else if (e.CommandName.ToString() == "Delete1")
+        //        {
+        //            var objResult = TankLabReportBL.TankerLabReportDelete(Convert.ToInt32(e.CommandArgument.ToString()), Convert.ToInt32(Session[ApplicationSession.Userid]), DateTime.UtcNow.AddHours(5.5).ToString());
+        //            if (objResult.Status == ApplicationResult.CommonStatusType.Success)
+        //            {
+        //                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Record Deleted Successfully!');</script>");
+        //                PanelVisibilityMode(true, false);
+        //                BindTankReport();
+        //            }
+        //            else
+        //            {
+        //                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // log.Error("Error", ex);
+        //        ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
+        //    }
+        //}
+        //#endregion //
         
         #region Bind tanker no dropdown
         protected void DropDownListTankName_SelectedIndexChanged(object sender, EventArgs e)
@@ -320,8 +324,6 @@ namespace Powder_MISProduct.WebUI
         }
         #endregion
 
-
-
         #region preRender
         //protected void gvTankReport_PreRender(object sender, EventArgs e)
         //{
@@ -341,11 +343,6 @@ namespace Powder_MISProduct.WebUI
         //    }
         //}
         #endregion
-
-
-
-      
-
 
 
     }

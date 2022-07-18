@@ -33,27 +33,29 @@
             </div>
             <%--<div class="box-body no-padding">--%>
             <div class="panel-body" style="overflow-x: auto">
-                <asp:GridView runat="server" ID="gvWheyAnalysis" CssClass="table table-hover table-striped" AutoGenerateColumns="False" GridLines="None" OnPreRender="gvWheyAnalysis_PreRender" OnRowCommand="gvWheyAnalysis_RowCommand">
+                <%--<asp:GridView runat="server" ID="gvWheyAnalysis" CssClass="table table-hover table-striped" AutoGenerateColumns="False" GridLines="None" OnPreRender="gvWheyAnalysis_PreRender" OnRowCommand="gvWheyAnalysis_RowCommand">--%>
+                <asp:GridView runat="server" ID="gvWheyAnalysis" CssClass="table table-hover table-striped" AutoGenerateColumns="False" GridLines="None">
                     <Columns>
-                        <asp:BoundField DataField="DateTime" HeaderText="Date & Time" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="SampleDateTime" HeaderText="Sample Date & Time" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="SampleName" HeaderText="Sample ID" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="SampleNo" HeaderText="Sample No" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="ProductName" HeaderText="Product Name" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="OT" HeaderText="pH" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="Temp" HeaderText="Temp. (°C)" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="Fat" HeaderText="Fat %" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="SNF" HeaderText="SNF %" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="Acidity" HeaderText="Acidity" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="COB" HeaderText="COB" ItemStyle-Width="70%" />
+                        <asp:BoundField DataField="SrNo" HeaderText="Sr. No."/>
+                        <asp:BoundField DataField="DateTime" HeaderText="Date & Time" />
+                        <asp:BoundField DataField="SampleDateTime" HeaderText="Sample Date & Time"/>
+                        <asp:BoundField DataField="SampleName" HeaderText="Sample ID"/>
+                        <asp:BoundField DataField="SampleNo" HeaderText="Sample No"/>
+                        <asp:BoundField DataField="ProductName" HeaderText="Product Name"/>
+                        <asp:BoundField DataField="OT" HeaderText="pH"/>
+                        <asp:BoundField DataField="Temp" HeaderText="Temp. (°C)"/>
+                        <asp:BoundField DataField="Fat" HeaderText="Fat %"/>
+                        <asp:BoundField DataField="SNF" HeaderText="SNF %" />
+                        <asp:BoundField DataField="Acidity" HeaderText="Acidity"/>
+                        <%--<asp:BoundField DataField="COB" HeaderText="COB" ItemStyle-Width="70%" />
                         <asp:BoundField DataField="AlcholTest65" HeaderText="AlcholTest65" ItemStyle-Width="70%" />
                         <asp:BoundField DataField="AlcholTest" HeaderText="AlcholTest" ItemStyle-Width="70%" />
                         <asp:BoundField DataField="Blactumantibiotictest" HeaderText="Blactumantibiotictest" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="MineralOilTest" HeaderText="MineralOilTest" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="AnyOtherTest01" HeaderText="AnyOtherTest01" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="AnyOtherTest02" HeaderText="AnyOtherTest02" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="AnyOtherTest03" HeaderText="AnyOtherTest03" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="AnyOtherTest04" HeaderText="AnyOtherTest04" ItemStyle-Width="70%" />
+                        <asp:BoundField DataField="MineralOilTest" HeaderText="MineralOilTest" ItemStyle-Width="70%" />--%>
+                        <asp:BoundField DataField="AnyOtherTest01" HeaderText="AnyOther Test 01"/>
+                        <asp:BoundField DataField="AnyOtherTest02" HeaderText="AnyOther Test 02"/>
+                        <asp:BoundField DataField="AnyOtherTest03" HeaderText="AnyOther Test 03"/>
+                        <asp:BoundField DataField="AnyOtherTest04" HeaderText="AnyOther Test 04"/>
                         <%-- <asp:BoundField HeaderText="Neutrilize" DataField="Neutrilize" ItemStyle-Width="70%" />
                          <asp:BoundField HeaderText="Urea" DataField="Urea" ItemStyle-Width="70%" />
                         <asp:BoundField HeaderText="Salt" DataField="Salt" ItemStyle-Width="70%" />
@@ -62,7 +64,7 @@
                         <asp:BoundField HeaderText="Status" DataField="Status" ItemStyle-Width="70%" />
                          <asp:BoundField HeaderText="Remarks" DataField="Remarks" ItemStyle-Width="70%" />--%>
 
-                        <asp:TemplateField HeaderText="Edit">
+                        <%--<asp:TemplateField HeaderText="Edit">
                             <ItemTemplate>
                                 <asp:ImageButton runat="server" ID="imgEdit" CommandName="Edit1" CommandArgument='<%# Eval("Id") %>' ItemStyle-Width="10%" ImageUrl="../images/Edit.png"></asp:ImageButton>
                             </ItemTemplate>
@@ -71,7 +73,7 @@
                             <ItemTemplate>
                                 <asp:ImageButton runat="server" ID="imgDelete" CommandName="Delete1" CommandArgument='<%# Eval("Id") %>' ItemStyle-Width="10%" ImageUrl="../images/Delete.png" OnClientClick="javascript:return confirm('Do you really want to Delete this record?');"></asp:ImageButton>
                             </ItemTemplate>
-                        </asp:TemplateField>
+                        </asp:TemplateField>--%>
                     </Columns>
                 </asp:GridView>
             </div>
@@ -91,14 +93,14 @@
                         <div class="col-md-2">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                <asp:TextBox runat="server" ID="txtDate" CssClass="form-control date" placeholder="Date" />
+                                <asp:TextBox runat="server" ID="txtDate" CssClass="form-control date" placeholder="Date" Enabled="false"/>
                             </div>
                             </div>
                             <div class="col-md-2">   
 
                             <div class="bootstrap-timepicker">
                                 <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txttime" ClientIDMode="Static" CssClass="form-control timepicker" placeholder="Time" />
+                                    <asp:TextBox runat="server" ID="txttime" ClientIDMode="Static" CssClass="form-control timepicker" placeholder="Time" Enabled="false"/>
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                 </div>
                             </div>
@@ -130,17 +132,19 @@
                 <br />
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-md-2">Sample Name :</label>
+                        <label class="col-md-2">Sample ID :</label>
                         <div class="col-md-4">
-                            <asp:TextBox runat="server" ID="txtsamplename" CssClass="form-control" placeholder="SampleName" />
-
+                            <asp:TextBox runat="server" ID="txtsamplename" CssClass="form-control" placeholder="Sample ID" />
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtsamplename" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter Sample ID" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
 
                    <%-- </div>
                     <div class="form-group">--%>
-                        <label class="col-md-2">Sample No :</label>
+                        <label class="col-md-2">Sample No/ Description :</label>
                         <div class="col-md-4">
-                            <asp:TextBox runat="server" ID="txtSampleNo" CssClass="form-control" placeholder="SampleNo" />
+                            <asp:TextBox runat="server" ID="txtSampleNo" CssClass="form-control" placeholder="Sample No" />
+
                         </div>
                     </div>
                 </div>
@@ -152,15 +156,17 @@
                             <%--                            <div class="input-group">--%>
                             <%--                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>--%>
                             <asp:TextBox runat="server" ID="txtProductName" CssClass="form-control" placeholder="ProductName" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtProductName" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter Product Name" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
                     <%--</div>
                     <div class="form-group has-error">--%>
 
-                        <label class="col-md-2">OT :</label>
+                        <label class="col-md-2">pH :</label>
                         <div class="col-md-4">
-                            <asp:TextBox runat="server" ID="txtOT" CssClass="form-control" placeholder="OT" />
+                            <asp:TextBox runat="server" ID="txtOT" CssClass="form-control" placeholder="pH" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtOT" ValidationGroup="g1"
-                                SetFocusOnError="True" ErrorMessage="Enter  OT" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                SetFocusOnError="True" ErrorMessage="Enter  pH" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>
@@ -196,6 +202,8 @@
                             <%--                            <div class="input-group">--%>
                             <%--                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>--%>
                             <asp:TextBox runat="server" ID="txtSNF" CssClass="form-control" placeholder="SNF" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtSNF" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter  SNF" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
                     <%--</div>
 
@@ -211,7 +219,7 @@
                     </div>
                 </div>
                 <br />
-                <div class="row">
+                <%--<div class="row">
                     <div class="form-group">
                         <label class="col-md-2">COB :</label>
                         <div class="col-md-4">
@@ -223,10 +231,6 @@
                             <asp:RequiredFieldValidator ID="rf2" runat="server" ControlToValidate="ddlCOB" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Select COB" ForeColor="Red" InitialValue="-1">*</asp:RequiredFieldValidator>
                         </div>
-                    <%--</div>
-
-
-                    <div class="form-group has-error">--%>
 
                         <label class="col-md-2">Alchol Test(65%) :</label>
                         <div class="col-md-4">
@@ -253,11 +257,7 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlAlcholtests" ValidationGroup="g1"
                             SetFocusOnError="True" ErrorMessage="Select Alcholtests" ForeColor="Red" InitialValue="-1">*</asp:RequiredFieldValidator>
                     </div>
-               <%-- </div>
-
-
-                    <div class="form-group has-error">--%>
-
+              
                         <label class="col-md-2">BLactum Antibiotictest :</label>
                         <div class="col-md-4">
                             <asp:DropDownList runat="server" ID="ddlAntibiotictest" CssClass="form-control">
@@ -270,10 +270,10 @@
                         </div>
                     </div>
                 </div>
-                <br />
+                <br />--%>
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-md-2">Mineraloil Test :</label>
+                        <%--<label class="col-md-2">Mineraloil Test :</label>
                         <div class="col-md-4">
                             <asp:DropDownList runat="server" ID="ddlMineraloiltest" CssClass="form-control">
                                 <asp:ListItem Text="-ve" Value="1"></asp:ListItem>
@@ -282,11 +282,7 @@
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlMineraloiltest" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Select Mineraloiltest" ForeColor="Red" InitialValue="-1">*</asp:RequiredFieldValidator>
-                        </div>
-                    <%--</div>
-
-
-                    <div class="form-group has-error">--%>
+                        </div>--%>
 
                         <label class="col-md-2">AnyOtherTest-01 :</label>
                         <div class="col-md-4">
@@ -298,11 +294,6 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlAnyothertest1" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Select AnyOtherTest-01" ForeColor="Red" InitialValue="-1">*</asp:RequiredFieldValidator>
                         </div>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="form-group">
                         <label class="col-md-2">AnyOtherTest-02 :</label>
                         <div class="col-md-4">
                             <asp:DropDownList runat="server" ID="ddlAnyothertest2" CssClass="form-control">
@@ -313,11 +304,11 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="ddlAnyothertest2" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Select AnyOtherTest-02" ForeColor="Red" InitialValue="-1">*</asp:RequiredFieldValidator>
                         </div>
-                    <%--</div>
-
-
-                    <div class="form-group has-error">--%>
-
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-group">
                         <label class="col-md-2">AnyOtherTest-03 :</label>
                         <div class="col-md-4">
                             <asp:DropDownList runat="server" ID="ddlAnyothertest3" CssClass="form-control">
@@ -328,11 +319,6 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="ddlAnyothertest3" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Select ddlAnyothertest3" ForeColor="Red" InitialValue="-1">*</asp:RequiredFieldValidator>
                         </div>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="form-group">
                         <label class="col-md-2">AnyOtherTest-04 :</label>
                         <div class="col-md-4">
                             <asp:DropDownList runat="server" ID="ddlAnyothertest4" CssClass="form-control">
@@ -343,12 +329,12 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="ddlAnyothertest4" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Select ddlAnyothertest4" ForeColor="Red" InitialValue="-1">*</asp:RequiredFieldValidator>
                         </div>
-                    <%--</div>
-
-
-                    <div class="form-group has-error">--%>
-
-                        <label class="col-md-2">Neutrilize :</label>
+                    </div>
+                </div>
+                <br />
+                <%--<div class="row">
+                    <div class="form-group">
+                    <label class="col-md-2">Neutrilize :</label>
                         <div class="col-md-4">
                             <asp:DropDownList runat="server" ID="ddlNeutrilize" CssClass="form-control">
                                 <asp:ListItem Text="-ve" Value="1"></asp:ListItem>
@@ -360,7 +346,7 @@
                         </div>
                     </div>
                 </div>
-                <br />
+                <br />--%>
                 <div class="row">
                     <div class="form-group">
                         <label class="col-md-2">Urea:</label>
@@ -373,11 +359,7 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="ddlUrea" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Select ddlUrea" ForeColor="Red" InitialValue="-1">*</asp:RequiredFieldValidator>
                         </div>
-                    <%--</div>
-
-
-                    <div class="form-group has-error">--%>
-
+                   
                         <label class="col-md-2">Salt :</label>
                         <div class="col-md-4">
                             <asp:DropDownList runat="server" ID="ddlsalt" CssClass="form-control">
@@ -432,11 +414,7 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="ddlstatus" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Select Status" ForeColor="Red" InitialValue="-1">*</asp:RequiredFieldValidator>
                         </div>
-                    <%--</div>
-
-
-                    <div class="form-group has-error">--%>
-
+                   
                         <label class="col-md-2">Remarks :</label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtRemarks" CssClass="form-control" placeholder="Remarks" />

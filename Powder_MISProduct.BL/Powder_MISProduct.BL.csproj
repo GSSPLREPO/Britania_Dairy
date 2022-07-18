@@ -58,6 +58,7 @@
     <Compile Include="MassBalanceForEvaporatorBL.cs" />
     <Compile Include="MassBalanceForSMP_Report_BL.cs" />
     <Compile Include="MassBalanceWheyBL.cs" />
+    <Compile Include="MotorDataSheet_ScmBL.cs" />
     <Compile Include="NFandRO_CIPLog_ReportBL.cs" />
     <Compile Include="NFandRO_ProdLog_ReportBL.cs" />
     <Compile Include="NFWheyStorageBL.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="TankLabReportBL.cs" />
     <Compile Include="TransferBL.cs" />
     <Compile Include="UtilityConsumptionBl.cs" />
+    <Compile Include="UtilityConsumptionSCMReportBL.cs" />
     <Compile Include="VacuumCoolerAndEjector_scmBL.cs" />
     <Compile Include="WheyAnalysisBL.cs" />
     <Compile Include="WPLBL.cs" />

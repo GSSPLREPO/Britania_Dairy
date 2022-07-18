@@ -347,6 +347,7 @@
     <Content Include="ReportUI\TankerDispatch.aspx" />
     <Content Include="ReportUI\Transfer.aspx" />
     <Content Include="ReportUI\UtilityConsumption.aspx" />
+    <Content Include="ReportUI\UtilityConsumptionSCMReport.aspx" />
     <Content Include="ReportUI\VacuumCoolerAndEjector_SCM.aspx" />
     <Content Include="ReportUI\WheyAnalysisReport.aspx" />
     <Content Include="ReportUI\WPLLog.aspx" />
@@ -788,6 +789,13 @@
     </Compile>
     <Compile Include="ReportUI\UtilityConsumption.aspx.designer.cs">
       <DependentUpon>UtilityConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUI\UtilityConsumptionSCMReport.aspx.cs">
+      <DependentUpon>UtilityConsumptionSCMReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportUI\UtilityConsumptionSCMReport.aspx.designer.cs">
+      <DependentUpon>UtilityConsumptionSCMReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReportUI\VacuumCoolerAndEjector_SCM.aspx.cs">
       <DependentUpon>VacuumCoolerAndEjector_SCM.aspx</DependentUpon>

@@ -267,6 +267,15 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl MassBalanceForEvaporator;
 
         /// <summary>
+        /// MotorDataSheet_SCM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MotorDataSheet_SCM;
+
+        /// <summary>
         /// MassBalanceWhey control.
         /// </summary>
         /// <remarks>
@@ -364,6 +373,15 @@ namespace Powder_MISProduct.Master
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl UtilityConsumption;
+
+        /// <summary>
+        /// UtilityConsumptionSCMReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UtilityConsumptionSCMReport;
 
         /// <summary>
         /// VacuumCoolerAndEjector_SCM control.

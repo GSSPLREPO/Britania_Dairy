@@ -11,7 +11,7 @@ namespace Powder_MISProduct.ReportUI
 {
 
 
-    public partial class MotorDataSheet_SCM
+    public partial class UtilityConsumptionSCMReport
     {
 
         /// <summary>
@@ -87,13 +87,13 @@ namespace Powder_MISProduct.ReportUI
         protected global::System.Web.UI.WebControls.Button btnGo;
 
         /// <summary>
-        /// gvMotorData control.
+        /// gvUtility control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMotorData;
+        protected global::System.Web.UI.WebControls.GridView gvUtility;
 
         /// <summary>
         /// divNo control.
