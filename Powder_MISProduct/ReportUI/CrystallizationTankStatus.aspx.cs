@@ -23,6 +23,13 @@ namespace Powder_MISProduct.ReportUI
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (!IsPostBack)
+            {
+                divExport.Visible = false;
+                txtFromDate.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                txtToDate.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            }
+
         }
 
         #region VerifyRenderingInServerForm
@@ -63,7 +70,7 @@ namespace Powder_MISProduct.ReportUI
 
                     if (this.iCount != 0)
                     {
-                        ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("CreamBuffer Tank Status REPORT", FONT), 1190, 1665, 0);
+                        ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("Crystallization Tank Status Report", FONT), 1190, 1665, 0);
                     }
                     iCount = iCount + 1;
 

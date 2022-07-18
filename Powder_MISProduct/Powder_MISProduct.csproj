@@ -326,6 +326,7 @@
     <Content Include="ReportUI\CreamBufferTankStatus.aspx" />
     <Content Include="ReportUI\CreamTankStatus.aspx" />
     <Content Include="ReportUI\CrystallizationTankStatus.aspx" />
+    <Content Include="ReportUI\CrystallizationTankStatus_SCM.aspx" />
     <Content Include="ReportUI\DryerDataLog.aspx" />
     <Content Include="ReportUI\EvaporatorLog.aspx" />
     <Content Include="ReportUI\Evaporator_SCM_DataLogSheetReport.aspx" />
@@ -336,6 +337,7 @@
     <Content Include="ReportUI\MassBalanceForEvaporator.aspx" />
     <Content Include="ReportUI\MassBalanceForSMP.aspx" />
     <Content Include="ReportUI\MassBalanceWhey.aspx" />
+    <Content Include="ReportUI\MotorDataSheet_SCM.aspx" />
     <Content Include="ReportUI\NFandRO_CIPLog_Report.aspx" />
     <Content Include="ReportUI\NFandRO_ProdLog_Report.aspx" />
     <Content Include="ReportUI\NFWheyStorage.aspx" />
@@ -640,6 +642,13 @@
     <Compile Include="ReportUI\CrystallizationTankStatus.aspx.designer.cs">
       <DependentUpon>CrystallizationTankStatus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ReportUI\CrystallizationTankStatus_SCM.aspx.cs">
+      <DependentUpon>CrystallizationTankStatus_SCM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportUI\CrystallizationTankStatus_SCM.aspx.designer.cs">
+      <DependentUpon>CrystallizationTankStatus_SCM.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ReportUI\DryerDataLog.aspx.cs">
       <DependentUpon>DryerDataLog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -709,6 +718,13 @@
     </Compile>
     <Compile Include="ReportUI\MassBalanceWhey.aspx.designer.cs">
       <DependentUpon>MassBalanceWhey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUI\MotorDataSheet_SCM.aspx.cs">
+      <DependentUpon>MotorDataSheet_SCM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportUI\MotorDataSheet_SCM.aspx.designer.cs">
+      <DependentUpon>MotorDataSheet_SCM.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReportUI\NFandRO_CIPLog_Report.aspx.cs">
       <DependentUpon>NFandRO_CIPLog_Report.aspx</DependentUpon>

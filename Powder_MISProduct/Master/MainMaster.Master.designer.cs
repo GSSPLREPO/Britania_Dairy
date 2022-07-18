@@ -177,13 +177,13 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl CreamBufferTankStatus;
 
         /// <summary>
-        /// CreamTankStatus control.
+        /// CrystallizationTankStatus_SCM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CreamTankStatus;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CrystallizationTankStatus_SCM;
 
         /// <summary>
         /// CrystallizationTankStatus control.
@@ -267,15 +267,6 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl MassBalanceForEvaporator;
 
         /// <summary>
-        /// MassBalanceForSMP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MassBalanceForSMP;
-
-        /// <summary>
         /// MassBalanceWhey control.
         /// </summary>
         /// <remarks>
@@ -285,6 +276,24 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl MassBalanceWhey;
 
         /// <summary>
+        /// NFAndROCIP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NFAndROCIP;
+
+        /// <summary>
+        /// NFAndROProduction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NFAndROProduction;
+
+        /// <summary>
         /// NFWheyStorage control.
         /// </summary>
         /// <remarks>
@@ -292,6 +301,15 @@ namespace Powder_MISProduct.Master
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl NFWheyStorage;
+
+        /// <summary>
+        /// CreamTankStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CreamTankStatus;
 
         /// <summary>
         /// PastwheyStorage control.

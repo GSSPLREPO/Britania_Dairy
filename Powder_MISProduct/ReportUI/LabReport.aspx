@@ -84,43 +84,43 @@
                     <div class="col-md-12" style="overflow: scroll">
                          <asp:GridView runat="server" ID="gvLab"
                         AutoGenerateColumns="False" GridLines="Both" HeaderStyle-Wrap="false"
-                        HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped" OnPreRender="gvLab_PreRender">
+                        HeaderStyle-Font-Size="Medium" CssClass="table table-striped" OnPreRender="gvLab_PreRender">
 <%--                        <RowStyle HorizontalAlign="Center"  Width="100%"/>--%>
                                   <Columns>
                             <asp:BoundField DataField="SrNo" HeaderText="Sr No." ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Date" HeaderText="Date" ItemStyle-Wrap="false" />
-                             <asp:BoundField HeaderText="TypeofPowder" DataField="TypeofPowder" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Time" DataField="Time" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="SampleId" DataField="SampleId" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="BatchNo" DataField="BatchNo" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="BagNo" DataField="BagNo" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Weight" DataField="Weight" ItemStyle-Width="10%" />
-                         <asp:BoundField HeaderText="TempOC" DataField="TempOC" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Fat" DataField="Fat" ItemStyle-Width="10%" />
-                         <asp:BoundField HeaderText="SNF" DataField="SNF" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Acidity" DataField="Acidity" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Moisture" DataField="Moisture" ItemStyle-Width="10%" />
-                         <asp:BoundField HeaderText="Sugar" DataField="Sugar" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="SolIndex" DataField="SolIndex" ItemStyle-Width="10%" />
-                         <asp:BoundField HeaderText="Coffetest" DataField="Coffetest" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Particleontop" DataField="Particleontop" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="ParticleonBottom" DataField="ParticleonBottom" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Sendiments" DataField="Sendiments" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="BulkDensity" DataField="BulkDensity" ItemStyle-Width="10%" />
-                         <asp:BoundField HeaderText="Scorchedparticle" DataField="Scorchedparticle" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Wettability" DataField="Wettability" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Dispersibility" DataField="Dispersibility" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="FreeFat" DataField="FreeFat" ItemStyle-Width="10%" />
-                         <asp:BoundField HeaderText="TotalPlatecount" DataField="TotalPlatecount" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Coliform" DataField="Coliform" ItemStyle-Width="10%" />
-                         <asp:BoundField HeaderText="YestMould" DataField="YestMould" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Ecoli" DataField="Ecoli" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Salmonella" DataField="Salmonella" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Saureus" DataField="Saureus" ItemStyle-Width="10%" />
-                        <asp:BoundField HeaderText="Anerobicsporecount" DataField="Anerobicsporecount" ItemStyle-Width="10%" />
-                         <asp:BoundField HeaderText="Listeriamonocytogen" DataField="Listeriamonocytogen" ItemStyle-Width="10%" />
-                              <asp:BoundField HeaderText="Username" DataField="Username" ItemStyle-Width="10%" />
-                         <asp:BoundField HeaderText="Remarks" DataField="Remarks" ItemStyle-Width="10%" />
+                             <asp:BoundField DataField="TypeofPowder" HeaderText="Type of Powder" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Time" HeaderText="Time" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="SampleId" HeaderText="Sample Id" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="BatchNo" HeaderText="Batch No" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="BagNo" HeaderText="Bag No" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Weight" HeaderText="Weight" ItemStyle-Width="10%" />
+                         <asp:BoundField DataField="TempOC" HeaderText="Temp OC" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Fat" HeaderText="Fat" ItemStyle-Width="10%" />
+                         <asp:BoundField DataField="SNF" HeaderText="SNF" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Acidity" HeaderText="Acidity" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Moisture" HeaderText="Moisture" ItemStyle-Width="10%" />
+                         <asp:BoundField DataField="Sugar" HeaderText="Sugar" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="SolIndex" HeaderText="Sol Index" ItemStyle-Width="10%" />
+                         <asp:BoundField DataField="Coffetest" HeaderText="Coffee test" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Particleontop" HeaderText="Particle on top" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="ParticleonBottom" HeaderText="Particle on Bottom" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Sendiments" HeaderText="Sendiments" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="BulkDensity" HeaderText="Bulk Density" ItemStyle-Width="10%" />
+                         <asp:BoundField DataField="Scorchedparticle" HeaderText="Scorched particle" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Wettability" HeaderText="Wettability" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Dispersibility" HeaderText="Dispersibility" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="FreeFat" HeaderText="Free Fat" ItemStyle-Width="10%" />
+                         <asp:BoundField DataField="TotalPlatecount" HeaderText="Total Plate count" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Coliform" HeaderText="Coliform" ItemStyle-Width="10%" />
+                         <asp:BoundField DataField="YestMould" HeaderText="Yeast & Mould" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Ecoli" HeaderText="E.coli" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Salmonella" HeaderText="Salmonella" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Saureus" HeaderText="Saureus" ItemStyle-Width="10%" />
+                        <asp:BoundField DataField="Anerobicsporecount" HeaderText="Anerobic spore count" ItemStyle-Width="10%" />
+                         <asp:BoundField DataField="Listeriamonocytogen" HeaderText="Listeria monocytogen" ItemStyle-Width="10%" />
+                              <asp:BoundField DataField="Username" HeaderText="Username" ItemStyle-Width="10%" />
+                         <asp:BoundField DataField="Remarks" HeaderText="Remarks" ItemStyle-Width="10%" />
                         </Columns>
                          </asp:GridView>
 

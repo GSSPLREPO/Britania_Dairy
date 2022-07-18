@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/MainMaster.Master" AutoEventWireup="true" CodeBehind="Transfer.aspx.cs" Inherits="Powder_MISProduct.ReportUI.Transfer" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/MainMaster.Master" AutoEventWireup="true" CodeBehind="CrystallizationTankStatus_SCM.aspx.cs" Inherits="Powder_MISProduct.ReportUI.CrystallizationTankStatus_SCM" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div id="breadcrumb">
+    <div id="breadcrumb">
         <ul class="breadcrumb">
             <li><i class="fa fa-home"></i><a href="../WebUI/DashBoard.aspx">Home</a></li>
-            <li class="active">Transfer  Report</li>
+            <li class="active">Crystallization SCM Tanks Status Report</li>
         </ul>
     </div>
     <div class="col-md-12">
@@ -13,12 +13,12 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-10" style="font-size: 24px;">
-                        Transfer Report
+                        Crystallization SCM Tanks Status Report
                     </div>
                     <div class="col-md-2 right" id="divExport" runat="server">
                         <asp:LinkButton ID="imgPDFButton" runat="server" OnClick="imgPDFButton_Click" CssClass="btn btn-danger quick-btn"><i class="fa fa-file-pdf-o"></i></asp:LinkButton>
                         <asp:LinkButton ID="imgExcelButton" runat="server" OnClick="imgExcelButton_Click" CssClass="btn btn-success quick-btn"><i class="fa fa-file-excel-o"></i></asp:LinkButton>
-<%--                        <asp:LinkButton ID="imgWordButton" runat="server" OnClick="imgbtnWord_OnClick" CssClass="btn btn-info quick-btn"><i class="fa fa-file-word-o"></i></asp:LinkButton>--%>
+                        <%--                        <asp:LinkButton ID="imgWordButton" runat="server" OnClick="imgbtnWord_OnClick" CssClass="btn btn-info quick-btn"><i class="fa fa-file-word-o"></i></asp:LinkButton>--%>
                     </div>
                 </div>
             </div>
@@ -27,17 +27,21 @@
                     <div class="col-md-12">
                         <div class="col-md-3">
                             From Date :
+                       
                         </div>
                         <div class="col-md-2">
                             From Time :
+                       
                         </div>
                         <div class="col-md-3">
                             To Date :
+                       
                         </div>
                         <div class="col-md-2">
                             To Time :
+                       
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="row">
@@ -75,7 +79,7 @@
                             </div>
                         </div>
                         <div class="col-md-2">
-                           <asp:Button runat="server" ID="btnGo" Text="Go" CssClass="btn btn-primary pull-right" ValidationGroup="g1" OnClick="btnGo_Click" />
+                            <asp:Button runat="server" ID="btnGo" Text="Go" CssClass="btn btn-primary pull-right" ValidationGroup="g1" OnClick="btnGo_Click" />
 
                         </div>
                     </div>
@@ -83,31 +87,14 @@
                 <br />
                 <div class="row">
                     <div class="col-md-12" style="overflow: scroll">
-                         <asp:GridView runat="server" ID="gvTransfer"
-                        AutoGenerateColumns="False" GridLines="Both" HeaderStyle-Wrap="false"
-                        HeaderStyle-Font-Size="Medium" CssClass="table table-striped" OnPreRender="gvTransfer_PreRender">
-<%--                        <RowStyle HorizontalAlign="Center"  Width="100%"/>--%>
-                           <Columns>
-                            <asp:BoundField DataField="SrNo" HeaderText="Sr No." ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="Date" HeaderText="Date" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="ShiftName" HeaderText="Shift No." ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="FunctionNo" HeaderText="Function No." ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="TransferName" HeaderText="Transfer Name" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="Status" HeaderText="Status" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="StartTime" HeaderText="Start Time" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="StopTime" HeaderText="End Time" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="TotalTime" HeaderText="Running Time" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="Source" HeaderText="Source" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="Destination" HeaderText="Destination" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="Product" HeaderText="Product Name" ItemStyle-Wrap="false" />
-
-                               <%--Farheen: Remove fat and SNF column as per the client new requirement.--%>
-                           <%-- <asp:BoundField DataField="Fat" HeaderText="FAT" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="SNF" HeaderText="SNF" ItemStyle-Wrap="false" />--%>
-                            <asp:BoundField DataField="Quantity" HeaderText="Quantity (Liters)" ItemStyle-Wrap="false" />
-                         
-                        </Columns>
-                         </asp:GridView>
+                        <asp:GridView ID="gvCrystallization" runat="server" GridLines="Both"
+                            AutoGenerateColumns="true" HeaderStyle-Wrap="false"
+                            Width="100%" ShowHeader="false"
+                            OnRowCreated="gvCrystallization_SCM_RowCreated"
+                            HeaderStyle-Font-Size="Medium" CssClass="table table-striped"
+                            HeaderStyle-HorizontalAlign="Center">
+                            <RowStyle HorizontalAlign="Center" Width="100%" />
+                        </asp:GridView>
 
                     </div>
                 </div>
@@ -117,6 +104,9 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <script src="~/Scripts/jquery-3.4.1.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         var date = new Date();
         var end = new Date(date.getFullYear(), date.getMonth(), date.getDate());
@@ -126,14 +116,14 @@
             format: 'dd/mm/yyyy',
             autoclose: true,
             orientation: "top auto",
-            endDate: end
+            // endDate: end
         });
         $('#datetimepicker2 input').datepicker({
             clearBtn: true,
             format: 'dd/mm/yyyy',
             autoclose: true,
             orientation: "top auto",
-            endDate: end
+            //endDate: end
         });
         $(".timepicker").timepicker({
             showInputs: false,
@@ -156,5 +146,7 @@
         });
         $('datetimepicker1').datepicker('setDate', today);
         $('datetimepicker2').datepicker('setDate', today);
+
     </script>
 </asp:Content>
+

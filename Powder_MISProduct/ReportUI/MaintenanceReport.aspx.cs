@@ -20,10 +20,17 @@ namespace Powder_MISProduct.ReportUI
 {
     public partial class Maintenance : System.Web.UI.Page
     {
+        #region Load page event
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                divExport.Visible = false;
+                txtFromDate.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                txtToDate.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            }
         }
+        #endregion
 
         #region VerifyRenderingInServerForm
         public override void VerifyRenderingInServerForm(Control control)
@@ -97,21 +104,34 @@ namespace Powder_MISProduct.ReportUI
                   CultureInfo.InvariantCulture);
                 DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text + " " + txtToTime.Text, "dd/MM/yyyy HH:mm:ss",
                     CultureInfo.InvariantCulture);
-                objResult = objMaintenance.MaintenanceReport(dtFromDateTime, dtToDateTime);
-                if (objResult.ResultDt.Rows.Count > 0)
+                if (dtFromDateTime <= dtToDateTime)
                 {
-                    gvMaintenance.DataSource = objResult.ResultDt;
-                    gvMaintenance.DataBind();
-                    // imgWordButton.Visible = imgExcelButton.Visible = true;
-                    divNo.Visible = false;
+                    objResult = objMaintenance.MaintenanceReport(dtFromDateTime, dtToDateTime);
+                    if (objResult.ResultDt.Rows.Count > 0)
+                    {
+                        gvMaintenance.DataSource = objResult.ResultDt;
+                        gvMaintenance   .DataBind();
+                        // imgWordButton.Visible = imgExcelButton.Visible = true;
+                        divNo.Visible = false;
+                        divExport.Visible = true;
+                        gvMaintenance.Visible = true;
+                    }
+                    else
+                    {
+                        // imgWordButton.Visible = imgExcelButton.Visible = false;
+                        divNo.Visible = true;
+                        divExport.Visible = false;
+                        gvMaintenance.Visible = false;
+                    }
+
                 }
                 else
                 {
-                    // imgWordButton.Visible = imgExcelButton.Visible = false;
-                    divNo.Visible = true;
-                    // ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
-                    //"<script>alert('No Record Found.');</script>");
+                    gvMaintenance.Visible = false;
+                    ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
+                   "<script>alert('You cannot select From Date greater than To Date.');</script>");
                 }
+
             }
             catch (Exception ex)
             {
@@ -122,14 +142,14 @@ namespace Powder_MISProduct.ReportUI
         }
         #endregion
 
-      
+
 
         protected void btnGo_Click(object sender, EventArgs e)
         {
             MaintenanceReport();
         }
 
-      
+
 
         protected void imgExcelButton_Click(object sender, EventArgs e)
         {

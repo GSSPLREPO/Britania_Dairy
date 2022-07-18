@@ -85,15 +85,15 @@
                     <div class="col-md-18" style="overflow: scroll">
                          <asp:GridView runat="server" ID="gvInventory"
                         AutoGenerateColumns="False" GridLines="Both" HeaderStyle-Wrap="false"
-                        HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped" OnPreRender="gvInventory_PreRender">
+                        HeaderStyle-Font-Size="Medium" CssClass="table table-striped" OnPreRender="gvInventory_PreRender">
 <%--                        <RowStyle HorizontalAlign="Center"  Width="100%"/>--%>
                            <Columns>
                             <asp:BoundField DataField="SrNo" HeaderText="Sr No." ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Date" HeaderText="Date" ItemStyle-Wrap="false" />
 <%--                            <asp:BoundField DataField="Time" HeaderText="Time" ItemStyle-Wrap="false" />--%>
-                            <asp:BoundField DataField="Itemdesc" HeaderText="Itemdesc" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="MakeType" HeaderText="MakeType" ItemStyle-Wrap="false" />
-                            <asp:BoundField DataField="BatchNumber" HeaderText="BatchNumber" ItemStyle-Wrap="false" />
+                            <asp:BoundField DataField="Itemdesc" HeaderText="Item" ItemStyle-Wrap="false" />
+                            <asp:BoundField DataField="MakeType" HeaderText="Make Type" ItemStyle-Wrap="false" />
+                            <asp:BoundField DataField="BatchNumber" HeaderText="Batch Number" ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Quantity" HeaderText="Quantity" ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Remarks" HeaderText="Remarks" ItemStyle-Wrap="false" />
                          

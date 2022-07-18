@@ -47,6 +47,7 @@
     <Compile Include="CPLBL.cs" />
     <Compile Include="CreamBufferTankBL.cs" />
     <Compile Include="CreamTankStatusBL.cs" />
+    <Compile Include="CrystallizationTankStatus_SCMBL.cs" />
     <Compile Include="EmployeeBl.cs" />
     <Compile Include="EvaporatorBL.cs" />
     <Compile Include="Evaporator_SCM_DataLogSheetBL.cs" />

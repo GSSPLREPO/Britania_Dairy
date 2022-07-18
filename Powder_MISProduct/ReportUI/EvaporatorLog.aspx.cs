@@ -247,7 +247,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell10.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell10);
 
-                        PdfPCell headerCell11 = new PdfPCell(new Phrase("DSI Temp. (°C)"));
+                        PdfPCell headerCell11 = new PdfPCell(new Phrase("DSI In Temp. (°C)"));
                         headerCell11.Rowspan = 2;
                         headerCell11.Colspan = 1;
                         headerCell11.Padding = 5;
@@ -467,7 +467,7 @@ namespace Powder_MISProduct.ReportUI
                             50f, 110f, 90f, 70f, 90f, 
                             90f, 90f, 110f, 110f, 80f,
                             90f, 90f, 80f, 120f, 120f, 
-                            70f, 70f, 70f, 70f, 110f,//CAl-1
+                            80f, 70f, 70f, 70f, 110f,//CAl-1
                             110f, 110f, 80f, 90f, 90f, 
                             90f, 90f, 80f, 110f, 90f,
                             90f, 90f, 80f, 90f, 90f,90f
@@ -531,7 +531,7 @@ namespace Powder_MISProduct.ReportUI
 
                         StringReader sr = new StringReader(sb.ToString());
 
-                        Document pdfDoc = new Document(iTextSharp.text.PageSize.A1.Rotate(), -200f, -200f, 40f, 30f);
+                        Document pdfDoc = new Document(iTextSharp.text.PageSize.A1.Rotate(), -270f, -270f, 40f, 30f);
 
                         HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
                         PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
@@ -872,7 +872,7 @@ namespace Powder_MISProduct.ReportUI
                     headerTableCell = new TableHeaderCell();
                     headerTableCell.RowSpan = 1;
                     // headerTableCell.ColumnSpan = 6;
-                    headerTableCell.Text = "DSI Temp. (°C)";
+                    headerTableCell.Text = "DSI In Temp. (°C)";
                     headerRow1.Controls.Add(headerTableCell);
 
                     headerTableCell = new TableHeaderCell();
