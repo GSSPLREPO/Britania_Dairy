@@ -47,14 +47,15 @@ namespace Powder_MISProduct.ReportUI
             {
                 ApplicationResult objResult = new ApplicationResult();
                 ChemicalConsumptionBL objChemicalConsumption = new ChemicalConsumptionBL();
-                DateTime dtFromDateTime = DateTime.ParseExact(txtFromDate.Text, "dd/MM/yyyy",
-                  CultureInfo.InvariantCulture);
-                DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text, "dd/MM/yyyy",
-                    CultureInfo.InvariantCulture);
+                DateTime dtFromDateTime = DateTime.ParseExact(txtFromDate.Text+" "+txtFromTime.Text, 
+                    "dd/MM/yyyy HH:mm:ss",CultureInfo.InvariantCulture);
+                DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text+" "+txtToTime.Text, 
+                    "dd/MM/yyyy HH:mm:ss",CultureInfo.InvariantCulture);
+                int ShiftNo = Convert.ToInt32(dd_Shift.SelectedValue);
 
                 if (dtFromDateTime <= dtToDateTime)
                 {
-                    objResult = objChemicalConsumption.ChemicalConsumption(dtFromDateTime, dtToDateTime);
+                    objResult = objChemicalConsumption.ChemicalConsumption(dtFromDateTime, dtToDateTime,ShiftNo);
                     if (objResult.ResultDt.Rows.Count > 0)
                     {
                         gvChemicalConsumption.DataSource = objResult.ResultDt;
@@ -111,13 +112,13 @@ namespace Powder_MISProduct.ReportUI
 
                     headerTableCell = new TableHeaderCell();
                     headerTableCell.RowSpan = 1;
-                    headerTableCell.Text = "Date";
+                    headerTableCell.Text = "Date & Time";
                     headerRow1.Controls.Add(headerTableCell);
 
-                    headerTableCell = new TableHeaderCell();
-                    headerTableCell.RowSpan = 1;
-                    headerTableCell.Text = "Time";
-                    headerRow1.Controls.Add(headerTableCell);
+                    //headerTableCell = new TableHeaderCell();
+                    //headerTableCell.RowSpan = 1;
+                    //headerTableCell.Text = "Time";
+                    //headerRow1.Controls.Add(headerTableCell);
 
                     headerTableCell = new TableHeaderCell();
                     headerTableCell.RowSpan = 1;
@@ -220,7 +221,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCel20.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCel20);
 
-                        PdfPCell headerCell = new PdfPCell(new Phrase("Date"));
+                        PdfPCell headerCell = new PdfPCell(new Phrase("Date & Time"));
                         headerCell.Rowspan = 1;
                         headerCell.Colspan = 1;
                         headerCell.Padding = 5;
@@ -229,14 +230,14 @@ namespace Powder_MISProduct.ReportUI
                         headerCell.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell);
 
-                        PdfPCell headerCell1 = new PdfPCell(new Phrase("Time"));
-                        headerCell1.Rowspan = 1;
-                        headerCell1.Colspan = 1;
-                        headerCell1.Padding = 5;
-                        headerCell1.BorderWidth = 1.5f;
-                        headerCell1.HorizontalAlignment = Element.ALIGN_CENTER;
-                        headerCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
-                        pdfPTable.AddCell(headerCell1);
+                        //PdfPCell headerCell1 = new PdfPCell(new Phrase("Time"));
+                        //headerCell1.Rowspan = 1;
+                        //headerCell1.Colspan = 1;
+                        //headerCell1.Padding = 5;
+                        //headerCell1.BorderWidth = 1.5f;
+                        //headerCell1.HorizontalAlignment = Element.ALIGN_CENTER;
+                        //headerCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        //pdfPTable.AddCell(headerCell1);
 
                         PdfPCell headerCell2 = new PdfPCell(new Phrase("Shift"));
                         headerCell2.Rowspan = 1;
@@ -708,7 +709,7 @@ namespace Powder_MISProduct.ReportUI
                 string content = "<div align='center' style='font-family:verdana;font-size:16px; width:800px;'>" +
                   "<table style='display: table; width: 800px; clear:both;'>" +
                   "<tr> </tr>" +
-                  "<tr><th><img height='90' width='90' src='" + imageURL1 + "'/></th>" +
+                  "<tr><th><img height='90' width='120' src='" + imageURL1 + "'/></th>" +
                    strTh +
                   "<th colspan='" + colh + "' style='width: 600px; float: left; font-weight:bold;font-size:16px;'>" + Session[ApplicationSession.OrganisationName] + 
                   "<th><img  height= '80' width= '90' src='" + imageURL + "'/></th>" +
@@ -718,10 +719,10 @@ namespace Powder_MISProduct.ReportUI
                      "<tr><th colspan='2'>'" + "'</th><th colspan='" + colh + "' style='font-size:22px;color:Maroon;'><b>" + strSubTitle + "</b></th></tr>" +
                      "<tr></tr>" +
                      "<tr><th colspan='4' align='left' style='width: 200px; float: left;'><strong> From Date : </strong>" +
-                (DateTime.ParseExact(txtFromDate.Text+" 07:00:00", "dd/MM/yyyy HH:mm:ss",CultureInfo.InvariantCulture)).ToString() + "</th>" +
-                "<th colspan='" + cold + "'></th>" + strTh+
+                (DateTime.ParseExact(txtFromDate.Text+" "+txtFromTime.Text, "dd/MM/yyyy HH:mm:ss",CultureInfo.InvariantCulture)).ToString() + "</th>" +
+                "<th colspan='" + cold + "'></th>" + 
                 "<th colspan = '2' align = 'right' style = 'width: 200px; float: right;'><strong> To Date : </strong>" +
-                            (DateTime.ParseExact(txtToDate.Text+" 06:59:59", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)).ToString() + "</th></tr>" +
+                            (DateTime.ParseExact(txtToDate.Text+" "+txtToTime.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)).ToString() + "</th></tr>" +
                 "</table>" +
 
                       "<br/>" + sw.ToString() + "<br/></div>";

@@ -25,30 +25,32 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             From Date :
                         </div>
-                      <%--  <div class="col-md-2">
+                        <div class="col-md-2">
                             From Time :
-                        </div>--%>
-                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-2">
                             To Date :
                         </div>
-                       <%-- <div class="col-md-2">
+                        <div class="col-md-2">
                             To Time :
-                        </div>--%>
-                        
+                        </div>
+                        <div class="col-md-2">
+                            Shift: 
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="col-md-3 has-error">
+                        <div class="col-md-2 has-error">
                             <div class='input-group date' id='datetimepicker1'>
                                 <asp:TextBox ID="txtFromDate" CssClass="form-control" Placeholder="From Date" runat="server"></asp:TextBox>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                             </div>
                         </div>
-                        <%--<div class="col-md-2">
+                        <div class="col-md-2">
                             <div class="bootstrap-timepicker">
                                 <div class="form-group">
                                      <div class="input-group">
@@ -57,14 +59,14 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>--%>
-                        <div class="col-md-3 has-error">
+                        </div>
+                        <div class="col-md-2 has-error">
                             <div class='input-group date' id='datetimepicker2'>
                                 <asp:TextBox ID="txtToDate" CssClass="form-control" Placeholder="To Date" runat="server"></asp:TextBox>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                             </div>
                         </div>
-                        <%--<div class="col-md-2">
+                        <div class="col-md-2">
                             <div class="bootstrap-timepicker">
                                 <div class="form-group">
                                     <div class="input-group">
@@ -73,7 +75,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>--%>
+                        </div>
+                        <div class="col-md-2">
+                            <asp:DropDownList ID="dd_Shift" runat="server" CssClass="form-control dropdown">
+                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                <asp:ListItem Text="Shift-1" Value="1"></asp:ListItem>
+                                <asp:ListItem Text="Shift-2" Value="2"></asp:ListItem>
+                                <asp:ListItem Text="Shift-3" Value="3"></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
                         <div class="col-md-2">
                            <asp:Button runat="server" ID="btnGo" Text="Go" CssClass="btn btn-primary pull-right" ValidationGroup="g1" OnClick="btnGo_Click" />
 

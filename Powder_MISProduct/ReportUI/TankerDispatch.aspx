@@ -5,7 +5,7 @@
      <div id="breadcrumb">
         <ul class="breadcrumb">
             <li><i class="fa fa-home"></i><a href="../WebUI/DashBoard.aspx">Home</a></li>
-            <li class="active"> | Tanker Dispatch Report</li>
+            <li class="active">Tanker Dispatch Report</li>
         </ul>
     </div>
     <div class="col-md-12">

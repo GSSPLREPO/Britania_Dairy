@@ -51,6 +51,15 @@ namespace Powder_MISProduct.ReportUI
         protected global::System.Web.UI.WebControls.TextBox txtFromDate;
 
         /// <summary>
+        /// txtFromTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFromTime;
+
+        /// <summary>
         /// txtToDate control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,24 @@ namespace Powder_MISProduct.ReportUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtToDate;
+
+        /// <summary>
+        /// txtToTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtToTime;
+
+        /// <summary>
+        /// dd_Shift control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dd_Shift;
 
         /// <summary>
         /// btnGo control.

@@ -90,11 +90,11 @@ namespace Powder_MISProduct.WebUI
                 TankLabReportBO objTankLabReportBO = new TankLabReportBO();
                 TankLabReportBL TankLabReportBL = new TankLabReportBL();
 
-                objTankLabReportBO.DateTime = txtDate.Text.Trim() + " " + txttime.Text.Trim();
-                objTankLabReportBO.Time = txttime.Text.Trim();
+                objTankLabReportBO.DateTime = DateTime.ParseExact(txtDate.Text.Trim() + " " + txttime.Text.Trim(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture).ToString(); ;
+                //objTankLabReportBO.Time = txttime.Text.Trim();
                 //objTankLabReportBO.SampleDate = txtSampleDate.Text.Trim() + " " + txtSampleTime.Text.Trim();
                 //objTankLabReportBO.SampleTime = txtSampleTime.Text.Trim();
-                objTankLabReportBO.SampleTime = txtSampleDate.Text.Trim() + " " + txtSampleTime.Text.Trim();
+                objTankLabReportBO.SampleTime = DateTime.ParseExact(txtSampleDate.Text.Trim() + " " + txtSampleTime.Text.Trim(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture).ToString(); ;
                 objTankLabReportBO.SampleID = txtSampleID.Text.Trim();
                 objTankLabReportBO.SiloTagNo = DropDownListTankName.SelectedValue.ToString();
 
@@ -167,7 +167,9 @@ namespace Powder_MISProduct.WebUI
             {
 
                 //log.Error("Error", ex);
-                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
+                //ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
+                string message = string.Format("Message: {0}\\n\\n", ex.Message);
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
             }
         }
         #endregion 

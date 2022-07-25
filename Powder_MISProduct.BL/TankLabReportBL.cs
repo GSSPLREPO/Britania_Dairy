@@ -191,7 +191,7 @@ namespace Powder_MISProduct.BL
         {
             try
             {
-                pSqlParameter = new SqlParameter[18];
+                pSqlParameter = new SqlParameter[19];
 
                 pSqlParameter[0] = new SqlParameter("@Id", SqlDbType.Int);
                 pSqlParameter[0].Direction = ParameterDirection.Input;

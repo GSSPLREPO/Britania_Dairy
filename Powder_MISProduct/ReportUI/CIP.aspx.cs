@@ -616,7 +616,7 @@ namespace Powder_MISProduct.ReportUI
                         pdfDoc.Close();
                         Response.ContentType = "application/pdf";
 
-                        Response.AddHeader("content-disposition", "attachment;" + "filename=CIP_Log_Report_C3F1_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + "_" + DateTime.Now.Date.ToString("HH:mm:ss") + ".pdf");
+                        Response.AddHeader("content-disposition", "attachment;" + "filename=CIP_Log_Report_C3F1_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("HH:mm:ss") + ".pdf");
                         Response.Cache.SetCacheability(HttpCacheability.NoCache);
                         Response.Write(pdfDoc);
                         Response.Flush();

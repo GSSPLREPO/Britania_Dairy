@@ -121,7 +121,7 @@ namespace Powder_MISProduct.ReportUI
                         sb.Append("<br/>");
 
                         string content = "<table style='display: table;width: 900px; clear:both;'> <tr> <th colspan='7'"
-                            + "style='float: left;padding-left: 275px;'><div align='left'><strong>From Date : </strong>" +
+                            + "style='float: left;padding-left: 290px;'><div align='left'><strong>From Date : </strong>" +
                             dtfromDateTime + "</div></th>";
 
                         content += "<th style='float:left; padding-left:-180px;'></th>";

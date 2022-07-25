@@ -120,7 +120,7 @@ namespace Powder_MISProduct.ReportUI
 
                     if (this.iCount != 0)
                     {
-                        ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("Cream Tank Status Report", FONT), 1190, 1665, 0);
+                        ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, new Phrase("Past. Cream Tank Status Report", FONT), 1190, 1665, 0);
                     }
                     iCount = iCount + 1;
 
