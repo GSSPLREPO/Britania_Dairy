@@ -5,7 +5,7 @@
     <div id="breadcrumb">
         <ul class="breadcrumb">
             <li><i class="fa fa-home"></i><a href="../WebUI/DashBoard.aspx">Home</a></li>
-            <li class="active">Mototr Data Log Sheet</li>
+            <li class="active">Motor Data Log Sheet</li>
         </ul>
     </div>
     <div class="col-md-12">
@@ -13,7 +13,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-10" style="font-size: 24px;">
-                        Mototr Data Log Sheet
+                        Motor Data Log Sheet
                     </div>
                     <div class="col-md-2 right" id="divExport" runat="server">
                         <asp:LinkButton ID="imgPDFButton" runat="server" OnClick="imgPDFButton_Click" CssClass="btn btn-danger quick-btn"><i class="fa fa-file-pdf-o"></i></asp:LinkButton>
