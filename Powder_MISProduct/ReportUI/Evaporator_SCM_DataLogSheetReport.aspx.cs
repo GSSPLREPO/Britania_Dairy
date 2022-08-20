@@ -425,7 +425,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell6.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell6);
 
-                        PdfPCell headerCell7 = new PdfPCell(new Phrase("Feed Conductivity (mS/cm)"));
+                        PdfPCell headerCell7 = new PdfPCell(new Phrase("Feed Cond. (mS/cm)"));
                         headerCell7.Rowspan = 1;
                         headerCell7.Colspan = 1;
                         headerCell7.Padding = 5;
@@ -717,8 +717,8 @@ namespace Powder_MISProduct.ReportUI
                         pdfPTable.AddCell(headerCell37);
 
                         float[] widthsTAS = {
-                            20f, 40f, 40f, 40f, 25f,
-                            25f, 30f, 45f, 40f, 35f,
+                            20f, 40f, 50f, 40f, 25f,
+                            25f, 30f, 40f, 40f, 35f,
                             29f, 29f, 25f, 25f, 30f,//FV-1 Regeneration Temp.(°C)
                             30f, 34f, 30f, 30f, 30f,
                             30f, 30f, 30f, 30f, 30f,//FV-2 Vacuum
@@ -786,10 +786,10 @@ namespace Powder_MISProduct.ReportUI
 
                         jpg.Alignment = Element.ALIGN_CENTER;
                         //jpg.SetAbsolutePosition(30, 1075);
-                        jpg.SetAbsolutePosition(80, 1560);
+                        jpg.SetAbsolutePosition(30, 1560);
 
                         jpg1.Alignment = Element.ALIGN_RIGHT;
-                        jpg1.SetAbsolutePosition(2050, 1530);
+                        jpg1.SetAbsolutePosition(2140, 1530);
 
                         StringReader sr = new StringReader(sb.ToString());
 

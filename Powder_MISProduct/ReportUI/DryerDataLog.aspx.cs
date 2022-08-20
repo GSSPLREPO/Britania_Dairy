@@ -175,14 +175,14 @@ namespace Powder_MISProduct.ReportUI
                         sb.Append("<br/>");
 
                         string content = "<table style='display: table;width: 900px; clear:both;'> <tr> <th colspan='7'"
-                            + "style='float: left;padding-left: 275px;'><div align='left'><strong>From Date : </strong>" +
+                            + "style='float: left;padding-left: 288px;'><div align='left'><strong>From Date : </strong>" +
                             dtfromDateTime + "</div></th>";
 
                         content += "<th style='float:left; padding-left:-180px;'></th>";
 
                         content += "<th style='float:left; padding-left:-210px;'></th>";
 
-                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-200px;'><strong> To DateTime: </strong>" +
+                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-197px;'><strong> To DateTime: </strong>" +
                         dtToDateTime + "</th>" +
                         "</tr></table>";
                         sb.Append(content);
@@ -229,7 +229,8 @@ namespace Powder_MISProduct.ReportUI
                         headerCell23.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell23);
 
-                        PdfPCell headerCell3 = new PdfPCell(new Phrase("Atomiser Vibration Monitoring (um)"));
+                        //PdfPCell headerCell3 = new PdfPCell(new Phrase("Atomiser Vibration Monitoring (um)"));
+                        PdfPCell headerCell3 = new PdfPCell(new Phrase("Atomiser Vibr. Monitoring (um)"));
                         headerCell3.Rowspan = 2;
                         headerCell3.Colspan = 1;
                         headerCell3.Padding = 5;
@@ -238,7 +239,8 @@ namespace Powder_MISProduct.ReportUI
                         headerCell3.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell3);
 
-                        PdfPCell headerCell4 = new PdfPCell(new Phrase("Atomiser Rotational Speed Monitoring (rpm%)"));
+                        //PdfPCell headerCell4 = new PdfPCell(new Phrase("Atomiser Rotational Speed Monitoring (rpm%)"));
+                        PdfPCell headerCell4 = new PdfPCell(new Phrase("Atomiser Rotat. Speed Monitoring (rpm%)"));
                         headerCell4.Rowspan = 2;
                         headerCell4.Colspan = 1;
                         headerCell4.Padding = 5;
@@ -247,7 +249,8 @@ namespace Powder_MISProduct.ReportUI
                         headerCell4.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell4);
 
-                        PdfPCell headerCell5 = new PdfPCell(new Phrase("Atomizer Oil Pressure Ok/Not ok"));
+                        //PdfPCell headerCell5 = new PdfPCell(new Phrase("Atomizer Oil Pressure Ok/Not ok"));
+                        PdfPCell headerCell5 = new PdfPCell(new Phrase("Atomizer Oil Press. Ok/Not ok"));
                         headerCell5.Rowspan = 2;
                         headerCell5.Colspan = 1;
                         headerCell5.Padding = 5;
@@ -256,7 +259,8 @@ namespace Powder_MISProduct.ReportUI
                         headerCell5.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell5);
 
-                        PdfPCell headerCell6 = new PdfPCell(new Phrase("Atomizer Oil Circulation Ok/Not ok"));
+                        //PdfPCell headerCell6 = new PdfPCell(new Phrase("Atomizer Oil Circulation Ok/Not ok"));
+                        PdfPCell headerCell6 = new PdfPCell(new Phrase("Atomizer Oil Circu. Ok/Not ok"));
                         headerCell6.Rowspan = 2;
                         headerCell6.Colspan = 1;
                         headerCell6.Padding = 5;
@@ -274,7 +278,8 @@ namespace Powder_MISProduct.ReportUI
                         headerCell7.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell7);
 
-                        PdfPCell headerCell8 = new PdfPCell(new Phrase("Homogenizer Inlet Pressure (bar)"));
+                        //PdfPCell headerCell8 = new PdfPCell(new Phrase("Homogenizer Inlet Pressure (bar)"));
+                        PdfPCell headerCell8 = new PdfPCell(new Phrase("Homo. Inlet Press. (bar)"));
                         headerCell8.Rowspan = 2;
                         headerCell8.Colspan = 1;
                         headerCell8.Padding = 5;
@@ -283,7 +288,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell8.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell8);
 
-                        PdfPCell headerCell9 = new PdfPCell(new Phrase("Homogenizer Freq. (Hz)"));
+                        PdfPCell headerCell9 = new PdfPCell(new Phrase("Homo. Freq. (Hz)"));
                         headerCell9.Rowspan = 2;
                         headerCell9.Colspan = 1;
                         headerCell9.Padding = 5;
@@ -292,7 +297,8 @@ namespace Powder_MISProduct.ReportUI
                         headerCell9.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell9);
 
-                        PdfPCell headerCell10 = new PdfPCell(new Phrase("Homogenizer Outlet Pressure (bar)"));
+                        //PdfPCell headerCell10 = new PdfPCell(new Phrase("Homogenizer Outlet Pressure (bar)"));
+                        PdfPCell headerCell10 = new PdfPCell(new Phrase("Homo. Outlet Press. (bar)"));
                         headerCell10.Rowspan = 2;
                         headerCell10.Colspan = 1;
                         headerCell10.Padding = 5;
@@ -328,7 +334,8 @@ namespace Powder_MISProduct.ReportUI
                         headerCell13.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell13);
 
-                        PdfPCell headerCell14 = new PdfPCell(new Phrase("Air Intake Pressure (mmWC)"));
+                        //PdfPCell headerCell14 = new PdfPCell(new Phrase("Air Intake Pressure (mmWC)"));
+                        PdfPCell headerCell14 = new PdfPCell(new Phrase("Air Intake Press. (mmWC)"));
                         headerCell14.Rowspan = 2;
                         headerCell14.Colspan = 1;
                         headerCell14.Padding = 5;
@@ -508,7 +515,8 @@ namespace Powder_MISProduct.ReportUI
                         headerCell34.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell34);
 
-                        PdfPCell headerCell35 = new PdfPCell(new Phrase("Roots Blower Pressure (mmWC)"));
+                        //PdfPCell headerCell35 = new PdfPCell(new Phrase("Roots Blower Pressure (mmWC)"));
+                        PdfPCell headerCell35 = new PdfPCell(new Phrase("Roots Blower Press. (mmWC)"));
                         headerCell35.Rowspan = 2;
                         headerCell35.Colspan = 1;
                         headerCell35.Padding = 5;
@@ -536,9 +544,9 @@ namespace Powder_MISProduct.ReportUI
                         pdfPTable.AddCell(headerCell37);
 
                         float[] widthsTAS = {
-                            50f, 120f, 110f, 80f, 110f,
-                            110f, 110f, 120f, 100f, 140f,
-                            140f, 140f, 90f, 100f, 80f,
+                            50f, 120f, 110f, 110f, 110f,
+                            110f, 110f, 90f, 90f, 100f,
+                            100f, 100f, 90f, 100f, 80f,
                             110f, 110f, 90f, 80f, 80f,//Air Intake
                             80f, 110f, 90f, 80f, 90f,
                             80f, 80f, 90f, 90f, 80f,
@@ -597,14 +605,14 @@ namespace Powder_MISProduct.ReportUI
 
                         jpg.Alignment = Element.ALIGN_CENTER;
                         //jpg.SetAbsolutePosition(30, 1075);
-                        jpg.SetAbsolutePosition(80, 1560);
+                        jpg.SetAbsolutePosition(30, 1560);
 
                         jpg1.Alignment = Element.ALIGN_RIGHT;
-                        jpg1.SetAbsolutePosition(2050, 1530);
+                        jpg1.SetAbsolutePosition(2140, 1530);
 
                         StringReader sr = new StringReader(sb.ToString());
 
-                        Document pdfDoc = new Document(iTextSharp.text.PageSize.A1.Rotate(), -200f, -200f, 40f, 30f);
+                        Document pdfDoc = new Document(iTextSharp.text.PageSize.A1.Rotate(), -260f, -260f, 40f, 30f);
 
                         HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
                         PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
