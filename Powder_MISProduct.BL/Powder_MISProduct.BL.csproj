@@ -75,6 +75,7 @@
     <Compile Include="TankLabReportBL.cs" />
     <Compile Include="TransferBL.cs" />
     <Compile Include="UtilityConsumptionBl.cs" />
+    <Compile Include="UtilityConsumptionCostBL.cs" />
     <Compile Include="UtilityConsumptionSCMReportBL.cs" />
     <Compile Include="VacuumCoolerAndEjector_scmBL.cs" />
     <Compile Include="WheyAnalysisBL.cs" />

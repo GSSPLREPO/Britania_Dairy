@@ -187,14 +187,14 @@
                 <div class="form-group">
                     <label class="col-md-2">SNF% :</label>
                     <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtSNF" CssClass="form-control" placeholder="SNF" onkeypress="return PreventDecimalPointValue(event)" MaxLength="8" />
+                        <asp:TextBox runat="server" ID="txtSNF" CssClass="form-control" placeholder="SNF" onkeypress="return customValidation(event);" MaxLength="8" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtSNF" ValidationGroup="g1"
                                     SetFocusOnError="True" ErrorMessage="Enter SNF!" ForeColor="Red">*</asp:RequiredFieldValidator>
                         <%--<asp:RangeValidator ID="RangeValidator1" runat="server" ValidationGroup="g1" ErrorMessage="Please enter SNF!" ControlToValidate="txtSNF"></asp:RangeValidator>--%>
                     </div>
                     <label class="col-md-2">FAT% :</label>
                     <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtFAT" CssClass="form-control" placeholder="FAT" onkeypress="return PreventDecimalPointValue(event)" MaxLength="8" />
+                        <asp:TextBox runat="server" ID="txtFAT" CssClass="form-control" placeholder="FAT" onkeypress="return customValidation(event);" MaxLength="8" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFAT" ValidationGroup="g1"
                                     SetFocusOnError="True" ErrorMessage="Enter Fat!" ForeColor="Red">*</asp:RequiredFieldValidator>
                         <%--<asp:RangeValidator ID="RangeValidator2" runat="server" ValidationGroup="g1" ErrorMessage="Please enter valid value!" ControlToValidate="txtFAT"></asp:RangeValidator>--%>
@@ -210,11 +210,11 @@
                 <div class="form-group">
                     <label class="col-md-2">TS% :</label>
                     <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtTS" CssClass="form-control" placeholder="TS" onkeypress="return PreventDecimalPointValue(event)" MaxLength="8" />
+                        <asp:TextBox runat="server" ID="txtTS" CssClass="form-control" placeholder="TS" onkeypress="return customValidation(event);" MaxLength="8" />
                     </div>
                     <label class="col-md-2">pH :</label>
                     <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtpH" CssClass="form-control" placeholder="PH" onkeypress="return PreventDecimalPointValue(event)" MaxLength="8" />
+                        <asp:TextBox runat="server" ID="txtpH" CssClass="form-control" placeholder="PH" onkeypress="return customValidation(event);" MaxLength="8" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtpH" ValidationGroup="g1"
                                     SetFocusOnError="True" ErrorMessage="Enter pH!" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </div>
@@ -227,13 +227,13 @@
                 <div class="form-group">
                     <label class="col-md-2">Acidity :</label>
                     <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtAcidity" CssClass="form-control" placeholder="Acidity" onkeypress="return PreventDecimalPointValue(event)" MaxLength="8" />
+                        <asp:TextBox runat="server" ID="txtAcidity" CssClass="form-control" placeholder="Acidity" onkeypress="return customValidation(event);" MaxLength="8" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtAcidity" ValidationGroup="g1"
                                     SetFocusOnError="True" ErrorMessage="Enter Acidity!" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </div>
                     <label class="col-md-2">Protein :</label>
                     <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtProtein" CssClass="form-control" placeholder="Protein" onkeypress="return PreventDecimalPointValue(event)" MaxLength="8" />
+                        <asp:TextBox runat="server" ID="txtProtein" CssClass="form-control" placeholder="Protein" onkeypress="return customValidation(event);" MaxLength="8" />
 
                     </div>
                 </div>
@@ -326,6 +326,19 @@
         });
         $('datetimepicker1').datepicker('setDate', today);
         $('datetimepicker2').datepicker('setDate', today);
+
+
+        //Custom validation for only numeric, decimal and NA/na character.
+        function customValidation(e) {
+            var unicode = e.charCode ? e.charCode : e.keyCode;
+            if (unicode == 8 || unicode == 9 || (unicode >= 48 && unicode <= 57) || unicode == 97 || unicode == 110
+             || unicode==65 || unicode==78 || unicode==46) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
 
     </script>
 </asp:Content>

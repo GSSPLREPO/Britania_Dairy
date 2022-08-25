@@ -78,6 +78,15 @@ namespace Powder_MISProduct.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl TankLabReport;
 
         /// <summary>
+        /// UtilityConsumptionCost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UtilityConsumptionCost;
+
+        /// <summary>
         /// WeighAnalysis control.
         /// </summary>
         /// <remarks>

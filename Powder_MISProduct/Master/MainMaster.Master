@@ -127,6 +127,7 @@
                                <li id="Lab" runat="server" visible="false"><a href="../WebUI/Lab.aspx"><span class="submenu-label">Lab</span></a></li>
                                 <li id="Shift" runat="server" visible="false"><a href="../WebUI/Shift.aspx"><span class="submenu-label">Shift</span></a></li>
                                <li id="TankLabReport" runat="server" visible="false"><a href="../WebUI/TankLabReport.aspx"><span class="submenu-label">Tank Lab Report</span></a></li>
+                               <li id="UtilityConsumptionCost" runat="server" visible="false"><a href="../WebUI/UtilityConsumptionCost.aspx"><span class="submenu-label">Utility Consumption Cost</span></a></li>
                                <li id="WeighAnalysis" runat="server" visible="false"><a href="../WebUI/WeighAnalysis.aspx"><span class="submenu-label">Whey Analysis</span></a></li>
 
 
