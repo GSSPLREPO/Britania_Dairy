@@ -13,7 +13,7 @@
 
     <div id="divCurrenTabSelected" class="hidden" visible="false">Setting</div>
     <div class="col-md-12">
-        <div id="divGrid" runat="server" class="box box-primary">
+        <div id="divGrid" runat="server" class="panel panel-default">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-8">
@@ -72,214 +72,215 @@
 
 
     <%--<div class="box box-primary" runat="server" id="divPanel">--%>
-    <div class="panel panel-default" runat="server" id="divPanel">
-        <%--<div class="box-header">--%>
-        <div class="panel-heading">
-            <h3 class="box-title">Tank Lab Report</h3>
-        </div>
-        <%--<div class="box-body">--%>
-        <div class="panel-body">
-            <%--<div class="row" style="margin-bottom: 20px;">--%>
-            <div class="row">
-                <div class="form-group">
-                    <label class="col-md-2">Date & Time In :</label>
-                    <div class="col-md-2">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <asp:TextBox runat="server" ID="txtDate" CssClass="form-control date" placeholder="Date" Enabled="false" />
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="bootstrap-timepicker">
-                            <div class="input-group">
-                                <asp:TextBox runat="server" ID="txttime" ClientIDMode="Static" CssClass="form-control timepicker" placeholder="Time" Enabled="false" />
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <%--</div>--%>
-                    <%--Farheen: Added Sample Date and Time field --%>
-                    <%--<div class="form-group">--%>
-
-                    <label class="col-md-2">Sample Time:</label>
-                    <div class="col-md-2">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <asp:TextBox runat="server" ID="txtSampleDate" CssClass="form-control date" placeholder="Date" />
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="bootstrap-timepicker">
-                            <div class="input-group">
-                                <asp:TextBox runat="server" ID="txtSampleTime" ClientIDMode="Static" CssClass="form-control timepicker" placeholder="Time" />
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="box box-primary" runat="server" id="divPanel">
+        <div class="panel panel-default">
+            <%--<div class="box-header">--%>
+            <div class="panel-heading">
+                <h3 class="box-title">Tank Lab Report</h3>
             </div>
-
-            <br />
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <ContentTemplate>
-                    <div class="row">
-                        <div class="form-group">
-                            <label class="col-md-2">Sample ID:</label>
-                            <div class="col-md-4">
-                                <asp:TextBox runat="server" ID="txtSampleID" ClientIDMode="Static" CssClass="form-control" placeholder="SampleId" />
-                            </div>
-
-                            <label class="col-md-2">Silo Tag No :</label>
-                            <div class="col-md-4">
-                                <asp:DropDownList runat="server" ID="DropDownListTankName" CssClass="form-control" OnSelectedIndexChanged="DropDownListTankName_SelectedIndexChanged" AutoPostBack="true">
-                                    <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
-                                    <asp:ListItem Value="W11T01" Text="W11T01"></asp:ListItem>
-                                    <asp:ListItem Value="W12T01" Text="W12T01"></asp:ListItem>
-                                    <asp:ListItem Value="W21T01" Text="W21T01"></asp:ListItem>
-                                    <asp:ListItem Value="W22T01" Text="W22T01"></asp:ListItem>
-                                    <asp:ListItem Value="B31T01" Text="B31T01"></asp:ListItem>
-                                    <asp:ListItem Value="B51T01" Text="B51T01"></asp:ListItem>
-                                    <asp:ListItem Value="W41T01" Text="W41T01"></asp:ListItem>
-                                    <asp:ListItem Value="W42T01" Text="W42T01"></asp:ListItem>
-                                    <asp:ListItem Value="W43T01" Text="W43T01"></asp:ListItem>
-                                    <asp:ListItem Value="W51T01" Text="W51T01"></asp:ListItem>
-                                    <asp:ListItem Value="C11T01" Text="C11T01"></asp:ListItem>
-                                    <asp:ListItem Value="C12T01" Text="C12T01"></asp:ListItem>
-                                    <asp:ListItem Value="C13T01" Text="C13T01"></asp:ListItem>
-                                    <asp:ListItem Value="C14T01" Text="C14T01"></asp:ListItem>
-                                    <asp:ListItem Value="F11T01" Text="F11T01"></asp:ListItem>
-                                    <asp:ListItem Value="F12T01" Text="F12T01"></asp:ListItem>
-                                    <asp:ListItem Value="F13T01" Text="F13T01"></asp:ListItem>
-                                    <asp:ListItem Value="Whey Frop TP" Text="Whey Frop TP"></asp:ListItem>
-                                    <asp:ListItem Value="Yogurt Frop Tp" Text="Yogurt Frop Tp"></asp:ListItem>
-                                    <asp:ListItem Value="SMP/WMP/DW From TP" Text="SMP/WMP/DW From TP"></asp:ListItem>
-                                    <asp:ListItem Value="Evap Product Out" Text="Evap Product Out"></asp:ListItem>
-                                    <asp:ListItem Value="Dryer Product In" Text="Dryer Product In"></asp:ListItem>
-                                </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="DropDownListTankName" ValidationGroup="g1"
-                                    SetFocusOnError="True" ErrorMessage="Select Silo Tag No" ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>
-                            </div>
-
-                        </div>
-                    </div>
-                    <br />
-
-                    <div class="row">
-                        <div class="form-group">
-                            <label class="col-md-2">Tank Name:</label>
-                            <div class="col-md-4">
-                                <asp:TextBox runat="server" ID="txtTankName" CssClass="form-control" placeholder="Tank Name" ReadOnly="true" />
-                            </div>
-
-
-                            <label class="col-md-2">Temperature :</label>
-                            <div class="col-md-4">
-                                <asp:TextBox runat="server" ID="txtTemp" CssClass="form-control" placeholder="Temp" />
-                            </div>
-                        </div>
-                    </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
-            <br />
-
-            <div class="row">
-                <div class="form-group">
-                    <label class="col-md-2">SNF% :</label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtSNF" CssClass="form-control" placeholder="SNF" onkeypress="return customValidation(event);" MaxLength="8" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtSNF" ValidationGroup="g1"
-                                    SetFocusOnError="True" ErrorMessage="Enter SNF!" ForeColor="Red">*</asp:RequiredFieldValidator>
-                        <%--<asp:RangeValidator ID="RangeValidator1" runat="server" ValidationGroup="g1" ErrorMessage="Please enter SNF!" ControlToValidate="txtSNF"></asp:RangeValidator>--%>
-                    </div>
-                    <label class="col-md-2">FAT% :</label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtFAT" CssClass="form-control" placeholder="FAT" onkeypress="return customValidation(event);" MaxLength="8" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFAT" ValidationGroup="g1"
-                                    SetFocusOnError="True" ErrorMessage="Enter Fat!" ForeColor="Red">*</asp:RequiredFieldValidator>
-                        <%--<asp:RangeValidator ID="RangeValidator2" runat="server" ValidationGroup="g1" ErrorMessage="Please enter valid value!" ControlToValidate="txtFAT"></asp:RangeValidator>--%>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <br />
-
-            <div class="row">
-                <div class="form-group">
-                    <label class="col-md-2">TS% :</label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtTS" CssClass="form-control" placeholder="TS" onkeypress="return customValidation(event);" MaxLength="8" />
-                    </div>
-                    <label class="col-md-2">pH :</label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtpH" CssClass="form-control" placeholder="PH" onkeypress="return customValidation(event);" MaxLength="8" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtpH" ValidationGroup="g1"
-                                    SetFocusOnError="True" ErrorMessage="Enter pH!" ForeColor="Red">*</asp:RequiredFieldValidator>
-                    </div>
-                </div>
-            </div>
-
-            <br />
-
-            <div class="row">
-                <div class="form-group">
-                    <label class="col-md-2">Acidity :</label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtAcidity" CssClass="form-control" placeholder="Acidity" onkeypress="return customValidation(event);" MaxLength="8" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtAcidity" ValidationGroup="g1"
-                                    SetFocusOnError="True" ErrorMessage="Enter Acidity!" ForeColor="Red">*</asp:RequiredFieldValidator>
-                    </div>
-                    <label class="col-md-2">Protein :</label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtProtein" CssClass="form-control" placeholder="Protein" onkeypress="return customValidation(event);" MaxLength="8" />
-
-                    </div>
-                </div>
-            </div>
-
-            <br />
-
-            <div class="row">
-                <div class="form-group">
-                    <label class="col-md-2">Tank Status :</label>
-                    <div class="col-md-4">
-                        <asp:DropDownList runat="server" ID="ddTank_Status" CssClass="form-control">
-                            <asp:ListItem Text="Ok" Value="ok"></asp:ListItem>
-                            <asp:ListItem Text="Not Ok" Value="Not Ok"></asp:ListItem>
-                            <asp:ListItem Text="Hold" Value="Hold"></asp:ListItem>
-                        </asp:DropDownList>
-                    </div>
-                    <label class="col-md-2">TDS :</label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtTDS" CssClass="form-control" placeholder="TDS" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtTDS" ValidationGroup="g1"
-                                    SetFocusOnError="True" ErrorMessage="Enter TDS!" ForeColor="Red">*</asp:RequiredFieldValidator>
-
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="form-group">
-                    <label class="col-md-2">Remarks :</label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtRemarks" CssClass="form-control" placeholder="Remarks" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel-footer">
+            <%--<div class="box-body">--%>
+            <div class="panel-body">
+                <%--<div class="row" style="margin-bottom: 20px;">--%>
                 <div class="row">
-                    <div class="col-md-offset-10 col-md-2">
-                        <asp:Button runat="server" ID="btnSave" CssClass="btn btn-primary" Text="Save" ValidationGroup="g1" OnClick="btnSave_Click" />
-                        <asp:Button runat="server" ID="btnViewList" Text="Viewlist" CssClass="btn btn-primary" OnClick="btnViewList_Click" CausesValidation="False" />
-                        &nbsp;&nbsp;&nbsp;
-                        <asp:ValidationSummary runat="server" ID="vs1" ValidationGroup="g1" ShowMessageBox="True" ShowSummary="False" />
+                    <div class="form-group">
+                        <label class="col-md-2">Date & Time In :</label>
+                        <div class="col-md-2">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <asp:TextBox runat="server" ID="txtDate" CssClass="form-control date" placeholder="Date" Enabled="false" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="bootstrap-timepicker">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txttime" ClientIDMode="Static" CssClass="form-control timepicker" placeholder="Time" Enabled="false" />
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <%--</div>--%>
+                        <%--Farheen: Added Sample Date and Time field --%>
+                        <%--<div class="form-group">--%>
+
+                        <label class="col-md-2">Sample Time:</label>
+                        <div class="col-md-2">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <asp:TextBox runat="server" ID="txtSampleDate" CssClass="form-control date" placeholder="Date" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="bootstrap-timepicker">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtSampleTime" ClientIDMode="Static" CssClass="form-control timepicker" placeholder="Time" />
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-md-2">Sample ID:</label>
+                                <div class="col-md-4">
+                                    <asp:TextBox runat="server" ID="txtSampleID" ClientIDMode="Static" CssClass="form-control" placeholder="SampleId" />
+                                </div>
+
+                                <label class="col-md-2">Silo Tag No :</label>
+                                <div class="col-md-4">
+                                    <asp:DropDownList runat="server" ID="DropDownListTankName" CssClass="form-control" OnSelectedIndexChanged="DropDownListTankName_SelectedIndexChanged" AutoPostBack="true">
+                                        <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
+                                        <asp:ListItem Value="W11T01" Text="W11T01"></asp:ListItem>
+                                        <asp:ListItem Value="W12T01" Text="W12T01"></asp:ListItem>
+                                        <asp:ListItem Value="W21T01" Text="W21T01"></asp:ListItem>
+                                        <asp:ListItem Value="W22T01" Text="W22T01"></asp:ListItem>
+                                        <asp:ListItem Value="B31T01" Text="B31T01"></asp:ListItem>
+                                        <asp:ListItem Value="B51T01" Text="B51T01"></asp:ListItem>
+                                        <asp:ListItem Value="W41T01" Text="W41T01"></asp:ListItem>
+                                        <asp:ListItem Value="W42T01" Text="W42T01"></asp:ListItem>
+                                        <asp:ListItem Value="W43T01" Text="W43T01"></asp:ListItem>
+                                        <asp:ListItem Value="W51T01" Text="W51T01"></asp:ListItem>
+                                        <asp:ListItem Value="C11T01" Text="C11T01"></asp:ListItem>
+                                        <asp:ListItem Value="C12T01" Text="C12T01"></asp:ListItem>
+                                        <asp:ListItem Value="C13T01" Text="C13T01"></asp:ListItem>
+                                        <asp:ListItem Value="C14T01" Text="C14T01"></asp:ListItem>
+                                        <asp:ListItem Value="F11T01" Text="F11T01"></asp:ListItem>
+                                        <asp:ListItem Value="F12T01" Text="F12T01"></asp:ListItem>
+                                        <asp:ListItem Value="F13T01" Text="F13T01"></asp:ListItem>
+                                        <asp:ListItem Value="Whey Frop TP" Text="Whey Frop TP"></asp:ListItem>
+                                        <asp:ListItem Value="Yogurt Frop Tp" Text="Yogurt Frop Tp"></asp:ListItem>
+                                        <asp:ListItem Value="SMP/WMP/DW From TP" Text="SMP/WMP/DW From TP"></asp:ListItem>
+                                        <asp:ListItem Value="Evap Product Out" Text="Evap Product Out"></asp:ListItem>
+                                        <asp:ListItem Value="Dryer Product In" Text="Dryer Product In"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="DropDownListTankName" ValidationGroup="g1"
+                                        SetFocusOnError="True" ErrorMessage="Select Silo Tag No" ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-md-2">Tank Name:</label>
+                                <div class="col-md-4">
+                                    <asp:TextBox runat="server" ID="txtTankName" CssClass="form-control" placeholder="Tank Name" ReadOnly="true" />
+                                </div>
+
+
+                                <label class="col-md-2">Temperature :</label>
+                                <div class="col-md-4">
+                                    <asp:TextBox runat="server" ID="txtTemp" CssClass="form-control" placeholder="Temp" />
+                                </div>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <br />
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">SNF% :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtSNF" CssClass="form-control" placeholder="SNF" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtSNF" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter SNF!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                            <%--<asp:RangeValidator ID="RangeValidator1" runat="server" ValidationGroup="g1" ErrorMessage="Please enter SNF!" ControlToValidate="txtSNF"></asp:RangeValidator>--%>
+                        </div>
+                        <label class="col-md-2">FAT% :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtFAT" CssClass="form-control" placeholder="FAT" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFAT" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter Fat!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                            <%--<asp:RangeValidator ID="RangeValidator2" runat="server" ValidationGroup="g1" ErrorMessage="Please enter valid value!" ControlToValidate="txtFAT"></asp:RangeValidator>--%>
+                        </div>
+
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">TS% :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtTS" CssClass="form-control" placeholder="TS" onkeypress="return customValidation(event);" MaxLength="8" />
+                        </div>
+                        <label class="col-md-2">pH :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtpH" CssClass="form-control" placeholder="PH" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtpH" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter pH!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">Acidity :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtAcidity" CssClass="form-control" placeholder="Acidity" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtAcidity" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter Acidity!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        </div>
+                        <label class="col-md-2">Protein :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtProtein" CssClass="form-control" placeholder="Protein" onkeypress="return customValidation(event);" MaxLength="8" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">Tank Status :</label>
+                        <div class="col-md-4">
+                            <asp:DropDownList runat="server" ID="ddTank_Status" CssClass="form-control">
+                                <asp:ListItem Text="Ok" Value="ok"></asp:ListItem>
+                                <asp:ListItem Text="Not Ok" Value="Not Ok"></asp:ListItem>
+                                <asp:ListItem Text="Hold" Value="Hold"></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <label class="col-md-2">TDS :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtTDS" CssClass="form-control" placeholder="TDS" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtTDS" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter TDS!" ForeColor="Red">*</asp:RequiredFieldValidator>
+
+                        </div>
                     </div>
                 </div>
                 <br />
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">Remarks :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtRemarks" CssClass="form-control" placeholder="Remarks" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-offset-10 col-md-2">
+                            <asp:Button runat="server" ID="btnSave" CssClass="btn btn-primary" Text="Save" ValidationGroup="g1" OnClick="btnSave_Click" />
+                            <asp:Button runat="server" ID="btnViewList" Text="Viewlist" CssClass="btn btn-primary" OnClick="btnViewList_Click" CausesValidation="False" />
+                            &nbsp;&nbsp;&nbsp;
+                        <asp:ValidationSummary runat="server" ID="vs1" ValidationGroup="g1" ShowMessageBox="True" ShowSummary="False" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
             </div>
         </div>
     </div>
@@ -332,7 +333,7 @@
         function customValidation(e) {
             var unicode = e.charCode ? e.charCode : e.keyCode;
             if (unicode == 8 || unicode == 9 || (unicode >= 48 && unicode <= 57) || unicode == 97 || unicode == 110
-             || unicode==65 || unicode==78 || unicode==46) {
+                || unicode == 65 || unicode == 78 || unicode == 46) {
                 return true;
             }
             else {

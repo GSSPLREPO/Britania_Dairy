@@ -185,7 +185,7 @@ namespace Powder_MISProduct.BL
         }
         #endregion
 
-        #region Update WheyAnalysis Details
+        #region Update Tank lab report Details
 
         public ApplicationResult TankerLabReportUpdate(TankLabReportBO TankerLabReportBO)
         {
@@ -293,7 +293,7 @@ namespace Powder_MISProduct.BL
         }
         #endregion
 
-        #region Select  WheyAnalysis Details
+        #region Select  tank lab report Details
         /// <summary>
 
         /// </summary>
@@ -323,7 +323,7 @@ namespace Powder_MISProduct.BL
         }
         #endregion
 
-        #region Delete WheyAnalysis Details by 
+        #region Delete tank lab report Details by 
         /// <summary>
         /// To Delete details of Employee for selected  from Employee table
         /// Created By : Nirmal, 27-04-2015

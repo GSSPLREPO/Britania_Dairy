@@ -12,12 +12,12 @@
 
     <div id="divCurrenTabSelected" class="hidden" visible="false">Setting</div>
     <div class="col-md-12">
-        <div id="divGrid" runat="server" class="box box-primary">
+        <div id="divGrid" runat="server" class="panel panel-default">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-8">
                         <h4>
-                            <asp:Label ID="lblHeading" runat="server" Text="Tank Lab Analysis"></asp:Label></h4>
+                            <asp:Label ID="lblHeading" runat="server" Text="Utility Consumption Cost"></asp:Label></h4>
                     </div>
                     <div class="col-md-3" style="padding-left: 20px;">
                         <div class="input-group">
@@ -35,7 +35,7 @@
             <%--<div class="box-body no-padding">--%>
             <div class="panel-body" style="overflow-x: auto">
                 <%--<asp:GridView runat="server" ID="gvTankReport" CssClass="table table-hover table-striped" AutoGenerateColumns="False" GridLines="None" OnRowCommand="gvTankReport_RowCommand">--%>
-                <asp:GridView runat="server" ID="gvCosumptionCost" CssClass="table table-hover table-striped" AutoGenerateColumns="False" GridLines="None">
+                <asp:GridView runat="server" ID="gvCosumptionCost" CssClass="table table-hover table-striped" AutoGenerateColumns="False" GridLines="None" OnRowCommand="gvCosumptionCost_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="SrNo" HeaderText="Sr. No." />
                         <asp:BoundField DataField="CreatedDate" HeaderText="Date & Time" />
@@ -43,7 +43,7 @@
                         <asp:BoundField DataField="ElectricityCost" HeaderText="Electricity (per unit KWH)" />
                         <asp:BoundField DataField="AirCost" HeaderText="Air (Per Cu.mt)" />
                         <asp:BoundField DataField="SoftWaterCost" HeaderText="Soft Water (per KL)" />
-                        <asp:BoundField DataField="ChillerWaterCost" HeaderText="Chilled Water (per TR cost)" />
+                        <asp:BoundField DataField="ChilledWaterCost" HeaderText="Chilled Water (per TR cost)" />
 
                         <asp:TemplateField HeaderText="Edit">
                             <ItemTemplate>
@@ -62,81 +62,78 @@
     </div>
 
 
-    <%--<div class="box box-primary" runat="server" id="divPanel">--%>
-    <div class="panel panel-default" runat="server" id="divPanel">
-        <%--<div class="box-header">--%>
-        <div class="panel-heading">
-            <h3 class="box-title">Utility Consumption Cost </h3>
-        </div>
-        <%--<div class="box-body">--%>
-        <div class="panel-body">
-            <%--<div class="row" style="margin-bottom: 20px;">--%>
-            <div class="row">
-                <div class="form-group">
-                    <label class="col-md-2">Steam Cost</label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtSteam" CssClass="form-control" placeholder="Steam cost" onkeypress="return customValidation(event);" MaxLength="8" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtSteam" ValidationGroup="g1"
-                            SetFocusOnError="True" ErrorMessage="Enter steam cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
-                    </div>
-                    <label class="col-md-2">Electricity Cost:</label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtElectricity" CssClass="form-control" placeholder="Electricity Cost" onkeypress="return customValidation(event);" MaxLength="8" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtElectricity" ValidationGroup="g1"
-                            SetFocusOnError="True" ErrorMessage="Enter electricity cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
-                    </div>
-                </div>
+    <div class="box box-primary" runat="server" id="divPanel">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="box-title">Utility Consumption Cost </h3>
             </div>
-
-            <br />
-
-            <div class="row">
-                <div class="form-group">
-                    <label class="col-md-2">Air Cost: </label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtAir" CssClass="form-control" placeholder="Air cost" onkeypress="return customValidation(event);" MaxLength="8" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAir" ValidationGroup="g1"
-                            SetFocusOnError="True" ErrorMessage="Enter air cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
-                        <%--<asp:RangeValidator ID="RangeValidator1" runat="server" ValidationGroup="g1" ErrorMessage="Please enter SNF!" ControlToValidate="txtSNF"></asp:RangeValidator>--%>
-                    </div>
-                    <label class="col-md-2">Soft Water Cost: </label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtSoftWater" CssClass="form-control" placeholder="Soft water cost" onkeypress="return customValidation(event);" MaxLength="8" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtSoftWater" ValidationGroup="g1"
-                            SetFocusOnError="True" ErrorMessage="Enter soft water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
-                        <%--<asp:RangeValidator ID="RangeValidator2" runat="server" ValidationGroup="g1" ErrorMessage="Please enter valid value!" ControlToValidate="txtFAT"></asp:RangeValidator>--%>
-                    </div>
-
-                </div>
-            </div>
-
-            <br />
-
-            <div class="row">
-                <div class="form-group">
-                    <label class="col-md-2">Chilled Water Cost :</label>
-                    <div class="col-md-4">
-                        <asp:TextBox runat="server" ID="txtChilledWater" CssClass="form-control" placeholder="Chilled water cost" onkeypress="return customValidation(event);" MaxLength="8" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtChilledWater" ValidationGroup="g1"
-                            SetFocusOnError="True" ErrorMessage="Enter chilled water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
-                    </div>
-                </div>
-            </div>
-
-            <br />
-
-            <div class="panel-footer">
+            <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-offset-10 col-md-2">
-                        <asp:Button runat="server" ID="btnSave" CssClass="btn btn-primary" Text="Save" ValidationGroup="g1" OnClick="btnSave_Click" />
-                        <asp:Button runat="server" ID="btnViewList" Text="Viewlist" CssClass="btn btn-primary" OnClick="btnViewList_Click" CausesValidation="False" />
-                        &nbsp;&nbsp;&nbsp;
-                        <asp:ValidationSummary runat="server" ID="vs1" ValidationGroup="g1" ShowMessageBox="True" ShowSummary="False" />
+                    <div class="form-group">
+                        <label class="col-md-2">Steam Cost</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtSteam" CssClass="form-control" placeholder="Steam cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtSteam" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter steam cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        </div>
+                        <label class="col-md-2">Electricity Cost:</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtElectricity" CssClass="form-control" placeholder="Electricity Cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtElectricity" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter electricity cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        </div>
                     </div>
                 </div>
-                <br />
-            </div>
 
+                <br />
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">Air Cost: </label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtAir" CssClass="form-control" placeholder="Air cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAir" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter air cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                            <%--<asp:RangeValidator ID="RangeValidator1" runat="server" ValidationGroup="g1" ErrorMessage="Please enter SNF!" ControlToValidate="txtSNF"></asp:RangeValidator>--%>
+                        </div>
+                        <label class="col-md-2">Soft Water Cost: </label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtSoftWater" CssClass="form-control" placeholder="Soft water cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtSoftWater" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter soft water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                            <%--<asp:RangeValidator ID="RangeValidator2" runat="server" ValidationGroup="g1" ErrorMessage="Please enter valid value!" ControlToValidate="txtFAT"></asp:RangeValidator>--%>
+                        </div>
+
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">Chilled Water Cost :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtChilledWater" CssClass="form-control" placeholder="Chilled water cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtChilledWater" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter chilled water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-offset-10 col-md-2">
+                            <asp:Button runat="server" ID="btnSave" CssClass="btn btn-primary" Text="Save" ValidationGroup="g1" OnClick="btnSave_Click" />
+                            <asp:Button runat="server" ID="btnViewList" Text="Viewlist" CssClass="btn btn-primary" OnClick="btnViewList_Click" CausesValidation="False" />
+                            &nbsp;&nbsp;&nbsp;
+                        <asp:ValidationSummary runat="server" ID="vs1" ValidationGroup="g1" ShowMessageBox="True" ShowSummary="False" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
         </div>
     </div>
 </asp:Content>
