@@ -88,7 +88,7 @@ namespace Powder_MISProduct.WebUI
 
                 objBO.SteamCost = (txtSteam.Text != null && txtSteam.Text != "" ? (float.Parse(txtSteam.Text)) : 0);
                 objBO.ChilledWaterCost = (txtChilledWater.Text != null && txtChilledWater.Text != "" ?
-                                        (Convert.ToInt32(txtChilledWater.Text)) : 0);
+                                        (float.Parse(txtChilledWater.Text)) : 0);
                 objBO.ElectricityCost = (txtElectricity.Text != null && txtElectricity.Text != "" ? (float.Parse(txtElectricity.Text)) : 0);
                 objBO.AirCost = (txtAir.Text != null && txtAir.Text != "" ? (float.Parse(txtAir.Text)) : 0);
                 objBO.SoftWaterCost = (txtSoftWater.Text != null && txtSoftWater.Text != "" ? (float.Parse(txtSoftWater.Text)) : 0);

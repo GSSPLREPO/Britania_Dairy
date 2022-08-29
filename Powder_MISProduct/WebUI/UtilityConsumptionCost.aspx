@@ -144,8 +144,8 @@
         //Custom validation for only numeric, decimal and NA/na character.
         function customValidation(e) {
             var unicode = e.charCode ? e.charCode : e.keyCode;
-            if (unicode == 8 || unicode == 9 || (unicode >= 48 && unicode <= 57) || unicode == 97 || unicode == 110
-                || unicode == 65 || unicode == 78 || unicode == 46) {
+            if (unicode == 8 || unicode == 9 || (unicode >= 48 && unicode <= 57) 
+                  || unicode == 46) {
                 return true;
             }
             else {
