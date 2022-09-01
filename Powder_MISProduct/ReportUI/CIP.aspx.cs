@@ -653,7 +653,7 @@ namespace Powder_MISProduct.ReportUI
                 Response.ContentType = "application/vnd.ms-excel";
                 Response.ContentEncoding = System.Text.Encoding.Unicode;
                 Response.BinaryWrite(System.Text.Encoding.Unicode.GetPreamble());
-                string filename = "CIP_Log_Report_C3F1_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + "_" + DateTime.Now.Date.ToString("HH:mm:ss") + ".xls";
+                string filename = "CIP_Log_Report_C3F1_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("HH:mm:ss") + ".xls";
                 Response.AddHeader("content-disposition", "attachment;filename=" + filename);
                 Response.Cache.SetCacheability(HttpCacheability.NoCache);
 

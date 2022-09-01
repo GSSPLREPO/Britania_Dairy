@@ -436,14 +436,14 @@ namespace Powder_MISProduct.ReportUI
                         sb.Append("</b></div>");
                         sb.Append("<br/>");
 
-                        string content = "<table style='display: table;width: 900px; clear:both;'> <tr> <th colspan='4' style='float: left;padding-left: 350px;'><div align='left'><strong>From Date: </strong>" + txtFromDate.Text + "</div></th>";
+                        string content = "<table style='display: table;width: 900px; clear:both;'> <tr> <th colspan='4' style='float: left;padding-left: 275px;'><div align='left'><strong>From Date: </strong>" + txtFromDate.Text +" "+txtFromTime.Text+ "</div></th>";
 
                         content += "<th style='float:left; padding-left:-180px;'></th>";
 
                         content += "<th style='float:left; padding-left:-210px;'></th>";
 
-                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-200px;'><strong> To Date: </strong>" +
-                        txtToDate.Text + "</th>" +
+                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-180px;'><strong> To Date: </strong>" +
+                        txtToDate.Text +" "+txtToTime.Text +"</th>" +
                         "</tr></table>";
                         sb.Append(content);
                         sb.Append("<br/>");

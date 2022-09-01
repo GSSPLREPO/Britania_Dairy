@@ -175,8 +175,8 @@ namespace Powder_MISProduct.ReportUI
                 {
                     using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                     {
-                        DateTime dtfromDateTime = DateTime.ParseExact(txtFromDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                        DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                        DateTime dtfromDateTime = DateTime.ParseExact(txtFromDate.Text + " " + txtFromTime.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                        DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text + " " + txtToTime.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
 
                         System.Text.StringBuilder sb = new StringBuilder();
                         sb.Append("<div align='center' style='font-size:16px;font-weight:bold;color:Black;'>");

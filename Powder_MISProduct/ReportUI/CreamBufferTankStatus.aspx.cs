@@ -172,14 +172,14 @@ namespace Powder_MISProduct.ReportUI
                         sb.Append("</b></div>");
                         sb.Append("<br/>");
 
-                        string content = "<table style='display: table;width: 900px; clear:both;'> <tr> <th colspan='7' style='float: left;padding-left: 275px;'><div align='left'><strong>From Date: </strong>" + txtFromDate.Text + "</div></th>";
+                        string content = "<table style='display: table;width: 900px; clear:both;'> <tr> <th colspan='7' style='float: left;padding-left: 275px;'><div align='left'><strong>From Date: </strong>" + txtFromDate.Text +" "+ txtFromTime.Text+"</div></th>";
 
                         content += "<th style='float:left; padding-left:-180px;'></th>";
 
                         content += "<th style='float:left; padding-left:-210px;'></th>";
 
-                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-120px;'><strong> To Date: </strong>" +
-                        txtToDate.Text + "</th>" +
+                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-180px;'><strong> To Date: </strong>" +
+                        txtToDate.Text + " " + txtToTime.Text + "</th>" +
                         "</tr></table>";
                         sb.Append(content);
                         sb.Append("<br/>");
@@ -275,7 +275,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell11.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell11);
-                        
+
                         PdfPCell headerCell12 = new PdfPCell(new Phrase("Dirty Time (hr.)"));
                         headerCell12.Rowspan = 1;
                         headerCell12.Colspan = 1;
@@ -284,7 +284,7 @@ namespace Powder_MISProduct.ReportUI
                         headerCell12.HorizontalAlignment = Element.ALIGN_CENTER;
                         headerCell12.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell12);
-                        
+
                         PdfPCell headerCell13 = new PdfPCell(new Phrase("Ageing Time(hr.)"));
                         headerCell13.Rowspan = 1;
                         headerCell13.Colspan = 1;
@@ -525,7 +525,7 @@ namespace Powder_MISProduct.ReportUI
                         pdfDoc.Close();
                         Response.ContentType = "application/pdf";
 
-                        Response.AddHeader("content-disposition", "attachment;" + "filename=Cream buffer Tank Status REPORT" + DateTime.Now.Date.ToString("dd-MM-yyyy") + ".pdf");
+                        Response.AddHeader("content-disposition", "attachment;" + "filename=Cream_Buffer_Tank_Status_Report_" + DateTime.Now.Date.ToString("dd -MM-yyyy")+DateTime.Now.ToString("HH:mm:ss") + ".pdf");
                         Response.Cache.SetCacheability(HttpCacheability.NoCache);
                         Response.Write(pdfDoc);
                         Response.Flush();
@@ -694,7 +694,7 @@ namespace Powder_MISProduct.ReportUI
                 string text = Session[ApplicationSession.OrganisationName].ToString();
                 string text1 = Session[ApplicationSession.OrganisationAddress].ToString();
                 string text2 = "Cream Buffer Tank Status Report";
-                string filename = "Cream_Buffer_Tank_Status_Report_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + ".xls";
+                string filename = "Cream_Buffer_Tank_Status_Report_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + DateTime.Now.ToString("HH:mm:ss") + ".xls";
                 Response.AddHeader("content-disposition", "attachment;filename=" + filename);
                 //Response.AddHeader("content-disposition", "attachment;filename=WeighbridgeSummaryReport.xls");
                 Response.Charset = "";
@@ -830,14 +830,14 @@ namespace Powder_MISProduct.ReportUI
                     TableHeaderCell headerCell5;
                     TableHeaderCell headerCell6;
 
-                   // headerCell1 = new TableHeaderCell();
+                    // headerCell1 = new TableHeaderCell();
                     headerCell2 = new TableHeaderCell();
                     headerCell3 = new TableHeaderCell();
                     headerCell4 = new TableHeaderCell();
                     headerCell5 = new TableHeaderCell();
 
                     headerCell6 = new TableHeaderCell();
-                    
+
                     //headerCell1.Text = "Types of Cream";
                     //headerCell2.Text = "Tank Status"; 
                     headerCell2.Text = "CIP Status";        //Farheen: Change the name of column Tank Status to CIP Status as per the new requirements.
@@ -853,7 +853,7 @@ namespace Powder_MISProduct.ReportUI
                     headerRow2.Controls.Add(headerCell5);
 
                     headerRow2.Controls.Add(headerCell6);
-                    
+
                     gvCreamBufferTankStatus.Controls[0].Controls.AddAt(0, headerRow2);
                     gvCreamBufferTankStatus.Controls[0].Controls.AddAt(0, headerRow1);
                 }
