@@ -66,15 +66,13 @@ namespace Powder_MISProduct.BL
         }
         #endregion
 
-
-
         #region Insert Utility cost Details
 
         public ApplicationResult UtilityCostInsert(UtilityConsumptionCostBO objBO)
         {
             try
             {
-                pSqlParameter = new SqlParameter[7];
+                pSqlParameter = new SqlParameter[9];
 
                 pSqlParameter[0] = new SqlParameter("@SteamCost", SqlDbType.Float);
                 pSqlParameter[0].Direction = ParameterDirection.Input;
@@ -95,14 +93,22 @@ namespace Powder_MISProduct.BL
                 pSqlParameter[4] = new SqlParameter("@ChilledWaterCost", SqlDbType.Float);
                 pSqlParameter[4].Direction = ParameterDirection.Input;
                 pSqlParameter[4].Value = objBO.ChilledWaterCost;
-
-                pSqlParameter[5] = new SqlParameter("@CreatedBy", SqlDbType.Int);
+                
+                pSqlParameter[5] = new SqlParameter("@ROWaterCost", SqlDbType.Float);
                 pSqlParameter[5].Direction = ParameterDirection.Input;
-                pSqlParameter[5].Value = objBO.CreatedBy;
-
-                pSqlParameter[6] = new SqlParameter("@CreatedDate", SqlDbType.DateTime);
+                pSqlParameter[5].Value = objBO.ROWaterCost;
+                
+                pSqlParameter[6] = new SqlParameter("@RawWaterCost", SqlDbType.Float);
                 pSqlParameter[6].Direction = ParameterDirection.Input;
-                pSqlParameter[6].Value = objBO.CreatedDate;
+                pSqlParameter[6].Value = objBO.RawWaterCost;
+
+                pSqlParameter[7] = new SqlParameter("@CreatedBy", SqlDbType.Int);
+                pSqlParameter[7].Direction = ParameterDirection.Input;
+                pSqlParameter[7].Value = objBO.CreatedBy;
+
+                pSqlParameter[8] = new SqlParameter("@CreatedDate", SqlDbType.DateTime);
+                pSqlParameter[8].Direction = ParameterDirection.Input;
+                pSqlParameter[8].Value = objBO.CreatedDate;
 
                 sSql = "usp_tbl_UtilityCost_Insert";
                 int iResult = Database.ExecuteNonQuery(CommandType.StoredProcedure, sSql, pSqlParameter);
@@ -137,7 +143,7 @@ namespace Powder_MISProduct.BL
         {
             try
             {
-                pSqlParameter = new SqlParameter[8];
+                pSqlParameter = new SqlParameter[10];
 
                 pSqlParameter[0] = new SqlParameter("@Id", SqlDbType.Int);
                 pSqlParameter[0].Direction = ParameterDirection.Input;
@@ -163,13 +169,21 @@ namespace Powder_MISProduct.BL
                 pSqlParameter[5].Direction = ParameterDirection.Input;
                 pSqlParameter[5].Value = objBO.ChilledWaterCost;
 
-                pSqlParameter[6] = new SqlParameter("@LastModifiedBy", SqlDbType.Int);
+                pSqlParameter[6] = new SqlParameter("@ROWaterCost", SqlDbType.Float);
                 pSqlParameter[6].Direction = ParameterDirection.Input;
-                pSqlParameter[6].Value = objBO.LastModifiedBy;
+                pSqlParameter[6].Value = objBO.ROWaterCost;
 
-                pSqlParameter[7] = new SqlParameter("@LastModifiedDate", SqlDbType.DateTime);
+                pSqlParameter[7] = new SqlParameter("@RawWaterCost", SqlDbType.Float);
                 pSqlParameter[7].Direction = ParameterDirection.Input;
-                pSqlParameter[7].Value = objBO.LastModifiedDate;
+                pSqlParameter[7].Value = objBO.RawWaterCost;
+
+                pSqlParameter[8] = new SqlParameter("@LastModifiedBy", SqlDbType.Int);
+                pSqlParameter[8].Direction = ParameterDirection.Input;
+                pSqlParameter[8].Value = objBO.LastModifiedBy;
+
+                pSqlParameter[9] = new SqlParameter("@LastModifiedDate", SqlDbType.DateTime);
+                pSqlParameter[9].Direction = ParameterDirection.Input;
+                pSqlParameter[9].Value = objBO.LastModifiedDate;
 
 
                 sSql = "usp_tbl_UtilityCost_Update";

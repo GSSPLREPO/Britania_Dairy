@@ -92,6 +92,8 @@ namespace Powder_MISProduct.WebUI
                 objBO.ElectricityCost = (txtElectricity.Text != null && txtElectricity.Text != "" ? (float.Parse(txtElectricity.Text)) : 0);
                 objBO.AirCost = (txtAir.Text != null && txtAir.Text != "" ? (float.Parse(txtAir.Text)) : 0);
                 objBO.SoftWaterCost = (txtSoftWater.Text != null && txtSoftWater.Text != "" ? (float.Parse(txtSoftWater.Text)) : 0);
+                objBO.ROWaterCost = (txtROWater.Text != null && txtROWater.Text != "" ? (float.Parse(txtROWater.Text)) : 0);
+                objBO.RawWaterCost = (txtRawWater.Text != null && txtRawWater.Text != "" ? (float.Parse(txtRawWater.Text)) : 0);
 
                 if (ViewState["Mode"].ToString() == "Save")
                 {
@@ -193,6 +195,8 @@ namespace Powder_MISProduct.WebUI
                             txtElectricity.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ElectricityCost].ToString();
                             txtAir.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_AirCost].ToString();
                             txtSoftWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SoftWaterCost].ToString();
+                            txtROWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ROWaterCost].ToString();
+                            txtRawWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_RawWaterCost].ToString();
                             //BindMaintenance();
                             PanelVisibilityMode(false, true);
                         }

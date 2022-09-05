@@ -44,6 +44,9 @@
                         <asp:BoundField DataField="AirCost" HeaderText="Air (Per Cu.mt)" />
                         <asp:BoundField DataField="SoftWaterCost" HeaderText="Soft Water (per KL)" />
                         <asp:BoundField DataField="ChilledWaterCost" HeaderText="Chilled Water (per TR cost)" />
+                        <asp:BoundField DataField="ChilledWaterCost" HeaderText="Chilled Water (per TR cost)" />
+                        <asp:BoundField DataField="ROWaterCost" HeaderText="RO Water Cost (per KL)" />
+                        <asp:BoundField DataField="RawWaterCost" HeaderText="Raw Water Cost (per KL)" />
 
                         <asp:TemplateField HeaderText="Edit">
                             <ItemTemplate>
@@ -116,6 +119,25 @@
                             <asp:TextBox runat="server" ID="txtChilledWater" CssClass="form-control" placeholder="Chilled water cost" onkeypress="return customValidation(event);" MaxLength="8" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtChilledWater" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Enter chilled water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        </div>
+                        <label class="col-md-2">RO Water Cost :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtROWater" CssClass="form-control" placeholder="RO water cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtROWater" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter RO water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">Raw Water Cost :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtRawWater" CssClass="form-control" placeholder="Raw water cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtRawWater" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter raw water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>

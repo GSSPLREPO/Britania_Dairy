@@ -14,6 +14,7 @@ namespace Powder_MISProduct.BO
         public const string UtilityCost_Id = "Id";
         public const string UtilityCost_ChilledWaterCost= "ChilledWaterCost";
         public const string UtilityCost_RawWaterCost = "RawWaterCost";
+        public const string UtilityCost_ROWaterCost = "ROWaterCost";
         public const string UtilityCost_SoftWaterCost = "SoftWaterCost";
         public const string UtilityCost_SteamCost = "SteamCost";
         public const string UtilityCost_AirCost = "AirCost";
@@ -35,6 +36,7 @@ namespace Powder_MISProduct.BO
         private int intId = 0;
         private float flt_ChilledWaterCost = 0;
         private float flt_RawWaterCost = 0;
+        private float flt_ROWaterCost = 0;
         private float flt_SoftWaterCost = 0;
         private float flt_SteamCost;
         private float flt_AirCost = 0;
@@ -72,6 +74,12 @@ namespace Powder_MISProduct.BO
         {
             get { return flt_RawWaterCost; }
             set { flt_RawWaterCost = value; }
+        }
+        
+        public float ROWaterCost
+        {
+            get { return flt_ROWaterCost; }
+            set { flt_ROWaterCost = value; }
         }
 
         public float SoftWaterCost
