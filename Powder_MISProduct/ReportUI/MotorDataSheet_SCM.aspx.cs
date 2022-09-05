@@ -363,8 +363,8 @@ namespace Powder_MISProduct.ReportUI
                 {
                     using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                     {
-                        DateTime dtfromDateTime = DateTime.ParseExact(txtFromDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                        DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                        DateTime dtfromDateTime = DateTime.ParseExact(txtFromDate.Text+" "+txtFromTime.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                        DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text + " " + txtToTime.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
 
                         System.Text.StringBuilder sb = new StringBuilder();
                         sb.Append("<div align='center' style='font-size:16px;font-weight:bold;color:Black;'>");
@@ -381,14 +381,14 @@ namespace Powder_MISProduct.ReportUI
                         sb.Append("<br/>");
 
                         string content = "<table style='display: table;width: 900px; clear:both;'> <tr> <th colspan='7'"
-                            + "style='float: left;padding-left: 290px;'><div align='left'><strong>From Date : </strong>" +
+                            + "style='float: left;padding-left: 290px;'><div align='left'><strong>From Date Time: </strong>" +
                             dtfromDateTime + "</div></th>";
 
                         content += "<th style='float:left; padding-left:-180px;'></th>";
 
                         content += "<th style='float:left; padding-left:-210px;'></th>";
 
-                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-200px;'><strong> To DateTime: </strong>" +
+                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-200px;'><strong> To Date Time: </strong>" +
                         dtToDateTime + "</th>" +
                         "</tr></table>";
                         sb.Append(content);

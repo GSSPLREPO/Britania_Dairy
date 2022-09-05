@@ -147,7 +147,7 @@ namespace Powder_MISProduct.ReportUI
             {
                 string text = Session[ApplicationSession.OrganisationName].ToString();
                 string text1 = Session[ApplicationSession.OrganisationAddress].ToString();
-                string text2 = "Inventory REPORT";
+                string text2 = "Inventory Report";
 
                 using (StringWriter sw = new StringWriter())
                 {

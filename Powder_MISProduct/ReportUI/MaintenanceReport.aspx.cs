@@ -201,211 +201,268 @@ namespace Powder_MISProduct.ReportUI
             {
                 string text = Session[ApplicationSession.OrganisationName].ToString();
                 string text1 = Session[ApplicationSession.OrganisationAddress].ToString();
-                string text2 = "Maintenance REPORT";
+                string text2 = "Maintenance Rpeort";
 
                 using (StringWriter sw = new StringWriter())
                 {
                     using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                     {
-
-                        //DateTime dtFromDateTime = Convert.ToDateTime(tempFDt); ;
                         DateTime dtfromDateTime = DateTime.ParseExact(txtFromDate.Text + " " + txtFromTime.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                         DateTime dtToDateTime = DateTime.ParseExact(txtToDate.Text + " " + txtToTime.Text, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-                        //CommonFunctions objCommonFunction = new CommonFunctions();
-                        //objCommonFunction.FormatTime(txtFromTime.Text, txtToTime.Text, out outFromTime, out outToTime);
-                        //string tempFDt = txtFromDate.Text + " " + outFromTime.ToString();
-                        //string tempTDt = txtToDate.Text + " " + outToTime.ToString();
 
-                        //DateTime dtFromDateTime = Convert.ToDateTime(tempFDt);
-                        //DateTime dtToDateTime = Convert.ToDateTime(tempTDt);
-
-                        StringBuilder sb = new StringBuilder();
-                        sb.Append("<div align='center' style='font-size:13px;font-weight:bold;color:Black;'>");
+                        System.Text.StringBuilder sb = new StringBuilder();
+                        sb.Append("<div align='center' style='font-size:16px;font-weight:bold;color:Black;'>");
                         sb.Append(text);
                         sb.Append("</div>");
                         sb.Append("<br/>");
-                        sb.Append("<div align='center' style='font-size:11px;font-weight:bold;color:Black;'>");
+                        sb.Append("<div align='center' style='font-size:13px;font-weight:bold;color:Black;'>");
                         sb.Append(text1);
                         sb.Append("</div>");
                         sb.Append("<br/>");
-                        sb.Append("<div align='center' style='font-size:15px;color:Maroon;'><b>");
+                        sb.Append("<div align='center' style='font-size:26px;color:Maroon;'><b>");
                         sb.Append(text2);
                         sb.Append("</b></div>");
-                        sb.Append("<br/><br/><br/>");
+                        sb.Append("<br/>");
 
-                        string content = "<table style='display: table;width: 900px; clear:both;'> <tr> <th colspan='4' style='float: left;padding-left: 150px;'><div align='left'><strong>From DateTime : </strong>" + dtfromDateTime + " " + "</div></th>";
+                        string content = "<table style='display: table;width: 900px; clear:both;'> <tr> <th colspan='7'"
+                            + "style='float: left;padding-left: 275px;'><div align='left'><strong>From Date : </strong>" +
+                            dtfromDateTime + "</div></th>";
+
                         content += "<th style='float:left; padding-left:-180px;'></th>";
+
                         content += "<th style='float:left; padding-left:-210px;'></th>";
-                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-80px;'><strong> To DateTime: </strong>" +
-                        dtToDateTime + " " + "</th>" +
+
+                        content += "<th colspan='1' align='left' style=' float: left; padding-left:-200px;'><strong> To DateTime: </strong>" +
+                        dtToDateTime + "</th>" +
                         "</tr></table>";
                         sb.Append(content);
+                        sb.Append("<br/>");
 
-                        string strDate = DateTime.UtcNow.AddHours(5.5).ToString().Replace("/", "-").Replace(" ", "-").Replace(":", "-");
-                        object filename = "MaintenanceReport" + DateTime.Now.Date.ToString("dd-MM-yyyy") + ".pdf";
-                        MaintenanceBL objReportBL = new MaintenanceBL();
+                        PdfPTable pdfPTable = new PdfPTable(gvMaintenance.HeaderRow.Cells.Count);
+                        iTextSharp.text.Font fontHeader = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD);
 
-                        ApplicationResult objDSResult = new ApplicationResult();
-                        objDSResult = objReportBL.MaintenanceReport(dtfromDateTime, dtToDateTime);
 
-                        ApplicationResult objResult = new ApplicationResult();
-                        objResult.ResultDt = objDSResult.ResultDt;
-                        gvMaintenance.DataSource = objResult.ResultDt;
-                        gvMaintenance.DataBind();
 
-                        if (gvMaintenance.Rows.Count > 0)
+                        PdfPCell headerCell = new PdfPCell(new Phrase("Sr. No."));
+                        headerCell.Rowspan = 2;
+                        headerCell.Colspan = 1;
+                        headerCell.Padding = 5;
+                        headerCell.BorderWidth = 1.5f;
+                        headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell);
+
+                        PdfPCell headerCell2 = new PdfPCell(new Phrase("Date"));
+                        headerCell2.Rowspan = 2;
+                        headerCell2.Colspan = 1;
+                        headerCell2.Padding = 5;
+                        headerCell2.BorderWidth = 1.5f;
+                        headerCell2.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell2.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell2);
+
+                        PdfPCell headerCell4 = new PdfPCell(new Phrase("Equipment Tag No"));
+                        headerCell4.Rowspan = 2;
+                        headerCell4.Colspan = 1;
+                        headerCell4.Padding = 5;
+                        headerCell4.BorderWidth = 1.5f;
+                        headerCell4.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell4.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell4);
+
+                        PdfPCell headerCell1 = new PdfPCell(new Phrase("Equipment Name"));
+                        headerCell1.Rowspan = 2;
+                        headerCell1.Colspan = 1;
+                        headerCell1.Padding = 5;
+                        headerCell1.BorderWidth = 1.5f;
+                        headerCell1.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell1);
+
+                        PdfPCell headerCell6 = new PdfPCell(new Phrase("Start Time"));
+                        headerCell6.Rowspan = 2;
+                        headerCell6.Colspan = 1;
+                        headerCell6.Padding = 5;
+                        headerCell6.BorderWidth = 1.5f;
+                        headerCell6.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell6.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell6);
+
+                        PdfPCell headerCell5 = new PdfPCell(new Phrase("End Time"));
+                        headerCell5.Rowspan = 2;
+                        headerCell5.Colspan = 1;
+                        headerCell5.Padding = 5;
+                        headerCell5.BorderWidth = 1.5f;
+                        headerCell5.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell5.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell5);
+
+                        PdfPCell headerCell9 = new PdfPCell(new Phrase("Part No"));
+                        headerCell9.Rowspan = 2;
+                        headerCell9.Colspan = 1;
+                        headerCell9.Padding = 5;
+                        headerCell9.BorderWidth = 1.5f;
+                        headerCell9.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell9.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell9);
+
+                        PdfPCell headerCell10 = new PdfPCell(new Phrase("Area"));
+                        headerCell10.Rowspan = 2;
+                        headerCell10.Colspan = 1;
+                        headerCell10.Padding = 5;
+                        headerCell10.BorderWidth = 1.5f;
+                        headerCell10.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell10.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell10);
+
+                        PdfPCell headerCell12 = new PdfPCell(new Phrase("Problem Details"));
+                        headerCell12.Rowspan = 2;
+                        headerCell12.Colspan = 1;
+                        headerCell12.Padding = 5;
+                        headerCell12.BorderWidth = 1.5f;
+                        headerCell12.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell12.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell12);
+
+                        PdfPCell headerCell14 = new PdfPCell(new Phrase("Action Taken"));
+                        headerCell14.Rowspan = 2;
+                        headerCell14.Colspan = 1;
+                        headerCell14.Padding = 5;
+                        headerCell14.BorderWidth = 1.5f;
+                        headerCell14.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell14.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell14);
+
+                        PdfPCell headerCell13 = new PdfPCell(new Phrase("Rectified By"));
+                        headerCell13.Rowspan = 2;
+                        headerCell13.Colspan = 1;
+                        headerCell13.Padding = 5;
+                        headerCell13.BorderWidth = 1.5f;
+                        headerCell13.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell13.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell13);
+
+                        PdfPCell headerCell15 = new PdfPCell(new Phrase("Remarks"));
+                        headerCell15.Rowspan = 2;
+                        headerCell15.Colspan = 1;
+                        headerCell15.Padding = 5;
+                        headerCell15.BorderWidth = 1.5f;
+                        headerCell15.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell15.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        pdfPTable.AddCell(headerCell15);
+
+                        //float[] widthsTAS = {
+                        //    50f, 110f, 90f, 70f, 90f,
+                        //    90f, 90f, 110f, 110f, 80f,
+                        //    90f, 90f, 80f, 120f, 120f,
+                        //    70f, 70f, 70f, 70f, 110f,//CAl-1
+                        //    110f, 110f, 80f, 90f, 90f,
+                        //    90f, 90f, 80f, 110f, 90f,
+                        //    90f, 90f, 80f, 90f, 90f,90f
+                        //};
+                        //pdfPTable.SetWidths(widthsTAS);
+
+
+
+                        foreach (GridViewRow gridViewRow in gvMaintenance.Rows)
                         {
-                            iTextSharp.text.pdf.PdfPTable table = new PdfPTable(objResult.ResultDt.Columns.Count);
-                            table.PaddingTop = 5;
-                            table.SpacingBefore = 0;
-                            float[] widths = new float[objResult.ResultDt.Columns.Count];
-                            for (int x = 0; x < objResult.ResultDt.Columns.Count; x++)
+                            foreach (TableCell tableCell in gridViewRow.Cells)
                             {
-                                string cellText = Server.HtmlDecode(gvMaintenance.HeaderRow.Cells[x].Text);
-                                PdfPCell CellTwoHdr = new PdfPCell(new Phrase(cellText));
-                                CellTwoHdr.HorizontalAlignment = Element.ALIGN_CENTER;
-                                CellTwoHdr.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                CellTwoHdr.Padding = 5;
-                                CellTwoHdr.BorderWidth = 1.5f;
-                                table.AddCell(CellTwoHdr);
-                                int maxlength = 0;
-                                var firstSpaceIndex = cellText.IndexOf(" ");
-                                if (firstSpaceIndex == -1)
+                                string cellText = Server.HtmlDecode(tableCell.Text);
+                                iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 23);
+
+                                DateTime dDate;
+                                double dbvalue;
+                                int intvalue;
+
+                                if (DateTime.TryParse(cellText, out dDate))
                                 {
-                                    maxlength = cellText.Length;
+                                    PdfPCell CellTwoHdr = new PdfPCell(new Phrase(cellText));
+                                    CellTwoHdr.HorizontalAlignment = Element.ALIGN_CENTER;
+                                    CellTwoHdr.Padding = 5;
+                                    pdfPTable.AddCell(CellTwoHdr);
+                                }
+                                else if (double.TryParse(cellText, out dbvalue) || Int32.TryParse(cellText, out intvalue))
+                                {
+                                    PdfPCell CellTwoHdr = new PdfPCell(new Phrase(cellText));
+                                    CellTwoHdr.HorizontalAlignment = Element.ALIGN_CENTER;
+                                    CellTwoHdr.VerticalAlignment = Element.ALIGN_MIDDLE;
+                                    CellTwoHdr.Padding = 5;
+                                    pdfPTable.AddCell(CellTwoHdr);
                                 }
                                 else
                                 {
-                                    var firstString = cellText.Substring(0, firstSpaceIndex);
-                                    var secondString = cellText.Substring(firstSpaceIndex + 1);
-                                    if (firstString.Length > secondString.Length)
-                                    {
-                                        maxlength = firstString.Length;
-                                    }
-                                    else
-                                    {
-                                        maxlength = secondString.Length;
-                                    }
-                                }
-
-                                if (maxlength <= 18 && maxlength >= 15)
-                                {
-                                    widths[x] = 80.00F;
-                                }
-                                else if (maxlength <= 15 && maxlength >= 12)
-                                {
-                                    widths[x] = 95.00F;
-                                }
-                                else if (maxlength <= 12 && maxlength >= 9)
-                                {
-                                    widths[x] = 90.00F;
-                                }
-                                else if (maxlength <= 8)
-                                {
-                                    widths[x] = 80.00F;
-                                }
-                                else if (maxlength <= 30 && maxlength >= 19)
-                                {
-                                    widths[x] = 80.00F;
-
-                                }
-                                table.SetWidths(widths);
-                            }
-
-                            for (int i = 0; i < gvMaintenance.Rows.Count; i++)
-                            {
-                                if (gvMaintenance.Rows[i].RowType == DataControlRowType.DataRow)
-                                {
-                                    for (int j = 0; j < objResult.ResultDt.Columns.Count; j++)
-                                    {
-                                        string cellText = Server.HtmlDecode(gvMaintenance.Rows[i].Cells[j].Text);
-
-                                        DateTime dDate;
-                                        double dbvalue;
-                                        int intvalue;
-
-                                        if (DateTime.TryParse(cellText, out dDate))
-                                        {
-                                            PdfPCell CellTwoHdr = new PdfPCell(new Phrase(cellText));
-                                            CellTwoHdr.HorizontalAlignment = Element.ALIGN_CENTER;
-                                            CellTwoHdr.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                            table.AddCell(CellTwoHdr);
-                                        }
-                                        else if (double.TryParse(cellText, out dbvalue) || Int32.TryParse(cellText, out intvalue))
-                                        {
-                                            PdfPCell CellTwoHdr = new PdfPCell(new Phrase(cellText));
-                                            CellTwoHdr.HorizontalAlignment = Element.ALIGN_CENTER;
-                                            CellTwoHdr.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                            table.AddCell(CellTwoHdr);
-                                        }
-                                        else
-                                        {
-                                            PdfPCell CellTwoHdr = new PdfPCell(new Phrase(cellText));
-                                            CellTwoHdr.HorizontalAlignment = Element.ALIGN_CENTER;
-                                            CellTwoHdr.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                            table.AddCell(CellTwoHdr);
-                                        }
-                                    }
-                                    table.HeaderRows = 1;
+                                    PdfPCell CellTwoHdr = new PdfPCell(new Phrase(cellText));
+                                    CellTwoHdr.HorizontalAlignment = Element.ALIGN_CENTER;
+                                    CellTwoHdr.VerticalAlignment = Element.ALIGN_MIDDLE;
+                                    CellTwoHdr.Padding = 5;
+                                    pdfPTable.AddCell(CellTwoHdr);
                                 }
                             }
-
-                            var imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath());
-                            var imageURL1 = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath1());
-
-                            iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
-                            iTextSharp.text.Image jpg1 = iTextSharp.text.Image.GetInstance(imageURL1);
-
-
-                            jpg.Alignment = Element.ALIGN_CENTER;
-                            //jpg.SetAbsolutePosition(30, 1075);
-                            jpg.SetAbsolutePosition(80, 1560);
-
-                            jpg1.Alignment = Element.ALIGN_RIGHT;
-                            jpg1.SetAbsolutePosition(2050, 1530);
-
-                            StringReader sr = new StringReader(sb.ToString());
-
-                            Document pdfDoc = new Document(iTextSharp.text.PageSize.A1.Rotate(), -200f, -200f, 40f, 30f);
-
-                            //   Document pdfDoc = new Document(iTextSharp.text.PageSize.A1, -40f, -40f, 20f, 30f);
-                            // pdfDoc.SetPageSize(iTextSharp.text.PageSize.A3.Rotate());
-                            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-                            PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
-                            PDFBackgroundHelper pageEventHelper = new PDFBackgroundHelper();
-                            writer.PageEvent = pageEventHelper;
-                            pdfDoc.Open();
-                            htmlparser.Parse(sr);
-                            pdfDoc.Add(jpg);
-                            pdfDoc.Add(jpg1);
-                            pdfDoc.Add(table);
-
-                            PdfPTable footer = new PdfPTable(2);
-                            PdfPTable footer2 = new PdfPTable(2);
-
-                            float[] cols = new float[] { 100, 300 };
-
-                            footer.SetWidthPercentage(cols, iTextSharp.text.PageSize.A3);
-                            footer2.SetWidthPercentage(cols, iTextSharp.text.PageSize.A3);
-                            footer.WriteSelectedRows(0, -1, pdfDoc.LeftMargin + 95, 90, writer.DirectContent);
-                            footer2.WriteSelectedRows(0, -1, pdfDoc.LeftMargin + 95, 70, writer.DirectContent);
-                            //----------- /FOOTER -----------
-
-                            pdfDoc.Close();
-                            Response.ContentType = "application/pdf";
-                            Response.AddHeader("content-disposition", "attachment;" + "filename=" + filename);
-                            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-                            Response.Write(pdfDoc);
+                            pdfPTable.HeaderRows = 2;
                         }
+
+                        //var imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + "/images/Logo1.gif";
+                        var imageURL = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath());
+                        var imageURL1 = Request.Url.GetLeftPart(UriPartial.Authority) + (new CommonClass().SetLogoPath1());
+
+                        iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
+                        iTextSharp.text.Image jpg1 = iTextSharp.text.Image.GetInstance(imageURL1);
+
+
+                        jpg.Alignment = Element.ALIGN_CENTER;
+                        //jpg.SetAbsolutePosition(30, 1075);
+                        jpg.SetAbsolutePosition(80, 1560);
+
+                        jpg1.Alignment = Element.ALIGN_RIGHT;
+                        jpg1.SetAbsolutePosition(2050, 1530);
+
+                        StringReader sr = new StringReader(sb.ToString());
+
+                        Document pdfDoc = new Document(iTextSharp.text.PageSize.A1.Rotate(), -200f, -200f, 40f, 30f);
+
+                        HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+                        PDFBackgroundHelper pageEventHelper = new PDFBackgroundHelper();
+                        writer.PageEvent = pageEventHelper;
+                        pdfDoc.Open();
+                        htmlparser.Parse(sr);
+                        pdfDoc.Add(jpg);
+                        pdfDoc.Add(jpg1);
+                        pdfDoc.Add(pdfPTable);
+
+                        //----------- FOOTER -----------
+                        PdfPTable footer = new PdfPTable(2);
+                        PdfPTable footer2 = new PdfPTable(2);
+
+                        float[] cols = new float[] { 100, 300 };
+
+                        footer.SetWidthPercentage(cols, iTextSharp.text.PageSize.A3);
+                        footer2.SetWidthPercentage(cols, iTextSharp.text.PageSize.A3);
+
+                        footer.WriteSelectedRows(0, -1, pdfDoc.LeftMargin + 130, 90, writer.DirectContent);
+                        footer2.WriteSelectedRows(0, -1, pdfDoc.LeftMargin + 130, 70, writer.DirectContent);
+                        //----------- /FOOTER -----------
+
+                        pdfDoc.Close();
+                        Response.ContentType = "application/pdf";
+
+                        Response.AddHeader("content-disposition", "attachment;" + "filename=Maintenance_Rpeort_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("HH:mm:ss") + ".pdf");
+                        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                        Response.Write(pdfDoc);
+                        Response.Flush();
+                        Response.Clear();
+                        Response.End();
+
                     }
                 }
             }
             catch (Exception ex)
             {
-                //  log.Error("PDF Export Button", ex);
-                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical Problem. Contact to your Administrator.');</script>");
+                // log.Error("Error", ex);
+                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
+                    "<script>alert('Oops! There is some technical Problem. Contact to your Administrator.');</script>");
             }
-
         }
 
         protected void gvMaintenance_PreRender(object sender, EventArgs e)
