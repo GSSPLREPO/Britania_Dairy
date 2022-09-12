@@ -260,7 +260,7 @@ namespace Powder_MISProduct.ReportUI
                         pdfPTable.AddCell(headerCell3);
 
                         //PdfPCell headerCell5 = new PdfPCell(new Phrase("Total Power Consumption (KW)"));
-                        PdfPCell headerCell5 = new PdfPCell(new Phrase("Total Power Consm. (KW)"));
+                        PdfPCell headerCell5 = new PdfPCell(new Phrase("Total Power Consm. (kVAh)"));
                         headerCell5.Rowspan = 2;
                         headerCell5.Colspan = 1;
                         headerCell5.Padding = 5;
@@ -414,8 +414,8 @@ namespace Powder_MISProduct.ReportUI
                         headerCell21.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell21);
 
-                        //PdfPCell headerCell22 = new PdfPCell(new Phrase("Compressed Air (Ltr/day)"));
-                        PdfPCell headerCell22 = new PdfPCell(new Phrase("Comp. Air (Ltr/ day)"));
+                        //PdfPCell headerCell22 = new PdfPCell(new Phrase("Compressed Air (Nm3)"));
+                        PdfPCell headerCell22 = new PdfPCell(new Phrase("Comp. Air (Nm3)"));
                         headerCell22.Rowspan = 2;
                         headerCell22.Colspan = 1;
                         headerCell22.Padding = 5;
@@ -1169,7 +1169,7 @@ namespace Powder_MISProduct.ReportUI
 
                     headerTableCell = new TableHeaderCell();
                     headerTableCell.RowSpan = 2;
-                    headerTableCell.Text = "Total Power Consumption (KW)";
+                    headerTableCell.Text = "Total Power Consumption (kVAh)";
                     headerRow1.Controls.Add(headerTableCell);
 
                     headerTableCell = new TableHeaderCell();
@@ -1256,7 +1256,7 @@ namespace Powder_MISProduct.ReportUI
                     
                     headerTableCell = new TableHeaderCell();
                     headerTableCell.RowSpan = 2;
-                    headerTableCell.Text = "Compressed Air (Ltr/day)";
+                    headerTableCell.Text = "Compressed Air (Nm3)";
                     headerRow1.Controls.Add(headerTableCell);
                     
                     headerTableCell = new TableHeaderCell();
