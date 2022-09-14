@@ -256,7 +256,8 @@ namespace Powder_MISProduct.ReportUI
                         headerCell11.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell11);
 
-                        PdfPCell headerCell12 = new PdfPCell(new Phrase("FV-1 Regeneration Temp. (°C)"));
+                        //PdfPCell headerCell12 = new PdfPCell(new Phrase("FV-1 Regeneration Temp. (°C)"));
+                        PdfPCell headerCell12 = new PdfPCell(new Phrase("FV-1 Regn. Temp. (°C)"));
                         headerCell12.Rowspan = 2;
                         headerCell12.Colspan = 1;
                         headerCell12.Padding = 5;
@@ -265,7 +266,8 @@ namespace Powder_MISProduct.ReportUI
                         headerCell12.VerticalAlignment = Element.ALIGN_MIDDLE;
                         pdfPTable.AddCell(headerCell12);
                         
-                        PdfPCell headerCell13 = new PdfPCell(new Phrase("FV-2 Regeneration Temp. (°C)"));
+                        //PdfPCell headerCell13 = new PdfPCell(new Phrase("FV-2 Regeneration Temp. (°C)"));
+                        PdfPCell headerCell13 = new PdfPCell(new Phrase("FV-2 Regn. Temp. (°C)"));
                         headerCell13.Rowspan = 2;
                         headerCell13.Colspan = 1;
                         headerCell13.Padding = 5;
@@ -464,9 +466,9 @@ namespace Powder_MISProduct.ReportUI
                         pdfPTable.AddCell(headerCell35);
 
                         float[] widthsTAS = {
-                            50f, 110f, 90f, 70f, 90f, 
+                            50f, 100f, 90f, 120f, 90f, 
                             90f, 90f, 110f, 110f, 80f,
-                            90f, 90f, 80f, 120f, 120f, 
+                            90f, 90f, 80f, 90f, 90f, 
                             80f, 70f, 70f, 70f, 110f,//CAl-1
                             110f, 110f, 80f, 90f, 90f, 
                             90f, 90f, 80f, 110f, 90f,

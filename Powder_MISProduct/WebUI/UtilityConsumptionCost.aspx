@@ -147,9 +147,9 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-md-offset-10 col-md-2">
-                            <asp:Button runat="server" ID="btnSave" CssClass="btn btn-primary" Text="Save" ValidationGroup="g1" OnClick="btnSave_Click" />
-                            <asp:Button runat="server" ID="btnViewList" Text="Viewlist" CssClass="btn btn-primary" OnClick="btnViewList_Click" CausesValidation="False" />
-                            &nbsp;&nbsp;&nbsp;
+                            <asp:Button runat="server" ID="btnSave" CssClass="btn btn-primary" Text="Save" ValidationGroup="g1" OnClick="btnSave_Click" style="float:right;"/>
+                            <%--<asp:Button runat="server" ID="btnViewList" Text="Viewlist" CssClass="btn btn-primary" OnClick="btnViewList_Click" CausesValidation="False" />--%>
+                            <%--&nbsp;&nbsp;&nbsp;--%>
                         <asp:ValidationSummary runat="server" ID="vs1" ValidationGroup="g1" ShowMessageBox="True" ShowSummary="False" />
                         </div>
                     </div>

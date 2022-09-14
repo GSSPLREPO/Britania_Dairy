@@ -40,7 +40,7 @@ namespace Powder_MISProduct.BL
         #endregion
 
         #region Select  utility cost report Details
-        public ApplicationResult UtilityCostSelect(int intId)
+        public ApplicationResult UtilityCostSelect(int intId=0)
         {
             try
             {

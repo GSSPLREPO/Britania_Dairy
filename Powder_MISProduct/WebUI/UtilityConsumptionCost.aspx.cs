@@ -22,9 +22,10 @@ namespace Powder_MISProduct.WebUI
                 if (Session[ApplicationSession.Userid] != null)
                 {
                     ViewState["Mode"] = "Save";
-                    BindCosumptionCostGrid();
-                    PanelVisibilityMode(true, false);
-                    //ViewState["Id"] = 0;
+                    BindFieldsValue();
+                    PanelVisibilityMode(false, true);
+                    //BindCosumptionCostGrid();
+                    //PanelVisibilityMode(true, false);
                 }
                 else
                 {
@@ -40,41 +41,72 @@ namespace Powder_MISProduct.WebUI
         }
         #endregion
 
-        #region BindTankReport
-        public void BindCosumptionCostGrid()
+        #region Bind fields of manual entry screen on load
+        public void BindFieldsValue()
         {
             try
             {
                 UtilityConsumptionCostBL objectBL = new UtilityConsumptionCostBL();
-                var objResult = objectBL.UtilityConsumpCostBindGrid();
+                var objResult = objectBL.UtilityCostSelect();
                 if (objResult != null)
                 {
-                    gvCosumptionCost.DataSource = objResult.ResultDt;
-                    gvCosumptionCost.DataBind();
-                    PanelVisibilityMode(true, false);
+                    if (objResult.ResultDt.Rows.Count > 0)
+                    {
+                        txtSteam.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SteamCost].ToString();
+                        txtChilledWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ChilledWaterCost].ToString();
+                        txtElectricity.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ElectricityCost].ToString();
+                        txtAir.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_AirCost].ToString();
+                        txtSoftWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SoftWaterCost].ToString();
+                        txtROWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ROWaterCost].ToString();
+                        txtRawWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_RawWaterCost].ToString();
+                        //BindMaintenance();
+                        PanelVisibilityMode(false, true);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                string message = string.Format("Message: {0}\\n\\n", ex.Message);
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
             }
         }
+        #endregion
+
+        #region BindCosumptionCostGrid
+        //public void BindCosumptionCostGrid()
+        //{
+        //    try
+        //    {
+        //        UtilityConsumptionCostBL objectBL = new UtilityConsumptionCostBL();
+        //        var objResult = objectBL.UtilityConsumpCostBindGrid();
+        //        if (objResult != null)
+        //        {
+        //            gvCosumptionCost.DataSource = objResult.ResultDt;
+        //            gvCosumptionCost.DataBind();
+        //            PanelVisibilityMode(true, false);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         #endregion
 
         #region AddNew Button
         protected void btnAddNew_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ClearAll();
-                PanelVisibilityMode(false, true);
-                //divIsResignDate.Visible = false;
-            }
-            catch (Exception ex)
-            {
-                //log.Error("Error", ex);
-                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
-            }
+            //try
+            //{
+            //    ClearAll();
+            //    PanelVisibilityMode(false, true);
+            //    //divIsResignDate.Visible = false;
+            //}
+            //catch (Exception ex)
+            //{
+            //    //log.Error("Error", ex);
+            //    ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
+            //}
         }
         #endregion
 
@@ -108,8 +140,10 @@ namespace Powder_MISProduct.WebUI
                             ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
                                 "<script>alert('Record Saved Successfully!');</script>");
                             ClearAll();
-                            BindCosumptionCostGrid();
-                            PanelVisibilityMode(true, false);
+                            BindFieldsValue();
+                            PanelVisibilityMode(false, true);
+                            //BindCosumptionCostGrid();
+                            //PanelVisibilityMode(true, false);
                         }
                         else
                         {
@@ -119,31 +153,31 @@ namespace Powder_MISProduct.WebUI
 
                     }
                 }
-                else if (ViewState["Mode"].ToString() == "Edit")
-                {
-                    objBO.Id = Convert.ToInt32(ViewState["Id"].ToString());
-                    objBO.IsDeleted = '0';
-                    objBO.LastModifiedBy = Convert.ToInt32(Session[ApplicationSession.Userid]);
-                    objBO.LastModifiedDate = DateTime.UtcNow.AddHours(5.5);
-                    var objResult = objBL.UtilityCostUpdate(objBO);
+                //else if (ViewState["Mode"].ToString() == "Edit")
+                //{
+                //    objBO.Id = Convert.ToInt32(ViewState["Id"].ToString());
+                //    objBO.IsDeleted = '0';
+                //    objBO.LastModifiedBy = Convert.ToInt32(Session[ApplicationSession.Userid]);
+                //    objBO.LastModifiedDate = DateTime.UtcNow.AddHours(5.5);
+                //    var objResult = objBL.UtilityCostUpdate(objBO);
 
-                    if (objResult != null)
-                    {
-                        if (objResult.Status == ApplicationResult.CommonStatusType.Success)
-                        {
-                            ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
-                                "<script>alert('Record Updated Successfully!');</script>");
-                            ClearAll();
-                            BindCosumptionCostGrid();
-                            PanelVisibilityMode(true, false);
-                        }
-                        else
-                        {
-                            ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
-                                "<script>alert('Issue while updating this record!');</script>");
-                        }
-                    }
-                }
+                //    if (objResult != null)
+                //    {
+                //        if (objResult.Status == ApplicationResult.CommonStatusType.Success)
+                //        {
+                //            ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
+                //                "<script>alert('Record Updated Successfully!');</script>");
+                //            ClearAll();
+                //            BindCosumptionCostGrid();
+                //            PanelVisibilityMode(true, false);
+                //        }
+                //        else
+                //        {
+                //            ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp",
+                //                "<script>alert('Issue while updating this record!');</script>");
+                //        }
+                //    }
+                //}
 
             }
             catch (Exception ex)
@@ -158,70 +192,70 @@ namespace Powder_MISProduct.WebUI
         #endregion 
 
         #region ViewList
-        protected void btnViewList_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ClearAll();
-                PanelVisibilityMode(true, false);
-                BindCosumptionCostGrid();
-            }
-            catch (Exception ex)
-            {
-                //log.Error("Error", ex);
-                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical Problem. Contact to your Administrator.');</script>");
-            }
-        }
+        //protected void btnViewList_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        ClearAll();
+        //        PanelVisibilityMode(true, false);
+        //        BindCosumptionCostGrid();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //log.Error("Error", ex);
+        //        ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical Problem. Contact to your Administrator.');</script>");
+        //    }
+        //}
         #endregion
 
         #region RowCommand Event for Edit and Delete
         protected void gvCosumptionCost_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            try
-            {
-                UtilityConsumptionCostBL objBL= new UtilityConsumptionCostBL();
+            //try
+            //{
+            //    UtilityConsumptionCostBL objBL= new UtilityConsumptionCostBL();
 
-                if (e.CommandName.ToString() == "Edit1")
-                {
-                    ViewState["Mode"] = "Edit";
-                    ViewState["Id"] = e.CommandArgument.ToString();
-                    var objResult = objBL.UtilityCostSelect(Convert.ToInt32(e.CommandArgument.ToString()));
-                    if (objResult != null)
-                    {
-                        if (objResult.ResultDt.Rows.Count > 0)
-                        {
-                            txtSteam.Text =  objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SteamCost].ToString();
-                            txtChilledWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ChilledWaterCost].ToString();
-                            txtElectricity.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ElectricityCost].ToString();
-                            txtAir.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_AirCost].ToString();
-                            txtSoftWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SoftWaterCost].ToString();
-                            txtROWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ROWaterCost].ToString();
-                            txtRawWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_RawWaterCost].ToString();
-                            //BindMaintenance();
-                            PanelVisibilityMode(false, true);
-                        }
-                    }
-                }
-                //else if (e.CommandName.ToString() == "Delete1")
-                //{
-                //    var objResult = objBL.TankerLabReportDelete(Convert.ToInt32(e.CommandArgument.ToString()), Convert.ToInt32(Session[ApplicationSession.Userid]), DateTime.UtcNow.AddHours(5.5).ToString());
-                //    if (objResult.Status == ApplicationResult.CommonStatusType.Success)
-                //    {
-                //        ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Record Deleted Successfully!');</script>");
-                //        PanelVisibilityMode(true, false);
-                //        BindTankReport();
-                //    }
-                //    else
-                //    {
-                //        ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
-                //    }
-                //}
-            }
-            catch (Exception ex)
-            {
-                // log.Error("Error", ex);
-                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
-            }
+            //    if (e.CommandName.ToString() == "Edit1")
+            //    {
+            //        ViewState["Mode"] = "Edit";
+            //        ViewState["Id"] = e.CommandArgument.ToString();
+            //        var objResult = objBL.UtilityCostSelect(Convert.ToInt32(e.CommandArgument.ToString()));
+            //        if (objResult != null)
+            //        {
+            //            if (objResult.ResultDt.Rows.Count > 0)
+            //            {
+            //                txtSteam.Text =  objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SteamCost].ToString();
+            //                txtChilledWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ChilledWaterCost].ToString();
+            //                txtElectricity.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ElectricityCost].ToString();
+            //                txtAir.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_AirCost].ToString();
+            //                txtSoftWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SoftWaterCost].ToString();
+            //                txtROWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ROWaterCost].ToString();
+            //                txtRawWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_RawWaterCost].ToString();
+            //                //BindMaintenance();
+            //                PanelVisibilityMode(false, true);
+            //            }
+            //        }
+            //    }
+            //    //else if (e.CommandName.ToString() == "Delete1")
+            //    //{
+            //    //    var objResult = objBL.TankerLabReportDelete(Convert.ToInt32(e.CommandArgument.ToString()), Convert.ToInt32(Session[ApplicationSession.Userid]), DateTime.UtcNow.AddHours(5.5).ToString());
+            //    //    if (objResult.Status == ApplicationResult.CommonStatusType.Success)
+            //    //    {
+            //    //        ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Record Deleted Successfully!');</script>");
+            //    //        PanelVisibilityMode(true, false);
+            //    //        BindTankReport();
+            //    //    }
+            //    //    else
+            //    //    {
+            //    //        ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
+            //    //    }
+            //    //}
+            //}
+            //catch (Exception ex)
+            //{
+            //    // log.Error("Error", ex);
+            //    ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
+            //}
         }
         #endregion 
 

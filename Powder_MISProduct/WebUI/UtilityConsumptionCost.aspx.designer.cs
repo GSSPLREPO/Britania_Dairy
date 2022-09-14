@@ -195,15 +195,6 @@ namespace Powder_MISProduct.WebUI
         protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
-        /// btnViewList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewList;
-
-        /// <summary>
         /// vs1 control.
         /// </summary>
         /// <remarks>
