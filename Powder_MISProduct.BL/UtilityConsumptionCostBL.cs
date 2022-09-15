@@ -72,7 +72,7 @@ namespace Powder_MISProduct.BL
         {
             try
             {
-                pSqlParameter = new SqlParameter[9];
+                pSqlParameter = new SqlParameter[16];
 
                 pSqlParameter[0] = new SqlParameter("@SteamCost", SqlDbType.Float);
                 pSqlParameter[0].Direction = ParameterDirection.Input;
@@ -102,13 +102,41 @@ namespace Powder_MISProduct.BL
                 pSqlParameter[6].Direction = ParameterDirection.Input;
                 pSqlParameter[6].Value = objBO.RawWaterCost;
 
-                pSqlParameter[7] = new SqlParameter("@CreatedBy", SqlDbType.Int);
+                pSqlParameter[7] = new SqlParameter("@SCM_Steam", SqlDbType.Float);
                 pSqlParameter[7].Direction = ParameterDirection.Input;
-                pSqlParameter[7].Value = objBO.CreatedBy;
+                pSqlParameter[7].Value = objBO.SCM_Steam;
 
-                pSqlParameter[8] = new SqlParameter("@CreatedDate", SqlDbType.DateTime);
+                pSqlParameter[8] = new SqlParameter("@SCM_ElectricityCost", SqlDbType.Float);
                 pSqlParameter[8].Direction = ParameterDirection.Input;
-                pSqlParameter[8].Value = objBO.CreatedDate;
+                pSqlParameter[8].Value = objBO.SCM_ElectricityCost;
+
+                pSqlParameter[9] = new SqlParameter("@SCM_Air", SqlDbType.Float);
+                pSqlParameter[9].Direction = ParameterDirection.Input;
+                pSqlParameter[9].Value = objBO.SCM_Air;
+
+                pSqlParameter[10] = new SqlParameter("@SCM_SoftWater", SqlDbType.Float);
+                pSqlParameter[10].Direction = ParameterDirection.Input;
+                pSqlParameter[10].Value = objBO.SCM_SoftWater;
+
+                pSqlParameter[11] = new SqlParameter("@SCM_ChilledWater", SqlDbType.Float);
+                pSqlParameter[11].Direction = ParameterDirection.Input;
+                pSqlParameter[11].Value = objBO.SCM_ChilledWater;
+
+                pSqlParameter[12] = new SqlParameter("@SCM_ROWaterCost", SqlDbType.Float);
+                pSqlParameter[12].Direction = ParameterDirection.Input;
+                pSqlParameter[12].Value = objBO.SCM_ROWaterCost;
+
+                pSqlParameter[13] = new SqlParameter("@SCM_RawWaterCost", SqlDbType.Float);
+                pSqlParameter[13].Direction = ParameterDirection.Input;
+                pSqlParameter[13].Value = objBO.SCM_RawWaterCost;
+
+                pSqlParameter[14] = new SqlParameter("@CreatedBy", SqlDbType.Int);
+                pSqlParameter[14].Direction = ParameterDirection.Input;
+                pSqlParameter[14].Value = objBO.CreatedBy;
+
+                pSqlParameter[15] = new SqlParameter("@CreatedDate", SqlDbType.DateTime);
+                pSqlParameter[15].Direction = ParameterDirection.Input;
+                pSqlParameter[15].Value = objBO.CreatedDate;
 
                 sSql = "usp_tbl_UtilityCost_Insert";
                 int iResult = Database.ExecuteNonQuery(CommandType.StoredProcedure, sSql, pSqlParameter);

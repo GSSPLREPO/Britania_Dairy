@@ -143,6 +143,77 @@
                 </div>
 
                 <br />
+                <h5 style="color:darkcyan"><b><u>SCM Utility Cost Fields</u></b></h5>
+                <hr />
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">SCM Steam Cost</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtSCMSteam" CssClass="form-control" placeholder="SCM Steam cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtSCMSteam" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter SCM steam cost!" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+                        </div>
+                        <label class="col-md-2">SCM Electricity Cost:</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtSCMElectricity" CssClass="form-control" placeholder="SCM Electricity Cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtSCMElectricity" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter SCM electricity cost!" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">SCM Air Cost: </label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtSCMAir" CssClass="form-control" placeholder="SCM Air cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtSCMAir" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter SCM air cost!" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+                        </div>
+                        <label class="col-md-2">SCM Soft Water Cost: </label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtSCMSoftWater" CssClass="form-control" placeholder="SCM Soft water cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtSCMSoftWater" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter SCM soft water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+                        </div>
+
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">SCM Chilled Water Cost :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtSCMChilledWater" CssClass="form-control" placeholder="SCM Chilled water cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtSCMChilledWater" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter SCM chilled water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+                        </div>
+                        <label class="col-md-2">SCM RO Water Cost :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtSCMROWater" CssClass="form-control" placeholder="SCM RO water cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtSCMROWater" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter SCM RO water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2">SCM Raw Water Cost :</label>
+                        <div class="col-md-4">
+                            <asp:TextBox runat="server" ID="txtSCMRawWater" CssClass="form-control" placeholder="SCM Raw water cost" onkeypress="return customValidation(event);" MaxLength="8" />
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtSCMRawWater" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter SCM raw water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
 
                 <div class="panel-footer">
                     <div class="row">

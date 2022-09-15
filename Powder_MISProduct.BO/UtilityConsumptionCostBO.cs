@@ -24,6 +24,8 @@ namespace Powder_MISProduct.BO
         public const string UtilityCost_SCM_Air = "SCM_Air";
         public const string UtilityCost_SCM_SoftWater = "SCM_SoftWater";
         public const string UtilityCost_SCM_ChilledWater = "SCM_ChilledWater";
+        public const string UtilityCost_SCM_ROWaterCost = "SCM_ROWaterCost";
+        public const string UtilityCost_SCM_RawWaterCost = "SCM_RawWaterCost";
         public const string UtilityCost_PowerCost = "PowerCost";
         public const string UtilityCost_AcidCost = "AcidCost";
         public const string UtilityCost_LyeCost = "LyeCost";
@@ -46,6 +48,8 @@ namespace Powder_MISProduct.BO
         private float flt_SCM_Air = 0;
         private float flt_SCM_SoftWater = 0;
         private float flt_SCM_ChilledWater = 0;
+        private float flt_SCM_ROWaterCost = 0;
+        private float flt_SCM_RawWaterCost = 0;
         private float flt_PowerCost = 0;
         private float flt_AcidCost = 0;
         private float flt_LyeCost = 0;
@@ -127,6 +131,16 @@ namespace Powder_MISProduct.BO
         {
             get { return flt_SCM_ChilledWater; }
             set { flt_SCM_ChilledWater = value; }
+        }
+        public float SCM_ROWaterCost
+        {
+            get { return flt_SCM_ROWaterCost; }
+            set { flt_SCM_ROWaterCost = value; }
+        }
+        public float SCM_RawWaterCost
+        {
+            get { return flt_SCM_RawWaterCost; }
+            set { flt_SCM_RawWaterCost = value; }
         }
         public float PowerCost
         {

@@ -59,6 +59,16 @@ namespace Powder_MISProduct.WebUI
                         txtSoftWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SoftWaterCost].ToString();
                         txtROWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_ROWaterCost].ToString();
                         txtRawWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_RawWaterCost].ToString();
+                        //=================SCM cost fields============//
+                        txtSCMSteam.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SCM_Steam].ToString();
+                        txtSCMChilledWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SCM_ChilledWater].ToString();
+                        txtSCMElectricity.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SCM_ElectricityCost].ToString();
+                        txtSCMAir.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SCM_Air].ToString();
+                        txtSCMSoftWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SCM_SoftWater].ToString();
+                        txtSCMROWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SCM_ROWaterCost].ToString();
+                        txtSCMRawWater.Text = objResult.ResultDt.Rows[0][UtilityConsumptionCostBO.UtilityCost_SCM_RawWaterCost].ToString();
+
+
                         //BindMaintenance();
                         PanelVisibilityMode(false, true);
                     }
@@ -126,6 +136,17 @@ namespace Powder_MISProduct.WebUI
                 objBO.SoftWaterCost = (txtSoftWater.Text != null && txtSoftWater.Text != "" ? (float.Parse(txtSoftWater.Text)) : 0);
                 objBO.ROWaterCost = (txtROWater.Text != null && txtROWater.Text != "" ? (float.Parse(txtROWater.Text)) : 0);
                 objBO.RawWaterCost = (txtRawWater.Text != null && txtRawWater.Text != "" ? (float.Parse(txtRawWater.Text)) : 0);
+                //=================SCM cost fields============//
+                objBO.SCM_Steam = (txtSCMSteam.Text != null && txtSCMSteam.Text != "" ? (float.Parse(txtSCMSteam.Text)) : 0);
+                objBO.SCM_ChilledWater = (txtSCMChilledWater.Text != null && txtSCMChilledWater.Text != "" ?
+                                       (float.Parse(txtSCMChilledWater.Text)) : 0);
+                objBO.SCM_ElectricityCost = (txtSCMElectricity.Text != null && txtSCMElectricity.Text != "" ? 
+                    (float.Parse(txtSCMElectricity.Text)) : 0);
+                objBO.SCM_Air = (txtSCMAir.Text != null && txtSCMAir.Text != "" ? (float.Parse(txtSCMAir.Text)) : 0);
+                objBO.SCM_SoftWater = (txtSCMSoftWater.Text != null && txtSCMSoftWater.Text != "" ? 
+                    (float.Parse(txtSCMSoftWater.Text)) : 0);
+                objBO.SCM_ROWaterCost = (txtSCMROWater.Text != null && txtSCMROWater.Text != "" ? (float.Parse(txtSCMROWater.Text)) : 0);
+                objBO.SCM_RawWaterCost = (txtSCMRawWater.Text != null && txtSCMRawWater.Text != "" ? (float.Parse(txtSCMRawWater.Text)) : 0);
 
                 if (ViewState["Mode"].ToString() == "Save")
                 {
