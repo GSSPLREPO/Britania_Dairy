@@ -82,7 +82,7 @@
                         </div>
                         <label class="col-md-2">Quantity :</label>
                         <div class="col-md-4">
-                            <asp:TextBox runat="server" ID="txtQuantity" CssClass="form-control" placeholder="Quantity." />
+                            <asp:TextBox runat="server" ID="txtQuantity" CssClass="form-control" placeholder="Quantity" onkeypress="return customValidation(event);"/>
                         </div>
                     </div>
 
@@ -122,6 +122,15 @@
             autoclose: true,
             todayHighlight: true
         });
-
+        function customValidation(e) {
+            var unicode = e.charCode ? e.charCode : e.keyCode;
+            if (unicode == 8 || unicode == 9 || (unicode >= 48 && unicode <= 57) || unicode == 97 || unicode == 110
+                || unicode == 65 || unicode == 78 || unicode == 46) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     </script>
 </asp:Content>

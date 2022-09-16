@@ -73,13 +73,13 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-md-2">Steam Cost</label>
+                        <label class="col-md-2">Steam Cost: </label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtSteam" CssClass="form-control" placeholder="Steam cost" onkeypress="return customValidation(event);" MaxLength="8" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtSteam" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Enter steam cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
-                        <label class="col-md-2">Electricity Cost:</label>
+                        <label class="col-md-2">Electricity Cost: </label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtElectricity" CssClass="form-control" placeholder="Electricity Cost" onkeypress="return customValidation(event);" MaxLength="8" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtElectricity" ValidationGroup="g1"
@@ -114,13 +114,13 @@
 
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-md-2">Chilled Water Cost :</label>
+                        <label class="col-md-2">Chilled Water Cost: </label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtChilledWater" CssClass="form-control" placeholder="Chilled water cost" onkeypress="return customValidation(event);" MaxLength="8" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtChilledWater" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Enter chilled water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
-                        <label class="col-md-2">RO Water Cost :</label>
+                        <label class="col-md-2">RO Water Cost: </label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtROWater" CssClass="form-control" placeholder="RO water cost" onkeypress="return customValidation(event);" MaxLength="8" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtROWater" ValidationGroup="g1"
@@ -133,7 +133,7 @@
 
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-md-2">Raw Water Cost :</label>
+                        <label class="col-md-2">Raw Water Cost: </label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtRawWater" CssClass="form-control" placeholder="Raw water cost" onkeypress="return customValidation(event);" MaxLength="8" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtRawWater" ValidationGroup="g1"
@@ -147,13 +147,13 @@
                 <hr />
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-md-2">SCM Steam Cost</label>
+                        <label class="col-md-2">SCM Steam Cost: </label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtSCMSteam" CssClass="form-control" placeholder="SCM Steam cost" onkeypress="return customValidation(event);" MaxLength="8" />
                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtSCMSteam" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Enter SCM steam cost!" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
                         </div>
-                        <label class="col-md-2">SCM Electricity Cost:</label>
+                        <label class="col-md-2">SCM Electricity Cost: </label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtSCMElectricity" CssClass="form-control" placeholder="SCM Electricity Cost" onkeypress="return customValidation(event);" MaxLength="8" />
                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtSCMElectricity" ValidationGroup="g1"
@@ -185,13 +185,13 @@
 
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-md-2">SCM Chilled Water Cost :</label>
+                        <label class="col-md-2">SCM Chilled Water Cost: </label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtSCMChilledWater" CssClass="form-control" placeholder="SCM Chilled water cost" onkeypress="return customValidation(event);" MaxLength="8" />
                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtSCMChilledWater" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Enter SCM chilled water cost!" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
                         </div>
-                        <label class="col-md-2">SCM RO Water Cost :</label>
+                        <label class="col-md-2">SCM RO Water Cost: </label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtSCMROWater" CssClass="form-control" placeholder="SCM RO water cost" onkeypress="return customValidation(event);" MaxLength="8" />
                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtSCMROWater" ValidationGroup="g1"
@@ -204,7 +204,7 @@
 
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-md-2">SCM Raw Water Cost :</label>
+                        <label class="col-md-2">SCM Raw Water Cost: </label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtSCMRawWater" CssClass="form-control" placeholder="SCM Raw water cost" onkeypress="return customValidation(event);" MaxLength="8" />
                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtSCMRawWater" ValidationGroup="g1"

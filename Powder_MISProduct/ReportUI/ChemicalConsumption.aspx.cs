@@ -24,6 +24,10 @@ namespace Powder_MISProduct.ReportUI
         #region Page Load
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session[ApplicationSession.Userid] == null)
+            {
+                Response.Redirect("WebUI/Login.aspx", false);
+            }
             if (!IsPostBack)
             {
                 divExport.Visible = false;

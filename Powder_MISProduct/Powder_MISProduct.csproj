@@ -437,6 +437,7 @@
     <Content Include="WebUI\Employee.aspx" />
     <Content Include="WebUI\Inventory.aspx" />
     <Content Include="WebUI\Lab.aspx" />
+    <Content Include="WebUI\Logout.aspx" />
     <Content Include="WebUI\Maintenance.aspx" />
     <Content Include="WebUI\Role.aspx" />
     <Content Include="WebUI\RoleRights.aspx" />
@@ -867,6 +868,12 @@
     </Compile>
     <Compile Include="WebUI\Lab.aspx.designer.cs">
       <DependentUpon>Lab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUI\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUI\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebUI\Maintenance.aspx.cs">
       <DependentUpon>Maintenance.aspx</DependentUpon>

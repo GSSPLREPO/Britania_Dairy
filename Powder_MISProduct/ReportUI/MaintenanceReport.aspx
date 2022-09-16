@@ -85,7 +85,7 @@
                     <div class="col-md-12" style="overflow: scroll">
                          <asp:GridView runat="server" ID="gvMaintenance"
                         AutoGenerateColumns="False" GridLines="Both" HeaderStyle-Wrap="false"
-                        HeaderStyle-Font-Size="Medium" CssClass="table table-striped" OnPreRender="gvMaintenance_PreRender">
+                       CssClass="table table-striped" OnPreRender="gvMaintenance_PreRender">
 <%--                        <RowStyle HorizontalAlign="Center"  Width="100%"/>--%>
                                   <Columns>
                             <asp:BoundField DataField="SrNo" HeaderText="Sr No." ItemStyle-Wrap="false" />

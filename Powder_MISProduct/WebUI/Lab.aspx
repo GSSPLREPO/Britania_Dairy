@@ -91,7 +91,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <label class="col-md-2">Date&TimeIn :</label>
+                        <label class="col-md-2">Date: </label>
                         <div class="col-md-4">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
@@ -284,7 +284,7 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtEcoli" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Enter txtEcoli" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
-                        <label class="col-md-2">"Salmonella & Shigella/25g :</label>
+                        <label class="col-md-2">Salmonella & Shigella/25g :</label>
                         <div class="col-md-4">
                             <%--                            <div class="input-group">--%>
                             <%--                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>--%>
@@ -299,7 +299,7 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtSaureus" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Enter txtSaureus" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
-                        <label class="col-md-2">"Anaerobic sporecount/g" :</label>
+                        <label class="col-md-2">Anaerobic sporecount/g :</label>
                         <div class="col-md-4">
                             <%--                            <div class="input-group">--%>
                             <%--                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>--%>
@@ -308,13 +308,13 @@
                     </div>
 
                     <div class="row">
-                        <label class="col-md-2">"Listeriamonocytogens/g":</label>
+                        <label class="col-md-2">Listeriamonocytogens/g:</label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtListeriamonocytogens" CssClass="form-control" placeholder="Listeriamonocytogens" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtListeriamonocytogens" ValidationGroup="g1"
                                 SetFocusOnError="True" ErrorMessage="Enter txtListeriamonocytogens" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
-                        <label class="col-md-2">"UserName" :</label>
+                        <label class="col-md-2">UserName :</label>
                         <div class="col-md-4">
                             <%--                            <div class="input-group">--%>
                             <%--                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>--%>
@@ -326,11 +326,11 @@
                         <label class="col-md-2">Remarks :</label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtRemarks" CssClass="form-control" placeholder="Remarks" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtRemarks" ValidationGroup="g1"
-                                SetFocusOnError="True" ErrorMessage="Enter Remarks" ForeColor="Red">*</asp:RequiredFieldValidator>
+                           <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtRemarks" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter Remarks" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
                         </div>
                     </div>
-
+                    <br />
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-4">
