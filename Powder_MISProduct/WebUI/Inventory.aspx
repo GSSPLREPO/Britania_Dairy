@@ -83,6 +83,8 @@
                         <label class="col-md-2">Quantity :</label>
                         <div class="col-md-4">
                             <asp:TextBox runat="server" ID="txtQuantity" CssClass="form-control" placeholder="Quantity" onkeypress="return customValidation(event);"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtQuantity" ValidationGroup="g1"
+                                SetFocusOnError="True" ErrorMessage="Enter Quantity!" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
                     </div>
 
