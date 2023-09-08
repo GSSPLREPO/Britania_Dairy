@@ -54,7 +54,7 @@ namespace Powder_MISProduct.BO
 
 
         private int intId = 0;
-        private DateTime strDate;
+        private string strDate = string.Empty;
         private string strTypeofPowder = string.Empty;
         private string strTime = string.Empty;
         private string strSampleId = string.Empty;
@@ -101,7 +101,7 @@ namespace Powder_MISProduct.BO
             get { return intId; }
             set { intId = value; }
         }
-        public DateTime Date
+        public string Date
         {
             get { return strDate; }
             set { strDate = value; }

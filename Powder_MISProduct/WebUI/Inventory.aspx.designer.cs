@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Powder_MISProduct.WebUI
-{
-
-
-    public partial class Inventory
-    {
-
+namespace Powder_MISProduct.WebUI {
+    
+    
+    public partial class Inventory {
+        
         /// <summary>
         /// divGrid control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGrid;
-
+        
         /// <summary>
         /// lblHeading control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHeading;
-
+        
         /// <summary>
         /// btnAddNew control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddNew;
-
+        
         /// <summary>
         /// gvInventory control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvInventory;
-
+        
         /// <summary>
         /// divPanel control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPanel;
-
+        
         /// <summary>
         /// txtDate control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDate;
-
+        
         /// <summary>
         /// txtitemdescription control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtitemdescription;
-
+        
         /// <summary>
         /// RequiredFieldValidator1 control.
         /// </summary>
@@ -85,7 +83,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-
+        
         /// <summary>
         /// txtPartNo control.
         /// </summary>
@@ -94,7 +92,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPartNo;
-
+        
         /// <summary>
         /// RequiredFieldValidator3 control.
         /// </summary>
@@ -103,7 +101,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-
+        
         /// <summary>
         /// txtQuantity control.
         /// </summary>
@@ -112,16 +110,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQuantity;
-
-        /// <summary>
-        /// RequiredFieldValidator4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-
+        
         /// <summary>
         /// txtMaketype control.
         /// </summary>
@@ -130,7 +119,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMaketype;
-
+        
         /// <summary>
         /// RequiredFieldValidator2 control.
         /// </summary>
@@ -139,7 +128,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-
+        
         /// <summary>
         /// txtRemarks control.
         /// </summary>
@@ -148,7 +137,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRemarks;
-
+        
         /// <summary>
         /// btnSave control.
         /// </summary>
@@ -157,7 +146,7 @@ namespace Powder_MISProduct.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
-
+        
         /// <summary>
         /// btnViewList control.
         /// </summary>

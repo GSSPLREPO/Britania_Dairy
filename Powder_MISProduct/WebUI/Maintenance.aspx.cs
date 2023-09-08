@@ -5,7 +5,6 @@ using Powder_MISProduct.BL;
 using Powder_MISProduct.BO;
 using Powder_MISProduct.Common;
 using log4net;
-using System.Globalization;
 
 namespace Powder_MISProduct.WebUI
 {
@@ -144,7 +143,7 @@ namespace Powder_MISProduct.WebUI
                     MaintenanceBO objMaintenanceBO = new MaintenanceBO();
                     MaintenanceBL objMaintenanceBL = new MaintenanceBL();
 
-                    objMaintenanceBO.Date = DateTime.ParseExact(txtDate.Text.Trim() + " " + txtStartTime.Text.Trim(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                    objMaintenanceBO.Date = txtDate.Text.Trim();
                     objMaintenanceBO.StartTime = txtStartTime.Text.Trim();
                     objMaintenanceBO.EndTime = txtEndtime.Text.Trim();
                     objMaintenanceBO.Area = txtArea.Text.Trim();
@@ -246,7 +245,6 @@ namespace Powder_MISProduct.WebUI
             {
                 ClearAll();
                 PanelVisibilityMode(2);
-                txtDate.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
                 //divIsResignDate.Visible = false;
             }
             catch (Exception ex)
