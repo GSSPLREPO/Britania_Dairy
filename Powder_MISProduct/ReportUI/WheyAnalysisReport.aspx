@@ -5,7 +5,7 @@
        <div id="breadcrumb">
         <ul class="breadcrumb">
             <li><i class="fa fa-home"></i><a href="../WebUI/DashBoard.aspx">Home</a></li>
-            <li class="active">Whey Analysis Report</li>
+            <li class="active">WheyAnalysis Report</li>
         </ul>
     </div>
     <div class="col-md-12">
@@ -13,7 +13,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-10" style="font-size: 24px;">
-                        Whey Analysis Report
+                        WheyAnalysis Report
                     </div>
                     <div class="col-md-2 right" id="divExport" runat="server">
                         <asp:LinkButton ID="imgPDFButton" runat="server" OnClick="imgPDFButton_Click" CssClass="btn btn-danger quick-btn"><i class="fa fa-file-pdf-o"></i></asp:LinkButton>
@@ -83,17 +83,10 @@
                 <br />
                 <div class="row">
                     <div class="col-md-12" style="overflow: scroll">
-                         <asp:GridView ID="gvWheyAnalysis" runat="server" GridLines="Both" 
-                        AutoGenerateColumns="true" HeaderStyle-Wrap="false"
-                        Width="100%" ShowHeader="false"
-                        OnRowCreated="gvWheyAnalysis_RowCreated" OnPreRender="gvWheyAnalysis_PreRender"
-                        HeaderStyle-Font-Size="Medium" CssClass="table table-striped" 
-                        HeaderStyle-HorizontalAlign="Center" >
-                        <RowStyle HorizontalAlign="Center"  Width="100%"/>
-                         </asp:GridView>
-                         <%--<asp:GridView runat="server" ID="gvWheyAnalysis"
+                         <asp:GridView runat="server" ID="gvWheyAnalysis"
                         AutoGenerateColumns="False" GridLines="Both" HeaderStyle-Wrap="false"
                         HeaderStyle-Font-Size="Medium" CssClass="gvTheGrid striped" OnPreRender="gvWheyAnalysis_PreRender">
+<%--                        <RowStyle HorizontalAlign="Center"  Width="100%"/>--%>
                                   <Columns>
                             <asp:BoundField DataField="SrNo" HeaderText="Sr No." ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Date" HeaderText="Date" ItemStyle-Wrap="false" />
@@ -123,7 +116,7 @@
                              <asp:BoundField DataField="Status" HeaderText="Status" ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Remarks" HeaderText="Remark" ItemStyle-Wrap="false" />
                         </Columns>
-                         </asp:GridView>--%>
+                         </asp:GridView>
 
                     </div>
                 </div>

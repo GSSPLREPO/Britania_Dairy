@@ -229,6 +229,5 @@ namespace Powder_MISProduct.Master
                 Response.Redirect("../Login.aspx", false);
             }
         }
-
     }
 }

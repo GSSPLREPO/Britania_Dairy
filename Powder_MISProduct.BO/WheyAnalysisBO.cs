@@ -14,8 +14,6 @@ namespace Powder_MISProduct.BO
         public const string WheyAnalysis_ID = "Id";
         public const string WheyAnalysis_DateTime = "DateTime";
         public const string WheyAnalysis_Time = "Time";
-        public const string WheyAnalysis_SampleDateTime = "SampleDateTime";
-        public const string WheyAnalysis_SampleTime = "SampleTime";
         public const string WheyAnalysis_SampleName = "SampleName";
         public const string WheyAnalysis_SampleNo = "SampleNo";
         public const string WheyAnalysis_ProductName = "ProductName";
@@ -51,8 +49,6 @@ namespace Powder_MISProduct.BO
         private int intId = 0;
         private string strDate = string.Empty;
         private string strTime = string.Empty;
-        private string strSampleDate = string.Empty;
-        private string strSampleTime = string.Empty;
         private string strSampleName = string.Empty;
         private string strSampleNo = string.Empty;
         private string strProductName = string.Empty;
@@ -101,18 +97,6 @@ namespace Powder_MISProduct.BO
         {
             get { return strTime; }
             set { strTime = value; }
-        }
-        
-        public string SampleDate
-        {
-            get { return strSampleDate; }
-            set { strSampleDate = value; }
-        }
-
-        public string SampleTime
-        {
-            get { return strSampleTime; }
-            set { strSampleTime = value; }
         }
 
         public string SampleName

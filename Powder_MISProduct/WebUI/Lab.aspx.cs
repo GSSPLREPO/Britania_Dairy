@@ -5,7 +5,6 @@ using Powder_MISProduct.BL;
 using Powder_MISProduct.BO;
 using Powder_MISProduct.Common;
 using log4net;
-using System.Globalization;
 
 namespace Powder_MISProduct.WebUI
 {
@@ -94,8 +93,7 @@ namespace Powder_MISProduct.WebUI
                     LabBO objLabBO = new LabBO();
                     LabBL objLabBL = new LabBL();
 
-                    objLabBO.Date= DateTime.ParseExact(txtDate.Text.Trim() + " " + txttime.Text.Trim(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-                    //objLabBO.Date = txtDate.Text.Trim();
+                    objLabBO.Date = txtDate.Text.Trim();
                     objLabBO.TypeofPowder = txtPowder.Text.Trim();
                     objLabBO.Time = txttime.Text.Trim();
                     objLabBO.SampleId = txtsampleId.Text.Trim();
@@ -218,7 +216,6 @@ namespace Powder_MISProduct.WebUI
                     {
                         if (objResult.ResultDt.Rows.Count > 0)
                         {
-                            
                             txtDate.Text = objResult.ResultDt.Rows[0][LabBO.Lab_Date].ToString();
                             txtPowder.Text = objResult.ResultDt.Rows[0][LabBO.Lab_TypeofPowder].ToString();
                             txttime.Text = objResult.ResultDt.Rows[0][LabBO.Lab_Time].ToString();
@@ -287,7 +284,6 @@ namespace Powder_MISProduct.WebUI
             {
                 ClearAll();
                 PanelVisibilityMode(2);
-                txtDate.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
                 //divIsResignDate.Visible = false;
             }
             catch (Exception ex)

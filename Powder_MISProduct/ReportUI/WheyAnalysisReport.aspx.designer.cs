@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Powder_MISProduct.ReportUI
-{
-
-
-    public partial class WheyAnalysisReport
-    {
-
+namespace Powder_MISProduct.ReportUI {
+    
+    
+    public partial class WheyAnalysisReport {
+        
         /// <summary>
         /// divExport control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Powder_MISProduct.ReportUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExport;
-
+        
         /// <summary>
         /// imgPDFButton control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Powder_MISProduct.ReportUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton imgPDFButton;
-
+        
         /// <summary>
         /// imgExcelButton control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace Powder_MISProduct.ReportUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton imgExcelButton;
-
+        
         /// <summary>
         /// txtFromDate control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Powder_MISProduct.ReportUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFromDate;
-
+        
         /// <summary>
         /// txtFromTime control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace Powder_MISProduct.ReportUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFromTime;
-
+        
         /// <summary>
         /// txtToDate control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace Powder_MISProduct.ReportUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtToDate;
-
+        
         /// <summary>
         /// txtToTime control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace Powder_MISProduct.ReportUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtToTime;
-
+        
         /// <summary>
         /// btnGo control.
         /// </summary>
@@ -85,7 +83,7 @@ namespace Powder_MISProduct.ReportUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGo;
-
+        
         /// <summary>
         /// gvWheyAnalysis control.
         /// </summary>
@@ -94,7 +92,7 @@ namespace Powder_MISProduct.ReportUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvWheyAnalysis;
-
+        
         /// <summary>
         /// divNo control.
         /// </summary>
